@@ -4,7 +4,7 @@
 <div class="frame">
 	<div class="frame__row">
 		<div class="hero">
-			@include('partials.header', ['light' => false]))
+			@include('partials.header', ['light' => false])
 			
 			<div class="hero__container">
 				<div class="hero__content">

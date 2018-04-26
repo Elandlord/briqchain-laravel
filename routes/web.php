@@ -13,3 +13,8 @@
 
 Route::get('/', 'PageController@home');
 Route::get('/fondsen', 'PageController@fondsen');
+Route::get('/zo-werkt-het', 'PageController@zoWerktHet');
+Route::get('/about', 'PageController@about');
+Route::get('/aanmelden', 'PageController@aanmelden');
+
+Route::post('/aanmelden/mail', 'MailController@aanmelden');

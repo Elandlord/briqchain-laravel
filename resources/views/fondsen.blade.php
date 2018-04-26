@@ -3,7 +3,7 @@
 @section('content')
 <div class="frame">
 	<div class="frame__row">
-		@include('partials.header', ['light' => true]))
+		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
 		<div class="fondsen">

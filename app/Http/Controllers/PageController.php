@@ -37,4 +37,48 @@ class PageController extends Controller
 
         return view('fondsen', compact('fondsen', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
     }
+
+    public function zoWerktHet()
+    {
+        $api = Api::get(env('PRISMIC_URL'));
+
+        $zoWerktHet = $api->getSingle('zo_werkt_het');
+        $siteWide = $api->getSingle('site_breed');
+        
+        $page_title = $zoWerktHet->getText('fondsen.main_titel');
+        $meta_description = $zoWerktHet->getText('fondsen.main_omschrijving');
+        
+        $lightBlue = true;
+
+        return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
+    }
+
+    public function about()
+    {
+        $api = Api::get(env('PRISMIC_URL'));
+
+        $about = $api->getSingle('about');
+        $siteWide = $api->getSingle('site_breed');
+        
+        $page_title = $about->getText('fondsen.main_titel');
+        $meta_description = $about->getText('fondsen.main_omschrijving');
+        
+        $lightBlue = true;
+
+        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
+    }
+
+    public function aanmelden()
+    {
+        $api = Api::get(env('PRISMIC_URL'));
+
+        $siteWide = $api->getSingle('site_breed');
+        
+        $page_title = 'Aanmelden • Briqchain';
+        $meta_description = '';
+        
+        $lightBlue = true;
+
+        return view('aanmelden', compact('siteWide', 'page_title', 'meta_description', 'lightBlue'));
+    }
 }

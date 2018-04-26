@@ -1,9 +1,12 @@
+@extends('layouts.base')
+
+@section('content')
 <div class="frame">
 	<div class="frame__row">
-		<?php echo $this->partial('views/partials/header.php', ['light' => true]); ?>
+		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
-		<h1 class="title"><?php echo $this->content->getText('zo_werkt_het.main_koptekst'); ?></h1>
+		<h1 class="title"><?php echo $zoWerktHet->getText('zo_werkt_het.main_koptekst'); ?></h1>
 		<div class="sub-intro">
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
@@ -11,8 +14,8 @@
 						<iframe class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 					<div class="split-content__right split-content--half">
-						<h2 class="split-content__title split-content__title--blue"><?php echo $this->content->getStructuredText('zo_werkt_het.intro_titel')->asHtml(); ?></h2>
-						<?php echo $this->content->getStructuredText('zo_werkt_het.intro_content')->asHtml(); ?>
+						<h2 class="split-content__title split-content__title--blue"><?php echo $zoWerktHet->getStructuredText('zo_werkt_het.intro_titel')->asHtml(); ?></h2>
+						<?php echo $zoWerktHet->getStructuredText('zo_werkt_het.intro_content')->asHtml(); ?>
 					</div>
 				</div>
 			</div>
@@ -24,10 +27,10 @@
 			</div>
 			<div class="faq__content">
 				<div class="wrapper wrapper--small">
-					<h2 class="faq__title"><?php echo $this->content->getStructuredText('zo_werkt_het.faq_titel')->asHtml(); ?></h2>
+					<h2 class="faq__title"><?php echo $zoWerktHet->getStructuredText('zo_werkt_het.faq_titel')->asHtml(); ?></h2>
 					
 					<?php 
-					$questions = $this->content->getGroup('zo_werkt_het.faq_vragen')->getArray();
+					$questions = $zoWerktHet->getGroup('zo_werkt_het.faq_vragen')->getArray();
 					
 					$index = 0;
 					foreach($questions as $question):
@@ -48,10 +51,11 @@
 		</div>
 		
 		<div class="calculator calculator--overflow" id="calculator">
-			<?php echo $this->partial('views/partials/calculator.php'); ?>
+			@include('partials/calculator')
 		</div>
 	</div>
 	<div class="frame__row">
-		<?php echo $this->partial('views/partials/footer.php'); ?>
+		@include('partials/footer')
 	</div>
 </div>
+@stop

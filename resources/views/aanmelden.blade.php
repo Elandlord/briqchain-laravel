@@ -1,6 +1,9 @@
+@extends('layouts.base')
+
+@section('content')
 <div class="frame">
 	<div class="frame__row">
-		<?php echo $this->partial('views/partials/header.php', ['light' => true]); ?>
+		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
 		<div class="last-action">
@@ -15,17 +18,18 @@
 							<span class="last-action__badge-content">Q2 2018</span>
 						</div>
 						<span class="last-action__label">Voorinschrijving</span>
-						<h2 class="last-action__title"><?php echo $this->siteWide->getText('site_breed.aanmelden_titel'); ?></h2>
-						<?php echo $this->siteWide->getStructuredText('site_breed.aanmelden_content')->asHtml(); ?>
-						<form method="post" action="<?php echo $this->url; ?>/aanmelden">
+						<h2 class="last-action__title"><?php echo $siteWide->getText('site_breed.aanmelden_titel'); ?></h2>
+						<?php echo $siteWide->getStructuredText('site_breed.aanmelden_content')->asHtml(); ?>
+						<form method="post" action="aanmelden/mail">
+							@csrf
 							<div class="last-action__form">
 								<div class="last-action__form-group">
-									<label class="last-action__form-label" for="naam">Naam</label>
-									<input class="last-action__form-input" type="text" id="naam" name="naam" required="required">
+									<label class="last-action__form-label" for="name">Naam</label>
+									<input class="last-action__form-input" type="text" id="name" name="name" required="required">
 								</div>
 								<div class="last-action__form-group">
-									<label class="last-action__form-label" for="emailadres">E-mailadres</label>
-									<input class="last-action__form-input" type="email" id="emailadres" name="emailadres" required="required">
+									<label class="last-action__form-label" for="email_address">E-mailadres</label>
+									<input class="last-action__form-input" type="email" id="email_address" name="email_address" required="required">
 								</div>
 								<div class="last-action__form-group">
 									<button class="last-action__form-button button button--green" type="submit">Bevestig</button>
@@ -38,6 +42,7 @@
 		</div>
 	</div>
 	<div class="frame__row">
-		<?php echo $this->partial('views/partials/footer.php'); ?>
+		@include('partials/footer')
 	</div>
 </div>
+@stop

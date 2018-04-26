@@ -46,7 +46,7 @@
 
 	</style>
 </head>
-<body<?php if($lightBlue === true): ?> class="body--light-blue"<?php endif; ?>>
+<body<?php if($lightBlue == true): ?> class="body--light-blue"<?php endif; ?>>
 
 	@yield('content')
 	
