@@ -18,7 +18,7 @@ class PageController extends Controller
         $page_title = $home->getText('home.main_titel');
         $meta_description = $home->getText('home.main_omschrijving');
 
-        $lightBlue = true;
+        $lightBlue = false;
 
         return view('home', compact('home', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
     }
@@ -48,7 +48,7 @@ class PageController extends Controller
         $page_title = $zoWerktHet->getText('fondsen.main_titel');
         $meta_description = $zoWerktHet->getText('fondsen.main_omschrijving');
         
-        $lightBlue = true;
+        $lightBlue = false;
 
         return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
     }
@@ -63,7 +63,7 @@ class PageController extends Controller
         $page_title = $about->getText('fondsen.main_titel');
         $meta_description = $about->getText('fondsen.main_omschrijving');
         
-        $lightBlue = true;
+        $lightBlue = false;
 
         return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
     }
@@ -77,7 +77,7 @@ class PageController extends Controller
         $page_title = 'Aanmelden • Briqchain';
         $meta_description = '';
         
-        $lightBlue = true;
+        $lightBlue = false;
 
         return view('aanmelden', compact('siteWide', 'page_title', 'meta_description', 'lightBlue'));
     }

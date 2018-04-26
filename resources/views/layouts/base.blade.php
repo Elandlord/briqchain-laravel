@@ -18,33 +18,6 @@
 	<meta name="MobileOptimized" content="width">
 	<meta name="format-detection" content="telephone=no">
 	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png"> 
-	<style>
-		#horizontalmenu li ul {
-			display: none;
-			position: absolute;
-			background: white;
-			border-radius: 8px;
-			box-shadow: 5px 8px 35px 2.8px rgba(43, 106, 130, 0.16);
-			padding-left: 10px;
-		}
-		
-		#horizontalmenu li ul li a {
-			color: #36349F !important;
-		}
-
-		#horizontalmenu li ul li {
-			display: block;
-			
-		}
-
-		@media screen and (max-width: 1001px) { 
-			#horizontalmenu li ul {
-				padding: 40px;
-			}	
-		}
-
-
-	</style>
 </head>
 <body<?php if($lightBlue == true): ?> class="body--light-blue"<?php endif; ?>>
 
@@ -76,6 +49,8 @@
 	s0.parentNode.insertBefore(s1,s0);
 	})();
 	</script>
+
+	<script type="text/javascript" src="js/calculator.js"></script>
 
 	<script
 	src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

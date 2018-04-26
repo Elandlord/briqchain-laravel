@@ -1,0 +1,23 @@
+#horizontalmenu li ul {
+    display: none;
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 5px 8px 35px 2.8px rgba(43, 106, 130, 0.16);
+    padding-left: 10px;
+}
+
+#horizontalmenu li ul li a {
+    color: #36349F !important;
+}
+
+#horizontalmenu li ul li {
+    display: block;
+    
+}
+
+@media screen and (max-width: 1001px) { 
+    #horizontalmenu li ul {
+        padding: 40px;
+    }	
+}
