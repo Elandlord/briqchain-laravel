@@ -3,7 +3,7 @@
 		<div class="footer__content-item footer__content-item--left">
 			<div class="address">
 				<div class="address__row">
-					<a class="address__link" href="mailto:<?php echo $siteWide->getText('site_breed.emailadres'); ?>"><span class="address__icon"><img class="address__img" src="{{ env('APP_URL') }}/static/img/email.svg" width="15" height="11" alt="E-mailadres"></span> <?php echo $siteWide->getText('site_breed.emailadres'); ?></a>
+					<a class="address__link" href="mailto:{{ $siteWide->getText('site_breed.emailadres') }}"><span class="address__icon"><img class="address__img" src="{{ env('APP_URL') }}/static/img/email.svg" width="15" height="11" alt="E-mailadres"></span> {{ $siteWide->getText('site_breed.emailadres') }}</a>
 				</div>
 			</div>
 		</div>
@@ -11,23 +11,23 @@
 		<div class="footer__content-item footer__content-item--center">
 			<ul class="social">
 				<li class="social__item">
-					<a class="social__link" href="<?php echo $siteWide->getText('site_breed.facebook_link'); ?>" target="_blank">
+					<a class="social__link" href="{{ $siteWide->getText('site_breed.facebook_link') }}" target="_blank">
 						<img class="social__img" src="{{ env('APP_URL') }}/static/img/social/facebook.svg" width="23" height="23" alt="Facebook">
 					</a>
 				</li>
 				<li class="social__item">
-					<a class="social__link" href="<?php echo $siteWide->getText('site_breed.twitter_link'); ?>" target="_blank">
+					<a class="social__link" href="{{ $siteWide->getText('site_breed.twitter_link') }}" target="_blank">
 						<img class="social__img" src="{{ env('APP_URL') }}/static/img/social/twitter.svg" width="27" height="22" alt="Twitter">
 					</a>
 				</li>
 				
 				<li class="social__item">
-					<a class="social__link" href="<?php echo $siteWide->getText('site_breed.linkedin_link'); ?>" target="_blank">
+					<a class="social__link" href="{{ $siteWide->getText('site_breed.linkedin_link') }}" target="_blank">
 						<img class="social__img" src="{{ env('APP_URL') }}/static/img/social/linkedin.svg" width="23" height="23" alt="Linkedin">
 					</a>
 				</li>
 				<li class="social__item">
-					<a class="social__link" href="<?php echo $siteWide->getText('site_breed.vimeo_link'); ?>" target="_blank">
+					<a class="social__link" href="{{ $siteWide->getText('site_breed.vimeo_link') }}" target="_blank">
 						<img class="social__img" src="{{ env('APP_URL') }}/static/img/social/vimeo.svg" width="23" height="23" alt="Vimeo">
 					</a>
 				</li>

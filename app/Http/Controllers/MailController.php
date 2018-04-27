@@ -17,12 +17,13 @@ class MailController extends Controller
         Mail::to(env('MAIL_USERNAME'))->send(new Contact($request->all()));
         $api = Api::get(env('PRISMIC_URL'));
 
+        $aangemeld = $api->getSingle('aangemeld');
         $siteWide = $api->getSingle('site_breed');
 
-        $page_title = "Aangemeld • Briqchain";
-        $meta_description = "";
+        $page_title = $aangemeld->getText('aangemeld.page_title');
+        $meta_description = $aangemeld->getText('aangemeld.page_description');
 
         $lightBlue = true;
-        return view('aangemeld', compact('siteWide', 'page_title', 'meta_description', 'lightBlue'));
+        return view('aangemeld', compact('aangemeld', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
     }
 }

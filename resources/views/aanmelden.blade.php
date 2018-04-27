@@ -14,25 +14,25 @@
 				<div class="wrapper wrapper--small">
 					<div class="last-action__block">
 						<div class="last-action__badge">
-							<span class="last-action__badge-title">Aanvang</span>
-							<span class="last-action__badge-content">Q2 2018</span>
+							<span class="last-action__badge-title">{{ $aanmelden->getText('aanmelden.kwartaal_aanvang') }}</span>
+							<span class="last-action__badge-content">{{ $aanmelden->getText('aanmelden.kwartaal') }}</span>
 						</div>
-						<span class="last-action__label">Voorinschrijving</span>
-						<h2 class="last-action__title"><?php echo $siteWide->getText('site_breed.aanmelden_titel'); ?></h2>
-						<?php echo $siteWide->getStructuredText('site_breed.aanmelden_content')->asHtml(); ?>
+						<span class="last-action__label">{{ $aanmelden->getText('aanmelden.voorinschrijving') }}</span>
+						<h2 class="last-action__title">{{ $siteWide->getText('site_breed.aanmelden_titel') }}</h2>
+						{!! $siteWide->getStructuredText('site_breed.aanmelden_content')->asHtml() !!}
 						<form method="post" action="aanmelden/mail">
 							@csrf
 							<div class="last-action__form">
 								<div class="last-action__form-group">
-									<label class="last-action__form-label" for="name">Naam</label>
+									<label class="last-action__form-label" for="name">{{ $aanmelden->getText('aanmelden.naam') }}</label>
 									<input class="last-action__form-input" type="text" id="name" name="name" required="required">
 								</div>
 								<div class="last-action__form-group">
-									<label class="last-action__form-label" for="email_address">E-mailadres</label>
+									<label class="last-action__form-label" for="email_address">{{ $aanmelden->getText('aanmelden.emailadres') }}</label>
 									<input class="last-action__form-input" type="email" id="email_address" name="email_address" required="required">
 								</div>
 								<div class="last-action__form-group">
-									<button class="last-action__form-button button button--green" type="submit">Bevestig</button>
+									<button class="last-action__form-button button button--green" type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
 								</div>
 							</div>
 						</form>

@@ -14,25 +14,25 @@
 							<div class="fonds__item">
 								<div class="fonds__id">
 									<div class="fonds__icon">
-										<img class="fonds__img" src="/images/fonds.svg" width="89" height="69" alt="<?php echo $fondsen->getText('fondsen.fonds_titel'); ?>">
+										<img class="fonds__img" src="/images/fonds.svg" width="89" height="69" alt="{{ $fondsen->getText('fondsen.fonds_titel') }}">
 									</div>
 									<div class="fonds__title">
 										<div class="fonds__name">
-											<?php echo $fondsen->getStructuredText('fondsen.fonds_titel')->asHtml(); ?>
+											{!! $fondsen->getStructuredText('fondsen.fonds_titel')->asHtml() !!}
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="fonds__item">
 								<div class="fonds__datum">
-									<div class="fonds__datum-label">Fonds opening</div>
-									<div class="fonds__datum-value"><?php echo $fondsen->getText('fondsen.fonds_opening'); ?></div>
+								<div class="fonds__datum-label">{{ $fondsen->getText('fondsen.fonds_opening_label') }}</div>
+									<div class="fonds__datum-value">{{ $fondsen->getText('fondsen.fonds_opening') }}</div>
 								</div>
 							</div>
 							<div class="fonds__item">
 								<div class="fonds__datum">
-									<div class="fonds__datum-label">Fonds sluiting</div>
-									<div class="fonds__datum-value"><?php echo $fondsen->getText('fondsen.fonds_sluiting'); ?></div>
+									<div class="fonds__datum-label">{{ $fondsen->getText('fondsen.fonds_sluiting_label') }}</div>
+									<div class="fonds__datum-value">{{ $fondsen->getText('fondsen.fonds_sluiting') }}</div>
 								</div>
 							</div>
 							<div class="fonds__item">
@@ -50,17 +50,12 @@
 									<div class="fonds__details">
 										<h2 class="fonds__details-title"><strong>Fonds</strong> details</h2>
 										<table class="fonds__details-table" border="0" cellspacing="0" cellpadding="0">
-											<?php 
-											$details = $fondsen->getGroup('fondsen.fonds_details')->getArray();
-											
-											$index = 0;
-											foreach($details as $detail):
-												$index++;
-											?><tr>
-												<th><?php echo $detail->getText('titel'); ?></th>
-												<td><?php echo $detail->getText('omschrijving'); ?></td>
-											</tr>
-											<?php endforeach; ?>
+											@foreach($details as $detail)
+												<tr>
+													<th>{{ $detail->getText('titel') }}</th>
+													<td>{{ $detail->getText('omschrijving') }}</td>
+												</tr>
+											@endforeach
 										</table>
 									</div>
 								</div>
@@ -68,27 +63,27 @@
 									<div class="fonds__points">
 										<div class="fonds__point fonds__point--first">
 											<div class="fonds__point-label">Uitgever</div>
-											<div class="fonds__point-value fonds__point-value--smaller"><?php echo $fondsen->getText('fondsen.fonds_uitgever'); ?></div>
+											<div class="fonds__point-value fonds__point-value--smaller">{{ $fondsen->getText('fondsen.fonds_uitgever') }}</div>
 										</div>
 										<div class="fonds__point">
 											<div class="fonds__point-label">Totale Briq supply</div>
 											<div class="fonds__point-value">
 												<img class="fonds__point-img" src="/images/input-logo.svg" width="19" height="20" alt="Briqs">
-												<?php echo $fondsen->getText('fondsen.fonds_totale_briq_supply'); ?>
+												{{ $fondsen->getText('fondsen.fonds_totale_briq_supply') }}
 											</div>
 										</div>
 										<div class="fonds__point">
 											<div class="fonds__point-label">Totaal uitgifte</div>
 											<div class="fonds__point-value">
 												<span class="fonds__point-sign">€</span>
-												<?php echo $fondsen->getText('fondsen.fonds_totale_uitgifte'); ?>
+												{{ $fondsen->getText('fondsen.fonds_totale_uitgifte') }}
 											</div>
 										</div>
 										<div class="fonds__point fonds__point--last">
 											<div class="fonds__point-label">Prijs per briq</div>
 											<div class="fonds__point-value">
 												<span class="fonds__point-sign">€</span>
-												<?php echo $fondsen->getText('fondsen.fonds_prijs_per_briq'); ?>
+												{{ $fondsen->getText('fondsen.fonds_prijs_per_briq') }}
 											</div>
 										</div>
 									</div>
@@ -97,7 +92,7 @@
 							<div class="fonds__omschrijving">
 								<h2 class="fonds__omschrijving-title"><strong>Fonds</strong> omschrijving</h2>
 								<div class="fonds__omschrijving-paragraphs">
-									<?php echo $fondsen->getStructuredText('fondsen.fonds_omschrijving')->asHtml(); ?>
+									{!! $fondsen->getStructuredText('fondsen.fonds_omschrijving')->asHtml() !!}
 								</div>
 							</div>
 						</div>

@@ -6,7 +6,7 @@
 		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
-		<h1 class="title"><?php echo $about->getText('about.main_koptekst'); ?></h1>
+		<h1 class="title">{{ $about->getText('about.main_koptekst') }}</h1>
 		
 		<div class="introduction">
 			<div class="introduction__topline">
@@ -15,8 +15,8 @@
 			<div class="introduction__content">
 				<div class="wrapper">
 					<div class="introduction__block">
-						<h2 class="introduction__title introduction__title--blue"><?php echo $about->getStructuredText('about.intro_titel')->asHtml(); ?></h2>
-						<?php echo $about->getStructuredText('about.intro_content')->asHtml(); ?>
+						<h2 class="introduction__title introduction__title--blue">{!! $about->getStructuredText('about.intro_titel')->asHtml() !!}</h2>
+						{!! $about->getStructuredText('about.intro_content')->asHtml() !!}
 					</div>
 				</div>
 			</div>
@@ -29,26 +29,23 @@
 		
 		<div class="team">
 			<div class="wrapper">
-				<h2 class="team__title"><?php echo $about->getText('about.team_titel'); ?></h2>
+				<h2 class="team__title">{!! $about->getText('about.team_titel') !!}</h2>
 				<div class="members">
-					<?php 
-					$members = $about->getGroup('about.team_leden')->getArray();
-					
-					foreach($members as $member):
-					?>
+
+					@foreach($members as $member)
 					<div class="members__item">
 						<div class="member">
 							<div class="member__avatar">
-								<?php echo $member->getImage('profielfoto')->asHtml(); ?>
+								{!! $member->getImage('profielfoto')->asHtml() !!}
 							</div>
-							<h3 class="member__name"><?php echo $member->getStructuredText('naam')->asHtml(); ?></h3>
-							<p class="member__function"><?php echo $member->getText('functie'); ?></p>
-							<a class="button button--purple button--external" target="_blank" href="<?php echo $member->getText('linkedin_link'); ?>">
+							<h3 class="member__name">{!! $member->getStructuredText('naam')->asHtml() !!}</h3>
+							<p class="member__function">{{ $member->getText('functie') }}</p>
+							<a class="button button--purple button--external" target="_blank" href="{{ $member->getText('linkedin_link') }}">
 								<img class="button__icon" src="/images/social/linkedin.svg" width="20" height="20"> Linkedin
 							</a>
 						</div>
 					</div>
-					<?php endforeach; ?>
+					@endforeach
 				</div>
 			</div>
 		</div>

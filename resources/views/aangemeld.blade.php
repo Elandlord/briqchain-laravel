@@ -8,9 +8,9 @@
 	<div class="frame__row frame__row--expand">
 		<div class="wrapper">
 			<div class="aanmelden">
-				<h1 class="aanmelden__title">Op weg naar je eerste briq!</h1>
-				<p class="aanmelden__paragraph">We houden je vanaf nu op de hoogte.</p>
-				<a class="button button--green" href="/">Terug naar home</a>
+				<h1 class="aanmelden__title">{{ $aangemeld->getText('aangemeld.titel') }}</h1>
+				<p class="aanmelden__paragraph">{{ $aangemeld->getText('aangemeld.titel') }}</p>
+				<a class="button button--green" href="/">{{ $aangemeld->getText('aangemeld.link_home') }}</a>
 			</div>
 		</div>
 	</div>

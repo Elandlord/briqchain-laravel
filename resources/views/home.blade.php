@@ -11,30 +11,24 @@
 					<h1 class="hero__title">{{ $home->getText('home.hero_titel') }}</h1>
 					<p class="hero__paragraph">{{ $home->getStructuredText('home.hero_omschrijving')->asText() }}</p>
 					<div class="hero__buttons">
-						<?php 
-						$buttons = $home->getGroup('home.hero_knoppen')->getArray();
 						
-						foreach($buttons as $button):
-							$color = false;
-							switch(strtolower($button->getText('kleur'))){
-								case 'groen':
-									$color = 'green';
-									break;
-								case 'blauw':
-									$color = 'blue';
-									break;
-							}
-						?>
-						<a class="button button--<?php echo $color; ?>" href="<?php echo $button->getLink('link')->getUrl(); ?>"><?php echo $button->getText('naam') ?></a>
-						<?php endforeach; ?>
+						
+						@foreach($buttons as $button)
+							@if(strtolower($button->getText('kleur')) == 'groen')
+								@php $color = 'green'; @endphp
+							@elseif(strtolower($button->getText('kleur')) == 'blauw')
+								@php $color = 'blue'; @endphp
+							@endif
+						<a class="button button--{{ $color }}" href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('naam') }}</a>
+						@endforeach
 					</div>
 				</div>
 			</div>
 			<div class="badge">
 				<div class="badge__content">
-					<div class="badge__title"><span class="badge__currency"><?php echo $home->getText('home.badge_valuta'); ?></span><?php echo $home->getNumber('home.badge_prijs')->getValue(); ?></div>
+					<div class="badge__title"><span class="badge__currency">{{ $home->getText('home.badge_valuta') }}</span>{{ $home->getNumber('home.badge_prijs')->getValue() }}</div>
 					<div class="badge__description">
-						<?php echo $home->getText('home.badge_omschrijving'); ?>
+						{{ $home->getText('home.badge_omschrijving') }}
 					</div>
 				</div>
 			</div>
@@ -51,12 +45,12 @@
 				<div class="split-content">
 					<div class="split-content__left">
 						<div class="house-icon">
-							<?php echo $home->getImage('home.intro_afbeelding')->asHtml(); ?>
+							{!! $home->getImage('home.intro_afbeelding')->asHtml() !!}
 						</div>
 					</div>
 					<div class="split-content__right">
-						<h2 class="split-content__title split-content__title--purple"><?php echo $home->getStructuredText('home.intro_titel')->asHtml(); ?></h2>
-						<?php echo $home->getStructuredText('home.intro_content')->asHtml(); ?>
+						<h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.intro_titel')->asHtml() !!}</h2>
+						{!! $home->getStructuredText('home.intro_content')->asHtml() !!}
 					</div>
 				</div>
 			</div>
@@ -68,20 +62,17 @@
 			</div>
 			<div class="points__content">
 				<div class="wrapper wrapper--large">
-					<div class="points__holder">
-						<?php 
-						$points = $home->getGroup('home.punten')->getArray();
-						
-						foreach($points as $point):
-						?>
+					<div class="points__holder">		
+						@foreach($points as $point)
+
 						<div class="point">
 							<div class="point__icon">
-								<?php echo $point->getImage('afbeelding')->asHtml(); ?>
+								{!! $point->getImage('afbeelding')->asHtml() !!}
 							</div>
-							<h2 class="point__title"><?php echo $point->getStructuredText('titel')->asText(); ?></h2>
-							<?php echo $point->getStructuredText('content')->asHtml(); ?>
+							<h2 class="point__title">{!! $point->getStructuredText('titel')->asText() !!}</h2>
+							{!! $point->getStructuredText('content')->asHtml() !!}
 						</div>
-						<?php endforeach; ?>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -94,12 +85,12 @@
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
 					<div class="split-content__pane split-content__left">
-						<h2 class="split-content__title split-content__title--green"><?php echo $home->getStructuredText('home.blockchain_titel')->asHtml(); ?></h2>
-						<?php echo $home->getStructuredText('home.blockchain_content')->asHtml(); ?>
+						<h2 class="split-content__title split-content__title--green">{!! $home->getStructuredText('home.blockchain_titel')->asHtml() !!}</h2>
+						{!! $home->getStructuredText('home.blockchain_content')->asHtml() !!}
 					</div>
 					<div class="split-content__pane split-content__right split-content__pane--mobile-first">
 						<div class="blockchain-icon">
-							<?php echo $home->getImage('home.blockchain_afbeelding')->asHtml(); ?>
+							{!! $home->getImage('home.blockchain_afbeelding')->asHtml() !!}
 						</div>
 					</div>
 				</div>
