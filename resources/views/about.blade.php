@@ -49,6 +49,62 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="points">
+				<div class="points__topline">
+					<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/></svg>
+				</div>
+				<div class="points__content">
+					<div class="wrapper wrapper--large">
+						<div class="points__holder">		
+							<div class="members__item">
+								<div class="member">
+									<div class="member__avatar">
+										<img src="https://kottke.org/plus/misc/images/dinoco.jpg" style="object-fit:cover;" />
+									</div>
+									<h3 class="member__name">Dinoco</h3>
+									<p class="member__function">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget imperdiet elit. 
+										Integer varius orci eget est fermentum, quis tincidunt eros molestie. </p>
+									<a class="button button--purple button--external" target="_blank" href="#">
+										Bezoek Website
+									</a>
+								</div>
+							</div>
+	
+							<div class="members__item">
+								<div class="member">
+									<div class="member__avatar">
+										<img src="https://laughingsquid.com/wp-content/uploads/tumblr_ldahvd7kZ41qfw54vo1_r5_500.jpg" style="object-fit:cover;" />
+									</div>
+									<h3 class="member__name">Fauxgo</h3>
+									<p class="member__function">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget imperdiet elit. 
+										Integer varius orci eget est fermentum, quis tincidunt eros molestie. </p>
+									<a class="button button--purple button--external" target="_blank" href="#">
+										Bezoek Website
+									</a>
+								</div>
+							</div>
+	
+							<div class="members__item">
+								<div class="member">
+									<div class="member__avatar">
+										<img src="https://thisisnotadvertising.files.wordpress.com/2012/02/bnl-logo.jpg" style="object-fit:cover;" />
+									</div>
+									<h3 class="member__name">BNL</h3>
+									<p class="member__function">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget imperdiet elit. 
+										Integer varius orci eget est fermentum, quis tincidunt eros molestie. </p>
+									<a class="button button--purple button--external" target="_blank" href="#">
+										Bezoek Website
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="points__bottomline">
+					<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="0 100 0 0 1920 0 0 100" style="fill:#ebf4fb"/></svg>
+				</div>
+			</div>
 		
 		<div class="calculator" id="calculator">
 			@include('partials/calculator')
