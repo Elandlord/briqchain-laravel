@@ -8,12 +8,17 @@ use Prismic\Predicates;
 
 class PageController extends Controller
 {
+    public $api;
+
+    public function __construct()
+    {
+        $this->api = Api::get(env('PRISMIC_URL'));
+    }
+
     public function home()
     {
-        $api = Api::get(env('PRISMIC_URL'));
-
-        $home = $api->getSingle('home');
-        $siteWide = $api->getSingle('site_breed');
+        $home = $this->api->getSingle('home');
+        $siteWide = $this->api->getSingle('site_breed');
 
         $page_title = $home->getText('home.main_titel');
         $meta_description = $home->getText('home.main_omschrijving');
@@ -29,10 +34,8 @@ class PageController extends Controller
 
     public function fondsen()
     {
-        $api = Api::get(env('PRISMIC_URL'));
-
-        $fondsen = $api->getSingle('fondsen');
-        $siteWide = $api->getSingle('site_breed');
+        $fondsen = $this->api->getSingle('fondsen');
+        $siteWide = $this->api->getSingle('site_breed');
         
         $page_title = $fondsen->getText('fondsen.main_titel');
         $meta_description = $fondsen->getText('fondsen.main_omschrijving');
@@ -45,10 +48,8 @@ class PageController extends Controller
 
     public function zoWerktHet()
     {
-        $api = Api::get(env('PRISMIC_URL'));
-
-        $zoWerktHet = $api->getSingle('zo_werkt_het');
-        $siteWide = $api->getSingle('site_breed');
+        $zoWerktHet = $this->api->getSingle('zo_werkt_het');
+        $siteWide = $this->api->getSingle('site_breed');
         
         $page_title = $zoWerktHet->getText('fondsen.main_titel');
         $meta_description = $zoWerktHet->getText('fondsen.main_omschrijving');
@@ -62,10 +63,8 @@ class PageController extends Controller
 
     public function about()
     {
-        $api = Api::get(env('PRISMIC_URL'));
-
-        $about = $api->getSingle('about');
-        $siteWide = $api->getSingle('site_breed');
+        $about = $this->api->getSingle('about');
+        $siteWide = $this->api->getSingle('site_breed');
         
         $page_title = $about->getText('fondsen.main_titel');
         $meta_description = $about->getText('fondsen.main_omschrijving');
@@ -79,10 +78,8 @@ class PageController extends Controller
 
     public function aanmelden()
     {
-        $api = Api::get(env('PRISMIC_URL'));
-
-        $aanmelden = $api->getSingle('aanmelden');
-        $siteWide = $api->getSingle('site_breed');
+        $aanmelden = $this->api->getSingle('aanmelden');
+        $siteWide = $this->api->getSingle('site_breed');
         
         $page_title = $aanmelden->getText('aanmelden.page_title');
         $meta_description = $aanmelden->getText('aanmelden.page_description');
