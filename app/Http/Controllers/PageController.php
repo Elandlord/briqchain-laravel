@@ -51,7 +51,7 @@ class PageController extends Controller
         $zoWerktHet = $this->api->getSingle('zo_werkt_het');
         $siteWide = $this->api->getSingle('site_breed');
         
-        $page_title = $zoWerktHet->getText('fondsen.main_titel');
+        $page_title = $zoWerktHet->getText('zo_werkt_het.main_titel');
         $meta_description = $zoWerktHet->getText('fondsen.main_omschrijving');
 
         $questions = $zoWerktHet->getGroup('zo_werkt_het.faq_vragen')->getArray();
@@ -66,7 +66,7 @@ class PageController extends Controller
         $about = $this->api->getSingle('about');
         $siteWide = $this->api->getSingle('site_breed');
         
-        $page_title = $about->getText('fondsen.main_titel');
+        $page_title = $about->getText('about.main_titel');
         $meta_description = $about->getText('fondsen.main_omschrijving');
 
         $members = $about->getGroup('about.team_leden')->getArray();

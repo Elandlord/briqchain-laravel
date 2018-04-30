@@ -55,8 +55,10 @@
 					<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/></svg>
 				</div>
 				<div class="points__content">
-					<div class="wrapper wrapper--large">
-						<div class="points__holder">		
+					<div class="wrapper">
+						<h2 class="team__title">{!! $about->getText('about.partner_title') !!}</h2>
+						<div class="members">
+		
 							@foreach($partners as $partner)
 							<div class="members__item">
 								<div class="member">
@@ -64,10 +66,8 @@
 										{!! $partner->getImage('logo')->asHtml() !!}
 									</div>
 									<h3 class="member__name">{!! $partner->getStructuredText('name')->asHtml() !!}</h3>
-									<p class="member__function">{{ $partner->getText('description') }} </p>
-									<a class="button button--purple button--external" target="_blank" href="{{ $partner->getText('website') }}">
-										Bezoek website
-									</a>
+									<p class="member__function">{{ $partner->getText('description') }}</p>
+									<a class="button button--purple button--external" target="_blank" href="{{ $partner->getText('website') }}">Bezoek website</a>
 								</div>
 							</div>
 							@endforeach

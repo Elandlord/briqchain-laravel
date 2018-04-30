@@ -1,7 +1,7 @@
 <div class="header<?php if($light === true): ?> header--light<?php endif; ?>">
 	<div class="header__left">
 		<a class="logo" href="{{ Config('url') }}">
-			<img class="logo__img" src="http://briqchain.com/static/img/logo<?php if($light !== true): ?>-white<?php endif; ?>.svg" width="222" height="43" alt="Briqchain logo">
+			<img class="logo__img" src="https://briqchain.com/static/img/logo<?php if($light !== true): ?>-white<?php endif; ?>.svg" width="222" height="43" alt="Briqchain logo">
 			<span class="logo__payoff">
 				<span class="logo__payoff-powered">Powered by</span>
 				<span class="logo__payoff-name">blockchain</span>
@@ -41,7 +41,7 @@
 							<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a id="targetLink" class="navigation__link" href="#woningportaal">{{ $siteWide->getText('site_breed.woningen') }}</a>
+							<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>
 							<ul id="dropdown">
 								<li class="navigation__item">
 									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/aanbod.html">{{ $siteWide->getText('site_breed.aanbod') }}</a>
