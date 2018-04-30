@@ -29,31 +29,31 @@
 				<ul class="navigation">
 					<div id="horizontalmenu">
 						<li class="navigation__item">
-							<a class="navigation__link" href="{{ Config('url') }}/">Home</a>
+							<a class="navigation__link" href="{{ Config('url') }}/">{{ $siteWide->getText('site_breed.home') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a class="navigation__link" href="{{ Config('url') }}/fondsen">Briq Fonds</a>
+							<a class="navigation__link" href="{{ Config('url') }}/fondsen">{{ $siteWide->getText('site_breed.fonds') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a class="navigation__link" href="{{ Config('url') }}/zo-werkt-het">Zo werkt het</a>
+							<a class="navigation__link" href="{{ Config('url') }}/zo-werkt-het">{{ $siteWide->getText('site_breed.zo_werkt_het') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a class="navigation__link" href="{{ Config('url') }}/about">About</a>
+							<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a id="targetLink" class="navigation__link" href="#woningportaal">Woningen</a>
+							<a id="targetLink" class="navigation__link" href="#woningportaal">{{ $siteWide->getText('site_breed.woningen') }}</a>
 							<ul id="dropdown">
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/aanbod.html">Aanbod</a>
+									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/aanbod.html">{{ $siteWide->getText('site_breed.aanbod') }}</a>
 								</li>
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/huren-of-kopen.html">Huren of Kopen</a>
+									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/huren-of-kopen.html">{{ $siteWide->getText('site_breed.huren_of_kopen') }}</a>
 								</li>
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/inschrijven.php">Inschrijven</a>
+									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/inschrijven.php">{{ $siteWide->getText('site_breed.inschrijven') }}</a>
 								</li>
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/woning-verkopen.html">Woning verkopen</a>
+									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/woning-verkopen.html">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>
 								</li>
 							</ul>
 						</li>
@@ -61,7 +61,7 @@
 				</ul>
 				
 				<div class="header__call-to-action">
-					<a class="button header__button" href="{{ Config('url') }}/aanmelden">Aanmelden</a>
+					<a class="button header__button" href="{{ Config('url') }}/aanmelden">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
 				</div>
 			</div>													
 		</div>
