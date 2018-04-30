@@ -40,7 +40,7 @@
 						<li class="navigation__item">
 							<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
 						</li>
-						<li class="navigation__item">
+						{{-- <li class="navigation__item">
 							<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>
 							<ul id="dropdown">
 								<li class="navigation__item">
@@ -56,7 +56,7 @@
 									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/woning-verkopen.html">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>
 								</li>
 							</ul>
-						</li>
+						</li> --}}
 					</div>
 				</ul>
 				
