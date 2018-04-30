@@ -70,10 +70,11 @@ class PageController extends Controller
         $meta_description = $about->getText('fondsen.main_omschrijving');
 
         $members = $about->getGroup('about.team_leden')->getArray();
+        $partners = $about->getGroup('about.partners')->getArray();
         
         $lightBlue = false;
 
-        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members'));
+        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members', 'partners'));
     }
 
     public function aanmelden()
