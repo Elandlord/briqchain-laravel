@@ -30,7 +30,7 @@ class Application extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_USERNAME'))
+        return $this->from(env('MAIL_USERNAME'), env('APP_NAME'))
                     ->subject('Aanmelding Primaire Obligatie Uitgifte')
                     ->markdown('emails.application');
     }
