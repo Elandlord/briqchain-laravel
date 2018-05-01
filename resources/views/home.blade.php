@@ -35,7 +35,7 @@
 			<div class="hero__houses-left"></div>
 			<div class="hero__houses-right"></div>
 			<div class="hero__round">
-				<svg class="hero__round-svg" viewBox="0 0 1920 50" preserveAspectRatio="none"><path d="M1920,50H0V0A9241,9241,0,0,0,1920,0Z" style="fill:#fff"/></svg>
+				<svg class="hero__round-svg" viewBox="0 0 1919 49" preserveAspectRatio="none"><path d="M1920,50H0V0A9241,9241,0,0,0,1920,0Z" style="fill:#fff; stroke:#fff;"/></svg>
 			</div>
 		</div>
 	</div>
