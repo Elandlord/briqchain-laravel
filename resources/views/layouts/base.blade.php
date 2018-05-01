@@ -49,6 +49,7 @@
 	s0.parentNode.insertBefore(s1,s0);
 	})();
 	</script>
+	<!--End of Tawk.to Script-->
 
 	<script type="text/javascript" src="js/calculator.js"></script>
 
@@ -105,6 +106,5 @@
 
 	</script>
 
-	<!--End of Tawk.to Script-->
 </body>
 </html>
