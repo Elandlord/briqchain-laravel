@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Prismic\Api;
 use Prismic\LinkResolver;
 use Prismic\Predicates;
+use Prismic\Document;
+use App;
 
 class PageController extends Controller
 {
@@ -17,8 +19,20 @@ class PageController extends Controller
 
     public function home()
     {
-        $home = $this->api->getSingle('home');
+        App::setLocale('en-us');
+
         $siteWide = $this->api->getSingle('site_breed');
+
+        // $altLangs = $siteWide->getAlternateLanguages();
+
+        // dd($altLangs);
+
+        // if(App::isLocale('en-us')){
+        //     $siteWide = $siteWide->getAlternateLanguage('en-us');
+        //     dd($siteWide);
+        // }
+
+        $home = $this->api->getSingle('home');
 
         $page_title = $home->getText('home.main_titel');
         $meta_description = $home->getText('home.main_omschrijving');
