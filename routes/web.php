@@ -18,3 +18,5 @@ Route::get('/about', 'PageController@about');
 Route::get('/aanmelden', 'PageController@aanmelden');
 
 Route::post('/aanmelden/mail', 'MailController@aanmelden');
+
+Route::get('language/{language}', 'LanguageController@changeLanguage');

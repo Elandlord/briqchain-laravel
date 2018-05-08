@@ -6,11 +6,15 @@ use Prismic\Api;
 use Prismic\LinkResolver;
 use Prismic\Predicates;
 use Prismic\Document;
+
+use Illuminate\Support\Facades\Session;
+
 use App;
 
 class PageController extends Controller
 {
     public $api;
+    public $locale;
 
     public function __construct()
     {
@@ -19,19 +23,16 @@ class PageController extends Controller
 
     public function home()
     {
-        App::setLocale('en-us');
+        $locale = Session::get('applocale');
 
         $siteWide = $this->api->getSingle('site_breed');
 
-        // $altLangs = $siteWide->getAlternateLanguages();
-
-        // dd($altLangs);
-
-        // if(App::isLocale('en-us')){
-        //     $siteWide = $siteWide->getAlternateLanguage('en-us');
-        //     dd($siteWide);
-        // }
-
+        foreach(($altLangs = $siteWide->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $siteWide = $this->api->getByID($altLang->getId());
+            }
+        }
+        
         $home = $this->api->getSingle('home');
 
         $page_title = $home->getText('home.main_titel');
