@@ -82,8 +82,22 @@ class PageController extends Controller
 
     public function zoWerktHet()
     {
+        $locale = Session::get('applocale');
+
         $zoWerktHet = $this->api->getSingle('zo_werkt_het');
         $siteWide = $this->api->getSingle('site_breed');
+
+        foreach(($altLangs = $siteWide->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $siteWide = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach(($altLangs = $zoWerktHet->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $zoWerktHet = $this->api->getByID($altLang->getId());
+            }
+        }
         
         $page_title = $zoWerktHet->getText('zo_werkt_het.main_titel');
         $meta_description = $zoWerktHet->getText('fondsen.main_omschrijving');
@@ -96,9 +110,23 @@ class PageController extends Controller
     }
 
     public function about()
-    {
+    {   
+        $locale = Session::get('applocale');
+
         $about = $this->api->getSingle('about');
         $siteWide = $this->api->getSingle('site_breed');
+
+        foreach(($altLangs = $siteWide->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $siteWide = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach(($altLangs = $about->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $about = $this->api->getByID($altLang->getId());
+            }
+        }
         
         $page_title = $about->getText('about.main_titel');
         $meta_description = $about->getText('fondsen.main_omschrijving');
@@ -113,9 +141,23 @@ class PageController extends Controller
 
     public function aanmelden()
     {
+        $locale = Session::get('applocale');
+
         $aanmelden = $this->api->getSingle('aanmelden');
         $siteWide = $this->api->getSingle('site_breed');
         
+        foreach(($altLangs = $siteWide->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $siteWide = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach(($altLangs = $aanmelden->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $aanmelden = $this->api->getByID($altLang->getId());
+            }
+        }
+
         $page_title = $aanmelden->getText('aanmelden.page_title');
         $meta_description = $aanmelden->getText('aanmelden.page_description');
         

@@ -39,7 +39,7 @@
 								<div class="fonds__actions">
 									<a href="aanmelden" class="button button--green">
 										<img class="button__img button__briqs" src="images/button-logo.svg" width="19" height="20" alt="Briqs">
-										Koop Briqs
+										{{ $fondsen->getText('fondsen.buy_briqs') }}
 									</a>
 								</div>
 							</div>
@@ -66,21 +66,21 @@
 											<div class="fonds__point-value fonds__point-value--smaller">{{ $fondsen->getText('fondsen.fonds_uitgever') }}</div>
 										</div>
 										<div class="fonds__point">
-											<div class="fonds__point-label">Totale Briq supply</div>
+											<div class="fonds__point-label">{{ $fondsen->getText('fondsen.fonds_totale_briq_supply_label') }}</div>
 											<div class="fonds__point-value">
 												<img class="fonds__point-img" src="/images/input-logo.svg" width="19" height="20" alt="Briqs">
 												{{ $fondsen->getText('fondsen.fonds_totale_briq_supply') }}
 											</div>
 										</div>
 										<div class="fonds__point">
-											<div class="fonds__point-label">Totaal uitgifte</div>
+											<div class="fonds__point-label">{{ $fondsen->getText('fondsen.fonds_totale_uitgifte_label') }}</div>
 											<div class="fonds__point-value">
 												<span class="fonds__point-sign">€</span>
 												{{ $fondsen->getText('fondsen.fonds_totale_uitgifte') }}
 											</div>
 										</div>
 										<div class="fonds__point fonds__point--last">
-											<div class="fonds__point-label">Prijs per briq</div>
+											<div class="fonds__point-label">{{ $fondsen->getText('fondsen.fonds_prijs_per_briq_label') }}</div>
 											<div class="fonds__point-value">
 												<span class="fonds__point-sign">€</span>
 												{{ $fondsen->getText('fondsen.fonds_prijs_per_briq') }}
