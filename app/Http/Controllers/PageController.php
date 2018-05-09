@@ -54,8 +54,22 @@ class PageController extends Controller
 
     public function fondsen()
     {
+        $locale = Session::get('applocale');
+
         $fondsen = $this->api->getSingle('fondsen');
         $siteWide = $this->api->getSingle('site_breed');
+
+        foreach(($altLangs = $siteWide->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $siteWide = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach(($altLangs = $fondsen->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $fondsen = $this->api->getByID($altLang->getId());
+            }
+        }
         
         $page_title = $fondsen->getText('fondsen.main_titel');
         $meta_description = $fondsen->getText('fondsen.main_omschrijving');

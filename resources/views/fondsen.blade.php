@@ -48,7 +48,7 @@
 							<div class="fonds__all-details">
 								<div class="fonds__all-detail fonds__all-detail--stretch">
 									<div class="fonds__details">
-										<h2 class="fonds__details-title"><strong>Fonds</strong> details</h2>
+										<h2 class="fonds__details-title">{!! $fondsen->getStructuredText('fondsen.fonds_details_label')->asHtml() !!}</h2>
 										<table class="fonds__details-table" border="0" cellspacing="0" cellpadding="0">
 											@foreach($details as $detail)
 												<tr>
@@ -62,7 +62,7 @@
 								<div class="fonds__all-detail">
 									<div class="fonds__points">
 										<div class="fonds__point fonds__point--first">
-											<div class="fonds__point-label">Uitgever</div>
+											<div class="fonds__point-label">{{ $fondsen->getText('fondsen.fonds_uitgever_label') }}</div>
 											<div class="fonds__point-value fonds__point-value--smaller">{{ $fondsen->getText('fondsen.fonds_uitgever') }}</div>
 										</div>
 										<div class="fonds__point">
@@ -90,7 +90,7 @@
 								</div>
 							</div>
 							<div class="fonds__omschrijving">
-								<h2 class="fonds__omschrijving-title"><strong>Fonds</strong> omschrijving</h2>
+								<h2 class="fonds__omschrijving-title">{!! $fondsen->getStructuredText('fondsen.fonds_omschrijving_label')->asHtml() !!}</h2>
 								<div class="fonds__omschrijving-paragraphs">
 									{!! $fondsen->getStructuredText('fondsen.fonds_omschrijving')->asHtml() !!}
 								</div>
