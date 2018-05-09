@@ -6,19 +6,19 @@
 				<span class="logo__payoff-powered">Powered by</span>
 				<span class="logo__payoff-name">blockchain</span>
 			</span>
-			<span class="logo_payoff" style="margin-left:10px">
-				<span>
+			<span style="margin-left:10px">
+				<div style="display: inline-block;">
 					<a href="/language/nl-nl">
-						<img style="width: 50px; height: 50px;" src="images/netherlands.png" />
+						<img style="width: 40px; height: 40px;" src="images/netherlands.png" />
 					</a>
-				</span>
+				</div>
 			</span>
-			<span class="logo_payoff" style="margin-left:10px">
-				<span>
+			<span style="margin-left:10px">
+				<div style="display: inline-block;">
 					<a href="/language/en-us">
-						<img style="width: 50px; height: 50px;" src="images/usa.png" />
+						<img style="width: 40px; height: 40px;" src="images/usa.png" />
 					</a>
-				</span>
+				</div>
 			</span>
 		</a>
 	</div>
