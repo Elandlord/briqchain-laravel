@@ -9,14 +9,14 @@
 			<span class="logo_payoff" style="margin-left:10px">
 				<span>
 					<a href="/language/nl-nl">
-						<img style="width: 50px; height: 50px; " src="images/netherlands.png" />
+						<img style="width: 50px; height: 50px;" src="images/netherlands.png" />
 					</a>
 				</span>
 			</span>
 			<span class="logo_payoff" style="margin-left:10px">
 				<span>
 					<a href="/language/en-us">
-						<img style="width: 50px; height: 50px; " src="images/usa.png" />
+						<img style="width: 50px; height: 50px;" src="images/usa.png" />
 					</a>
 				</span>
 			</span>

@@ -26,14 +26,19 @@ class PageController extends Controller
         $locale = Session::get('applocale');
 
         $siteWide = $this->api->getSingle('site_breed');
+        $home = $this->api->getSingle('home');
 
         foreach(($altLangs = $siteWide->getAlternateLanguages()) as $altLang){
             if($locale == $altLang->getLang()){
                 $siteWide = $this->api->getByID($altLang->getId());
             }
         }
-        
-        $home = $this->api->getSingle('home');
+
+        foreach(($altLangs = $home->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $home = $this->api->getByID($altLang->getId());
+            }
+        }
 
         $page_title = $home->getText('home.main_titel');
         $meta_description = $home->getText('home.main_omschrijving');
