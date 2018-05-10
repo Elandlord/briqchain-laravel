@@ -12,11 +12,11 @@
 */
 
 Route::get('/', 'PageController@home');
-Route::get('/fondsen', 'PageController@fondsen');
-Route::get('/zo-werkt-het', 'PageController@zoWerktHet');
+Route::get('/funds', 'PageController@fondsen');
+Route::get('/how-it-works', 'PageController@zoWerktHet');
 Route::get('/about', 'PageController@about');
-Route::get('/aanmelden', 'PageController@aanmelden');
+Route::get('/sign-up', 'PageController@aanmelden');
 
-Route::post('/aanmelden/mail', 'MailController@aanmelden');
+Route::post('/sign-up/mail', 'MailController@aanmelden');
 
 Route::get('language/{language}', 'LanguageController@changeLanguage');

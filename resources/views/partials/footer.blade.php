@@ -1,9 +1,25 @@
 <div class="footer">
 	<div class="footer__content">
 		<div class="footer__content-item footer__content-item--left">
-			<div class="address">
-				<div class="address__row">
+			<div class="address" style="margin-top: 10px;">
+				<div class="address__row" style="margin-bottom: 10px;">
 					<a class="address__link" href="mailto:{{ $siteWide->getText('site_breed.emailadres') }}"><span class="address__icon"><img class="address__img" src="{{ env('APP_URL') }}/static/img/email.svg" width="15" height="11" alt="E-mailadres"></span> {{ $siteWide->getText('site_breed.emailadres') }}</a>
+				</div>
+				<div>
+					<span>
+						<div style="display: inline-block;">
+							<a href="/language/nl-nl">
+								<img style="width: 40px; height: 40px;" src="images/netherlands.png" />
+							</a>
+						</div>
+					</span>
+					<span>
+						<div style="display: inline-block; margin-left: 5px;">
+							<a href="/language/en-us">
+								<img style="width: 40px; height: 40px;" src="images/usa.png" />
+							</a>
+						</div>
+					</span>
 				</div>
 			</div>
 		</div>

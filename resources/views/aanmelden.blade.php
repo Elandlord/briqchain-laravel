@@ -20,7 +20,7 @@
 						<span class="last-action__label">{{ $aanmelden->getText('aanmelden.voorinschrijving') }}</span>
 						<h2 class="last-action__title">{{ $siteWide->getText('site_breed.aanmelden_titel') }}</h2>
 						{!! $siteWide->getStructuredText('site_breed.aanmelden_content')->asHtml() !!}
-						<form method="post" action="aanmelden/mail">
+						<form method="post" action="sign-up/mail">
 							@csrf
 							<div class="last-action__form">
 								<div class="last-action__form-group">

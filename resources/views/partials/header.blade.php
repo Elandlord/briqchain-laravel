@@ -6,20 +6,6 @@
 				<span class="logo__payoff-powered">Powered by</span>
 				<span class="logo__payoff-name">blockchain</span>
 			</span>
-			<span style="margin-left:10px">
-				<div style="display: inline-block;">
-					<a href="/language/nl-nl">
-						<img style="width: 40px; height: 40px;" src="images/netherlands.png" />
-					</a>
-				</div>
-			</span>
-			<span style="margin-left:10px">
-				<div style="display: inline-block;">
-					<a href="/language/en-us">
-						<img style="width: 40px; height: 40px;" src="images/usa.png" />
-					</a>
-				</div>
-			</span>
 		</a>
 	</div>
 	<div class="header__right">
@@ -46,15 +32,15 @@
 							<a class="navigation__link" href="{{ Config('url') }}/">{{ $siteWide->getText('site_breed.home') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a class="navigation__link" href="{{ Config('url') }}/fondsen">{{ $siteWide->getText('site_breed.fonds') }}</a>
+							<a class="navigation__link" href="{{ Config('url') }}/funds">{{ $siteWide->getText('site_breed.fonds') }}</a>
 						</li>
 						<li class="navigation__item">
-							<a class="navigation__link" href="{{ Config('url') }}/zo-werkt-het">{{ $siteWide->getText('site_breed.zo_werkt_het') }}</a>
+							<a class="navigation__link" href="{{ Config('url') }}/how-it-works">{{ $siteWide->getText('site_breed.zo_werkt_het') }}</a>
 						</li>
 						<li class="navigation__item">
 							<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
 						</li>
-						{{-- <li class="navigation__item">
+						<li class="navigation__item">
 							<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>
 							<ul id="dropdown">
 								<li class="navigation__item">
@@ -70,12 +56,12 @@
 									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/woning-verkopen.html">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>
 								</li>
 							</ul>
-						</li> --}}
+						</li>
 					</div>
 				</ul>
 				
 				<div class="header__call-to-action">
-					<a class="button header__button" href="{{ Config('url') }}/aanmelden">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
+					<a class="button header__button" href="{{ Config('url') }}/sign-up">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
 				</div>
 			</div>													
 		</div>

@@ -18,10 +18,13 @@
 	<meta name="MobileOptimized" content="width">
 	<meta name="format-detection" content="telephone=no">
 	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png"> 
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 
-	@yield('content')
+	<div id="app">
+		@yield('content')
+	</div>
 	
 	@if((env('ANALYTICS')) != null)
 		<script>
@@ -30,7 +33,7 @@
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			
-			ga('create', env('ANALYTICS'), 'auto');
+			ga('create', '<?php env('ANALYTICS') ?>', 'auto');
 			ga('send', 'pageview');
 		</script>
 	@endif

@@ -21,9 +21,21 @@ class PageController extends Controller
         $this->api = Api::get(env('PRISMIC_URL'));
     }
 
-    public function home()
+    public function getLocale($request)
     {
         $locale = Session::get('applocale');
+
+        if($locale == null)
+        {
+            $locale = strtolower(explode(",", $request->server('HTTP_ACCEPT_LANGUAGE'))[0]);
+        }
+        
+        return $locale;
+    }
+
+    public function home(Request $request)
+    {
+        $locale = $this->getLocale($request);
 
         $siteWide = $this->api->getSingle('site_breed');
         $home = $this->api->getSingle('home');
@@ -52,9 +64,9 @@ class PageController extends Controller
         return view('home', compact('home', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'buttons', 'points'));
     }
 
-    public function fondsen()
+    public function fondsen(Request $request)
     {
-        $locale = Session::get('applocale');
+        $locale = $this->getLocale($request);
 
         $fondsen = $this->api->getSingle('fondsen');
         $siteWide = $this->api->getSingle('site_breed');
@@ -80,9 +92,9 @@ class PageController extends Controller
         return view('fondsen', compact('fondsen', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'details'));
     }
 
-    public function zoWerktHet()
+    public function zoWerktHet(Request $request)
     {
-        $locale = Session::get('applocale');
+        $locale = $this->getLocale($request);
 
         $zoWerktHet = $this->api->getSingle('zo_werkt_het');
         $siteWide = $this->api->getSingle('site_breed');
@@ -109,9 +121,9 @@ class PageController extends Controller
         return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'questions'));
     }
 
-    public function about()
+    public function about(Request $request)
     {   
-        $locale = Session::get('applocale');
+        $locale = $this->getLocale($request);
 
         $about = $this->api->getSingle('about');
         $siteWide = $this->api->getSingle('site_breed');
@@ -139,9 +151,9 @@ class PageController extends Controller
         return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members', 'partners'));
     }
 
-    public function aanmelden()
+    public function aanmelden(Request $request)
     {
-        $locale = Session::get('applocale');
+        $locale = $this->getLocale($request);
 
         $aanmelden = $this->api->getSingle('aanmelden');
         $siteWide = $this->api->getSingle('site_breed');

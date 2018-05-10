@@ -69,7 +69,7 @@
 					<li><?php echo $siteWide->getText('site_breed.rights'); ?></li>
 				</ul>
 				<div class="calculator__footer-action">
-					<a href="{{ env('APP_URL') }}/aanmelden" class="button button--green">
+					<a href="{{ env('APP_URL') }}/sign-up" class="button button--green">
 						<img class="button__img button__briqs" src="{{ env('APP_URL') }}/static/img/button-logo.svg" width="19" height="20" alt="Briqs">
 						<?php echo $siteWide->getText('site_breed.buy_briqs'); ?>
 					</a>

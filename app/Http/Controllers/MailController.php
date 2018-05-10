@@ -20,9 +20,21 @@ class MailController extends Controller
         $this->api = Api::get(env('PRISMIC_URL'));
     }
 
-    public function aanmelden(Request $request)
+    public function getLocale($request)
     {
         $locale = Session::get('applocale');
+
+        if($locale == null)
+        {
+            $locale = strtolower(explode(",", $request->server('HTTP_ACCEPT_LANGUAGE'))[0]);
+        }
+        
+        return $locale;
+    }
+
+    public function aanmelden(Request $request)
+    {
+        $locale = $this->getLocale($request);
 
         Mail::to($request->get('email_address'))->send(new Application($request->all()));
         Mail::to(env('MAIL_USERNAME'))->send(new Contact($request->all()));
