@@ -7,6 +7,8 @@ use Prismic\LinkResolver;
 use Prismic\Predicates;
 use Prismic\Document;
 
+use App\Enums\AcceptedLanguages;
+
 use Illuminate\Support\Facades\Session;
 
 use App;
@@ -28,6 +30,10 @@ class PageController extends Controller
         if($locale == null)
         {
             $locale = strtolower(explode(",", $request->server('HTTP_ACCEPT_LANGUAGE'))[0]);
+        }
+
+        if(!in_array($locale, AcceptedLanguages::ACCEPTED_LANGUAGES)){
+            $locale = "en-us";
         }
         
         return $locale;
