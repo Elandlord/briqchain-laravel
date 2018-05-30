@@ -44,16 +44,16 @@
 							<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>
 							<ul id="dropdown">
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/aanbod.html">{{ $siteWide->getText('site_breed.aanbod') }}</a>
+									<a class="navigation__link" href="http://woningen.briqchain.com/aanbod">{{ $siteWide->getText('site_breed.aanbod') }}</a>
 								</li>
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/huren-of-kopen.html">{{ $siteWide->getText('site_breed.huren_of_kopen') }}</a>
+									<a class="navigation__link" href="http://woningen.briqchain.com/huren-of-kopen">{{ $siteWide->getText('site_breed.huren_of_kopen') }}</a>
 								</li>
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/inschrijven.php">{{ $siteWide->getText('site_breed.inschrijven') }}</a>
+									<a class="navigation__link" href="http://woningen.briqchain.com/inschrijven">{{ $siteWide->getText('site_breed.inschrijven') }}</a>
 								</li>
 								<li class="navigation__item">
-									<a class="navigation__link" href="http://briqchain.vindbaar-in-online.nl/woning-verkopen.html">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>
+									<a class="navigation__link" href="http://woningen.briqchain.com/woning-verkopen">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>
 								</li>
 							</ul>
 						</li>
