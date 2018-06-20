@@ -37,9 +37,10 @@
 			ga('send', 'pageview');
 		</script>
 	@endif
-	
-	<script type="text/javascript" src="/js/app.js"></script>
-	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+		
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -55,7 +56,6 @@
 	<!--End of Tawk.to Script-->
 
 	{{-- <script type="text/javascript" src="js/calculator.js"></script> --}}
-	<script type="text/javascript" src="js/app.js"></script>
 
 	<script
 	src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

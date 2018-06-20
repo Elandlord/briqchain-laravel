@@ -41,13 +41,14 @@
     }
 
     .checkbox-holder{
+        width: 45%;
         display: inline-block;
         border-radius: 4px;
         align-items: center;
     }
 
     .padding-inside-radio{
-        padding: 5px 3px 5px 3px;        
+        padding: 10px 15px 10px 15px;        
     }
 
     .radio-button-input{
@@ -63,69 +64,70 @@
     }
 
     .padding-radio-buttons{
-        padding: 14px 14px 16px;
+        padding: 4px 0px 8px 0px;
         width: 100%;  
     }
 
-    /* Customize the label (the container) */
-.checkmark-container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default radio button */
-  .checkmark-container input {
-    position: absolute;
-    opacity: 0;
-  }
-  
-  /* Create a custom radio button */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .checkmark-container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  
-  /* When the radio button is checked, add a blue background */
-  .checkmark-container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
-  
-  /* Create the indicator (the dot/circle - hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the indicator (dot/circle) when checked */
-  .checkmark-container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the indicator (dot/circle) */
-  .checkmark-container .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-  }
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label
+    {
+        font-size: 14px;
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+    }
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid $green-color;
+        background: transparent;
+    }
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after {
+        content: '\2713';
+        width: 12px;
+        height: 12px;
+        color: $green-color;
+        left: 3px;
+        position: absolute;
+        top: 0px;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    [type="radio"]:not(:checked) + label:after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    [type="radio"]:checked + label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .select_box_year{
+        padding: 0px 5px 0px 5px;
+        width: 100px;
+        background: transparent;
+        color: #91aac0;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+    }
+
+    .option_box{
+        background: $main-color;
+    }

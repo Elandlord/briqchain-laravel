@@ -13864,49 +13864,111 @@ module.exports = Cancel;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-var disposed = false
-var normalizeComponent = __webpack_require__(40)
-/* script */
-var __vue_script__ = __webpack_require__(41)
-/* template */
-var __vue_template__ = __webpack_require__(42)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
+/* globals __VUE_SSR_CONTEXT__ */
 
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0ca92eac", Component.options)
-  } else {
-    hotAPI.reload("data-v-0ca92eac", Component.options)
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
   }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
 
-module.exports = Component.exports
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
 
 
 /***/ }),
@@ -13914,7 +13976,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -13938,8 +14000,8 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(11));
-Vue.component('calculator', __webpack_require__(48));
+Vue.component('example-component', __webpack_require__(40));
+Vue.component('calculator', __webpack_require__(43));
 
 var app = new Vue({
   el: '#app'
@@ -47197,111 +47259,49 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 /* 40 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/* globals __VUE_SSR_CONTEXT__ */
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(41)
+/* template */
+var __vue_template__ = __webpack_require__(42)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
 
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0ca92eac", Component.options)
+  } else {
+    hotAPI.reload("data-v-0ca92eac", Component.options)
   }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
+module.exports = Component.exports
 
 
 /***/ }),
@@ -47378,24 +47378,14 @@ if (false) {
 
 /***/ }),
 /* 43 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(40)
+var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(44)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(45)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47434,11 +47424,35 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -47566,11 +47580,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         reinvestinterest: null
     },
 
-    mounted: function mounted() {}
+    data: function data() {
+        return {
+            initialInvestment: 100,
+            monthlyAdditionalInvestment: 100,
+            reinvest: true,
+            duration: 5,
+            yearSplit: this.year.split(" ")[1],
+            results: null,
+            permaand: null,
+            perjaar: null,
+            eindkapitaal: null,
+            loading: false
+        };
+    },
+    mounted: function mounted() {
+        this.calculate();
+    },
+
+
+    methods: {
+        calculate: function calculate() {
+            var _this = this;
+
+            this.loading = true;
+            var data = {
+                'startkapitaal': this.initialInvestment,
+                'inlegpermaand': this.monthlyAdditionalInvestment,
+                'herbeleggen': this.reinvest,
+                'looptijden': '1,5,10,20,30',
+                'rendement': 3.5
+            };
+            axios.post('/calculate/return', data).then(function (response) {
+                var jaren = collect(response.data.results.jaren);
+                var result = jaren.firstWhere('looptijd', _this.duration.toString());
+                _this.eindkapitaal = Math.round(result.eindkapitaal);
+                _this.perjaar = Math.round(result.eindkapitaal / result.looptijd);
+                _this.permaand = parseFloat(result.eindkapitaal / result.looptijd / 12).toFixed(2);
+                console.log("Herbeleggen", _this.reinvest);
+                _this.loading = false;
+            });
+        }
+    }
 });
 
 /***/ }),
-/* 50 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47645,6 +47700,14 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.initialInvestment,
+                        expression: "initialInvestment"
+                      }
+                    ],
                     staticClass: "calculator__form-input",
                     attrs: {
                       type: "number",
@@ -47654,6 +47717,18 @@ var render = function() {
                       value: "100",
                       step: "10",
                       min: "0"
+                    },
+                    domProps: { value: _vm.initialInvestment },
+                    on: {
+                      change: function($event) {
+                        _vm.calculate()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.initialInvestment = $event.target.value
+                      }
                     }
                   })
                 ])
@@ -47664,7 +47739,7 @@ var render = function() {
                   "label",
                   {
                     staticClass: "calculator__form-label",
-                    attrs: { for: "calculator_aantal_briqs" }
+                    attrs: { for: "calculator_maandelijkse_inleg" }
                   },
                   [_vm._v(_vm._s(_vm.monthlyinvestment))]
                 ),
@@ -47683,6 +47758,14 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.monthlyAdditionalInvestment,
+                        expression: "monthlyAdditionalInvestment"
+                      }
+                    ],
                     staticClass: "calculator__form-input",
                     attrs: {
                       type: "number",
@@ -47692,6 +47775,18 @@ var render = function() {
                       value: "100",
                       step: "10",
                       min: "0"
+                    },
+                    domProps: { value: _vm.monthlyAdditionalInvestment },
+                    on: {
+                      change: function($event) {
+                        _vm.calculate()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.monthlyAdditionalInvestment = $event.target.value
+                      }
                     }
                   })
                 ])
@@ -47707,7 +47802,90 @@ var render = function() {
                   [_vm._v(_vm._s(_vm.reinvestinterest))]
                 ),
                 _vm._v(" "),
-                _vm._m(2)
+                _c("div", { staticClass: " padding-radio-buttons" }, [
+                  _c("div", { staticClass: "checkbox-holder bg-main" }, [
+                    _c("div", { staticClass: "padding-inside-radio" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.reinvest,
+                            expression: "reinvest"
+                          }
+                        ],
+                        attrs: {
+                          type: "radio",
+                          value: "true",
+                          checked: "checked",
+                          id: "calculator_rente_herbeleggen_on",
+                          name: "calculator_rente_herbeleggen"
+                        },
+                        domProps: { checked: _vm._q(_vm.reinvest, "true") },
+                        on: {
+                          change: [
+                            function($event) {
+                              _vm.reinvest = "true"
+                            },
+                            function($event) {
+                              _vm.calculate()
+                            }
+                          ]
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "pointer text-light bold",
+                          attrs: { for: "calculator_rente_herbeleggen_on" }
+                        },
+                        [_vm._v("Aan")]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "checkbox-holder bold" }, [
+                    _c("div", { staticClass: "padding-inside-radio" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.reinvest,
+                            expression: "reinvest"
+                          }
+                        ],
+                        attrs: {
+                          type: "radio",
+                          value: "false",
+                          id: "calculator_rente_herbeleggen_off",
+                          name: "calculator_rente_herbeleggen"
+                        },
+                        domProps: { checked: _vm._q(_vm.reinvest, "false") },
+                        on: {
+                          change: [
+                            function($event) {
+                              _vm.reinvest = "false"
+                            },
+                            function($event) {
+                              _vm.calculate()
+                            }
+                          ]
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "pointer",
+                          attrs: { for: "calculator_rente_herbeleggen_off" }
+                        },
+                        [_vm._v("Uit")]
+                      )
+                    ])
+                  ])
+                ])
               ])
             ])
           ]),
@@ -47721,16 +47899,66 @@ var render = function() {
                   _vm._v(_vm._s(_vm.month))
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _c("div", { staticClass: "calculator__result-value" }, [
+                  _c("span", { staticClass: "calculator__result-sign" }, [
+                    _vm._v("€")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass: "calculator__result-amount",
+                      attrs: { id: "calculator_per_maand" }
+                    },
+                    [
+                      _vm.permaand && !_vm.loading
+                        ? _c("span", [_vm._v(_vm._s(_vm.permaand))])
+                        : _c("span", [
+                            _c("img", {
+                              attrs: {
+                                width: "20",
+                                height: "20",
+                                src: "/images/oval.svg"
+                              }
+                            })
+                          ])
+                    ]
+                  )
+                ])
               ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "calculator__result" }, [
               _c("div", { staticClass: "calculator__result-label" }, [
-                _vm._v(_vm._s(_vm.year))
+                _c("span", [_vm._v(_vm._s(_vm.year))])
               ]),
               _vm._v(" "),
-              _vm._m(4)
+              _c("div", { staticClass: "calculator__result-value" }, [
+                _c("span", { staticClass: "calculator__result-sign" }, [
+                  _vm._v("€")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    staticClass: "calculator__result-amount",
+                    attrs: { id: "calculator_per_paar" }
+                  },
+                  [
+                    _vm.perjaar && !_vm.loading
+                      ? _c("span", [_vm._v(_vm._s(_vm.perjaar) + ",-")])
+                      : _c("span", [
+                          _c("img", {
+                            attrs: {
+                              width: "20",
+                              height: "20",
+                              src: "/images/oval.svg"
+                            }
+                          })
+                        ])
+                  ]
+                )
+              ])
             ]),
             _vm._v(" "),
             _c(
@@ -47738,10 +47966,108 @@ var render = function() {
               { staticClass: "calculator__result calculator__result--last" },
               [
                 _c("div", { staticClass: "calculator__result-label" }, [
-                  _vm._v(_vm._s(_vm.fiveyears))
+                  _c("label", { attrs: { for: "select_years" } }, [
+                    _vm._v(_vm._s(_vm.fiveyears))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.duration,
+                          expression: "duration"
+                        }
+                      ],
+                      staticClass: "select_box_year",
+                      attrs: { id: "select_years" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.duration = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          function($event) {
+                            _vm.calculate()
+                          }
+                        ]
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { staticClass: "option_box", attrs: { value: "1" } },
+                        [_vm._v("1 " + _vm._s(_vm.yearSplit))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        {
+                          staticClass: "option_box",
+                          attrs: { value: "5", selected: "" }
+                        },
+                        [_vm._v("5 " + _vm._s(_vm.yearSplit))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { staticClass: "option_box", attrs: { value: "10" } },
+                        [_vm._v("10 " + _vm._s(_vm.yearSplit))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { staticClass: "option_box", attrs: { value: "20" } },
+                        [_vm._v("20 " + _vm._s(_vm.yearSplit))]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "option",
+                        { staticClass: "option_box", attrs: { value: "30" } },
+                        [_vm._v("30 " + _vm._s(_vm.yearSplit))]
+                      )
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
-                _vm._m(5)
+                _c("div", { staticClass: "calculator__result-value" }, [
+                  _c("span", { staticClass: "calculator__result-sign" }, [
+                    _vm._v("€")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      staticClass:
+                        "calculator__result-amount calculator__result-amount--light",
+                      attrs: { id: "calculator_per_vijf_paar" }
+                    },
+                    [
+                      _vm.eindkapitaal && !_vm.loading
+                        ? _c("span", [_vm._v(_vm._s(_vm.eindkapitaal) + ",-")])
+                        : _c("span", [
+                            _c("img", {
+                              attrs: {
+                                width: "20",
+                                height: "20",
+                                src: "/images/oval.svg"
+                              }
+                            })
+                          ])
+                    ]
+                  )
+                ])
               ]
             )
           ]),
@@ -47810,111 +48136,6 @@ var staticRenderFns = [
       _vm._v("4"),
       _c("span", { staticClass: "calculator__badge-title-sign" }, [_vm._v("%")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: " padding-radio-buttons" }, [
-      _c("div", { staticClass: "checkbox-holder bg-main text-light bold" }, [
-        _c("div", { staticClass: "checkmark-container padding-inside-radio" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              checked: "checked",
-              id: "calculator_rente_herbeleggen_on",
-              name: "calculator_rente_herbeleggen"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "pointer",
-              attrs: { for: "calculator_rente_herbeleggen_on" }
-            },
-            [_vm._v("Aan")]
-          ),
-          _vm._v(" "),
-          _c("span", { staticClass: "checkmark" })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "checkbox-holder bold" }, [
-        _c("div", { staticClass: "checkmark-container padding-inside-radio" }, [
-          _c("input", {
-            attrs: {
-              type: "radio",
-              id: "calculator_rente_herbeleggen_off",
-              name: "calculator_rente_herbeleggen"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "pointer",
-              attrs: { for: "calculator_rente_herbeleggen_off" }
-            },
-            [_vm._v("Uit")]
-          ),
-          _vm._v(" "),
-          _c("span", { staticClass: "checkmark" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "calculator__result-value" }, [
-      _c("span", { staticClass: "calculator__result-sign" }, [_vm._v("€")]),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass: "calculator__result-amount",
-          attrs: { id: "calculator_per_maand" }
-        },
-        [_vm._v("0,33")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "calculator__result-value" }, [
-      _c("span", { staticClass: "calculator__result-sign" }, [_vm._v("€")]),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass: "calculator__result-amount",
-          attrs: { id: "calculator_per_paar" }
-        },
-        [_vm._v("4,-")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "calculator__result-value" }, [
-      _c("span", { staticClass: "calculator__result-sign" }, [_vm._v("€")]),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass:
-            "calculator__result-amount calculator__result-amount--light",
-          attrs: { id: "calculator_per_vijf_paar" }
-        },
-        [_vm._v("23,-")]
-      )
-    ])
   }
 ]
 render._withStripped = true
@@ -47925,6 +48146,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-fa56768e", module.exports)
   }
 }
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

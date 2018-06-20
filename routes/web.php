@@ -20,3 +20,5 @@ Route::get('/sign-up', 'PageController@aanmelden');
 Route::post('/sign-up/mail', 'MailController@aanmelden');
 
 Route::get('language/{language}', 'LanguageController@changeLanguage');
+
+Route::post('calculate/return', 'CalculateController@calculate');

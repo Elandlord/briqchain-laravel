@@ -25,16 +25,16 @@
                                     <div class="calculator__input-icon">
                                         <img class="calculator__input-img" :src="url + '/static/img/input-euro.svg'" width="10" height="12" alt="Euro">
                                     </div>
-                                    <input class="calculator__form-input" type="number" id="calculator_inleg_in_euros" name="calculator_inleg_in_euros" required="required" value="100" step="10" min="0">
+                                    <input class="calculator__form-input" @change="calculate()"  v-model="initialInvestment" type="number" id="calculator_inleg_in_euros" name="calculator_inleg_in_euros" required="required" value="100" step="10" min="0">
                                 </div>
                             </div>
                             <div class="calculator__form-group">
-                                <label class="calculator__form-label" for="calculator_aantal_briqs">{{ monthlyinvestment }}</label>
+                                <label class="calculator__form-label" for="calculator_maandelijkse_inleg">{{ monthlyinvestment }}</label>
                                 <div class="calculator__input-holder">
                                     <div class="calculator__input-icon">
                                         <img class="calculator__input-img" :src="url + '/static/img/input-euro.svg'" width="10" height="12" alt="Briqs">
                                     </div>
-                                    <input class="calculator__form-input" type="number" id="calculator_maandelijkse_inleg" name="calculator_maandelijkse_inleg" required="required" value="100" step="10" min="0">
+                                    <input class="calculator__form-input" @change="calculate()" v-model="monthlyAdditionalInvestment" type="number" id="calculator_maandelijkse_inleg" name="calculator_maandelijkse_inleg" required="required" value="100" step="10" min="0">
                                 </div>
                             </div>
                             <div class="calculator__form-group">
@@ -44,16 +44,14 @@
                                     </div>
                                     <input class="calculator__form-input" type="number" id="calculator_rente_herbeleggen" name="calculator_rente_herbeleggen" required="required"> -->
                                 <div class=" padding-radio-buttons">                            
-                                    <div class="checkbox-holder bg-main text-light bold">
-                                        <div class="checkmark-container padding-inside-radio">
-                                            <input type="radio" checked="checked" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_on">Aan</label>
-                                            <span class="checkmark"></span>
+                                    <div class="checkbox-holder bg-main">
+                                        <div class="padding-inside-radio">
+                                            <input type="radio" @change="calculate()" v-model="reinvest" value="true" checked="checked" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer text-light bold" for="calculator_rente_herbeleggen_on">Aan</label>
                                         </div>
                                     </div>
                                     <div class="checkbox-holder bold">
-                                        <div class="checkmark-container padding-inside-radio">
-                                            <input type="radio" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_off">Uit</label>
-                                            <span class="checkmark"></span>                                            
+                                        <div class="padding-inside-radio">
+                                            <input type="radio" @change="calculate()" v-model="reinvest" value="false" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_off">Uit</label>
                                         </div>
                                     </div>
                                 </div>
@@ -65,21 +63,47 @@
                             <div class="calculator__result-label">{{ month }}</div>
                             <div class="calculator__result-value">
                                 <span class="calculator__result-sign">€</span>
-                                <span class="calculator__result-amount" id="calculator_per_maand">0,33</span>
+                                <span class="calculator__result-amount" id="calculator_per_maand">
+                                    <span v-if="permaand && !loading">{{ permaand }}</span>
+                                    <span v-else>
+                                        <img width="20" height="20" src="/images/oval.svg" />                                        
+                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div class="calculator__result">
-                            <div class="calculator__result-label">{{ year }}</div>
+                            <div class="calculator__result-label">
+                                <span >{{ year }}</span>
+                            </div>
                             <div class="calculator__result-value">
                                 <span class="calculator__result-sign">€</span>
-                                <span class="calculator__result-amount" id="calculator_per_paar">4,-</span>
+                                <span class="calculator__result-amount" id="calculator_per_paar">
+                                    <span v-if="perjaar && !loading">{{ perjaar }},-</span>
+                                    <span v-else>
+                                        <img width="20" height="20" src="/images/oval.svg" />
+                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div class="calculator__result calculator__result--last">
-                            <div class="calculator__result-label">{{ fiveyears }}</div>
+                            <div class="calculator__result-label">
+                                <label for="select_years">{{ fiveyears }}</label>
+                                <select @change="calculate()" v-model="duration" id="select_years" class="select_box_year">
+                                    <option value="1" class="option_box">1 {{ yearSplit }}</option>
+                                    <option value="5" class="option_box" selected>5 {{ yearSplit }}</option>
+                                    <option value="10" class="option_box">10 {{ yearSplit }}</option>
+                                    <option value="20" class="option_box">20 {{ yearSplit }}</option>
+                                    <option value="30" class="option_box">30 {{ yearSplit }}</option>
+                                </select>
+                            </div>
                             <div class="calculator__result-value">
                                 <span class="calculator__result-sign">€</span>
-                                <span class="calculator__result-amount calculator__result-amount--light" id="calculator_per_vijf_paar">23,-</span>
+                                <span class="calculator__result-amount calculator__result-amount--light" id="calculator_per_vijf_paar">
+                                    <span v-if="eindkapitaal && !loading">{{ eindkapitaal }},-</span>
+                                    <span v-else>
+                                        <img width="20" height="20" src="/images/oval.svg" />      
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -125,8 +149,45 @@
             reinvestinterest: null,
         },
 
-        mounted() {
+        data() {
+            return {
+                initialInvestment: 100,
+                monthlyAdditionalInvestment: 100,
+                reinvest: true,
+                duration: 5,
+                yearSplit: this.year.split(" ")[1],
+                results: null,
+                permaand: null,
+                perjaar: null,
+                eindkapitaal: null,
+                loading: false,
+            }
+        },
 
+        mounted() {
+            this.calculate();
+        },
+
+        methods: {
+            calculate(){
+                this.loading = true;
+                var data = {
+                    'startkapitaal': this.initialInvestment,
+                    'inlegpermaand': this.monthlyAdditionalInvestment,
+                    'herbeleggen': this.reinvest,
+                    'looptijden': '1,5,10,20,30',
+                    'rendement': 3.5,
+                };
+                axios.post('/calculate/return', data).then((response) => {
+                    let jaren = collect(response.data.results.jaren);
+                    let result = jaren.firstWhere('looptijd', this.duration.toString())
+                    this.eindkapitaal = Math.round(result.eindkapitaal);
+                    this.perjaar = Math.round((result.eindkapitaal / result.looptijd));
+                    this.permaand = parseFloat((result.eindkapitaal / result.looptijd / 12)).toFixed(2);
+                    console.log("Herbeleggen", this.reinvest);
+                    this.loading = false;
+                });
+            }
         }
     }
 </script>
