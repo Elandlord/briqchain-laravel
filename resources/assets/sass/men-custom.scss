@@ -94,6 +94,9 @@
         border: 1px solid $green-color;
         background: transparent;
     }
+    [type="radio"]:not(:checked) + label:before + #calculator_rente_herbeleggen_off{
+        border: 1px solid black !important;
+    }
     [type="radio"]:checked + label:after,
     [type="radio"]:not(:checked) + label:after {
         content: '\2713';

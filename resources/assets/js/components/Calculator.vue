@@ -20,7 +20,7 @@
                     <div class="calculator__form-wrapper">
                         <div class="calculator__form">
                             <div class="calculator__form-group">
-                                <label class="calculator__form-label" for="calculator_inleg_in_euros">{{ investment }}</label>
+                                <label class="calculator__form-label" for="calculator_inleg_in_euros">{{ investment }} <span style="padding-left: 50px; color: #ADB9CB;">{{ andor }}</span></label>
                                 <div class="calculator__input-holder">
                                     <div class="calculator__input-icon">
                                         <img class="calculator__input-img" :src="url + '/static/img/input-euro.svg'" width="10" height="12" alt="Euro">
@@ -89,11 +89,11 @@
                             <div class="calculator__result-label">
                                 <label for="select_years">{{ fiveyears }}</label>
                                 <select @change="calculate()" v-model="duration" id="select_years" class="select_box_year">
-                                    <option value="1" class="option_box">1 {{ yearSplit }}</option>
-                                    <option value="5" class="option_box" selected>5 {{ yearSplit }}</option>
-                                    <option value="10" class="option_box">10 {{ yearSplit }}</option>
-                                    <option value="20" class="option_box">20 {{ yearSplit }}</option>
-                                    <option value="30" class="option_box">30 {{ yearSplit }}</option>
+                                    <option value="1" class="option_box">1 {{ durationtime }}</option>
+                                    <option value="5" class="option_box" selected>5 {{ durationtime }}</option>
+                                    <option value="10" class="option_box">10 {{ durationtime }}</option>
+                                    <option value="20" class="option_box">20 {{ durationtime }}</option>
+                                    <option value="30" class="option_box">30 {{ durationtime }}</option>
                                 </select>
                             </div>
                             <div class="calculator__result-value">
@@ -147,6 +147,7 @@
             buybriqs: null,
             monthlyinvestment: null,
             reinvestinterest: null,
+            durationtime: null,
         },
 
         data() {
@@ -155,7 +156,6 @@
                 monthlyAdditionalInvestment: 100,
                 reinvest: true,
                 duration: 5,
-                yearSplit: this.year.split(" ")[1],
                 results: null,
                 permaand: null,
                 perjaar: null,
@@ -173,7 +173,7 @@
                 this.loading = true;
                 var data = {
                     'startkapitaal': this.initialInvestment,
-                    'inlegpermaand': this.monthlyAdditionalInvestment,
+                    'inlegPerMaand': this.monthlyAdditionalInvestment,
                     'herbeleggen': this.reinvest,
                     'looptijden': '1,5,10,20,30',
                     'rendement': 3.5,
@@ -184,7 +184,6 @@
                     this.eindkapitaal = Math.round(result.eindkapitaal);
                     this.perjaar = Math.round((result.eindkapitaal / result.looptijd));
                     this.permaand = parseFloat((result.eindkapitaal / result.looptijd / 12)).toFixed(2);
-                    console.log("Herbeleggen", this.reinvest);
                     this.loading = false;
                 });
             }

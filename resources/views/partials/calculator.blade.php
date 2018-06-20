@@ -15,4 +15,5 @@
 	buybriqs="{{ $siteWide->getText('site_breed.buy_briqs') }}"
 	monthlyinvestment="{{ $siteWide->getText('site_breed.monthly_investment') }}"
 	reinvestinterest="{{ $siteWide->getText('site_breed.reinvest_interest') }}"
+	durationtime="{{ $siteWide->getText('site_breed.duration') }}"
 ></calculator>

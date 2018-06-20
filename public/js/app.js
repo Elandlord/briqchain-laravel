@@ -47577,7 +47577,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         rights: null,
         buybriqs: null,
         monthlyinvestment: null,
-        reinvestinterest: null
+        reinvestinterest: null,
+        durationtime: null
     },
 
     data: function data() {
@@ -47586,7 +47587,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             monthlyAdditionalInvestment: 100,
             reinvest: true,
             duration: 5,
-            yearSplit: this.year.split(" ")[1],
             results: null,
             permaand: null,
             perjaar: null,
@@ -47606,7 +47606,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.loading = true;
             var data = {
                 'startkapitaal': this.initialInvestment,
-                'inlegpermaand': this.monthlyAdditionalInvestment,
+                'inlegPerMaand': this.monthlyAdditionalInvestment,
                 'herbeleggen': this.reinvest,
                 'looptijden': '1,5,10,20,30',
                 'rendement': 3.5
@@ -47617,7 +47617,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.eindkapitaal = Math.round(result.eindkapitaal);
                 _this.perjaar = Math.round(result.eindkapitaal / result.looptijd);
                 _this.permaand = parseFloat(result.eindkapitaal / result.looptijd / 12).toFixed(2);
-                console.log("Herbeleggen", _this.reinvest);
                 _this.loading = false;
             });
         }
@@ -47683,7 +47682,19 @@ var render = function() {
                     staticClass: "calculator__form-label",
                     attrs: { for: "calculator_inleg_in_euros" }
                   },
-                  [_vm._v(_vm._s(_vm.investment))]
+                  [
+                    _vm._v(_vm._s(_vm.investment) + " "),
+                    _c(
+                      "span",
+                      {
+                        staticStyle: {
+                          "padding-left": "50px",
+                          color: "#ADB9CB"
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.andor))]
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "calculator__input-holder" }, [
@@ -48008,7 +48019,7 @@ var render = function() {
                       _c(
                         "option",
                         { staticClass: "option_box", attrs: { value: "1" } },
-                        [_vm._v("1 " + _vm._s(_vm.yearSplit))]
+                        [_vm._v("1 " + _vm._s(_vm.durationtime))]
                       ),
                       _vm._v(" "),
                       _c(
@@ -48017,25 +48028,25 @@ var render = function() {
                           staticClass: "option_box",
                           attrs: { value: "5", selected: "" }
                         },
-                        [_vm._v("5 " + _vm._s(_vm.yearSplit))]
+                        [_vm._v("5 " + _vm._s(_vm.durationtime))]
                       ),
                       _vm._v(" "),
                       _c(
                         "option",
                         { staticClass: "option_box", attrs: { value: "10" } },
-                        [_vm._v("10 " + _vm._s(_vm.yearSplit))]
+                        [_vm._v("10 " + _vm._s(_vm.durationtime))]
                       ),
                       _vm._v(" "),
                       _c(
                         "option",
                         { staticClass: "option_box", attrs: { value: "20" } },
-                        [_vm._v("20 " + _vm._s(_vm.yearSplit))]
+                        [_vm._v("20 " + _vm._s(_vm.durationtime))]
                       ),
                       _vm._v(" "),
                       _c(
                         "option",
                         { staticClass: "option_box", attrs: { value: "30" } },
-                        [_vm._v("30 " + _vm._s(_vm.yearSplit))]
+                        [_vm._v("30 " + _vm._s(_vm.durationtime))]
                       )
                     ]
                   )

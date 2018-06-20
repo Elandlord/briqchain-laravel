@@ -90,6 +90,8 @@ class PageController extends Controller
                 $fondsen = $this->api->getByID($altLang->getId());
             }
         }
+
+        $app_url = env('APP_URL');        
         
         $page_title = $fondsen->getText('fondsen.main_titel');
         $meta_description = $fondsen->getText('fondsen.main_omschrijving');
@@ -97,7 +99,7 @@ class PageController extends Controller
         
         $lightBlue = true;
 
-        return view('fondsen', compact('fondsen', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'details'));
+        return view('fondsen', compact('fondsen', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'details', 'app_url'));
     }
 
     public function zoWerktHet(Request $request)
@@ -118,6 +120,8 @@ class PageController extends Controller
                 $zoWerktHet = $this->api->getByID($altLang->getId());
             }
         }
+
+        $app_url = env('APP_URL');        
         
         $page_title = $zoWerktHet->getText('zo_werkt_het.main_titel');
         $meta_description = $zoWerktHet->getText('fondsen.main_omschrijving');
@@ -126,7 +130,7 @@ class PageController extends Controller
         
         $lightBlue = false;
 
-        return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'questions'));
+        return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'questions', 'app_url'));
     }
 
     public function about(Request $request)
@@ -153,10 +157,12 @@ class PageController extends Controller
 
         $members = $about->getGroup('about.team_leden')->getArray();
         $partners = $about->getGroup('about.partners')->getArray();
+
+        $app_url = env('APP_URL');        
         
         $lightBlue = false;
 
-        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members', 'partners'));
+        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members', 'partners', 'app_url'));
     }
 
     public function aanmelden(Request $request)
@@ -183,6 +189,8 @@ class PageController extends Controller
         
         $lightBlue = false;
 
-        return view('aanmelden', compact('aanmelden', 'siteWide', 'page_title', 'meta_description', 'lightBlue'));
+        $app_url = env('APP_URL');        
+
+        return view('aanmelden', compact('aanmelden', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'app_url'));
     }
 }
