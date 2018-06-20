@@ -45,13 +45,15 @@
                                     <input class="calculator__form-input" type="number" id="calculator_rente_herbeleggen" name="calculator_rente_herbeleggen" required="required"> -->
                                 <div class=" padding-radio-buttons">                            
                                     <div class="checkbox-holder bg-main text-light bold">
-                                        <div class="padding-inside-radio">
-                                            <input type="radio" checked="checked" class="radio-button-input" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_on">Aan</label>
+                                        <div class="checkmark-container padding-inside-radio">
+                                            <input type="radio" checked="checked" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_on">Aan</label>
+                                            <span class="checkmark"></span>
                                         </div>
                                     </div>
                                     <div class="checkbox-holder bold">
-                                        <div class="padding-inside-radio">
-                                            <input type="radio" class="radio-button-input" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_off">Uit</label>
+                                        <div class="checkmark-container padding-inside-radio">
+                                            <input type="radio" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_off">Uit</label>
+                                            <span class="checkmark"></span>                                            
                                         </div>
                                     </div>
                                 </div>

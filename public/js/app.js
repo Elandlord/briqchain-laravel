@@ -47543,6 +47543,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -47815,9 +47817,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: " padding-radio-buttons" }, [
       _c("div", { staticClass: "checkbox-holder bg-main text-light bold" }, [
-        _c("div", { staticClass: "padding-inside-radio" }, [
+        _c("div", { staticClass: "checkmark-container padding-inside-radio" }, [
           _c("input", {
-            staticClass: "radio-button-input",
             attrs: {
               type: "radio",
               checked: "checked",
@@ -47833,14 +47834,15 @@ var staticRenderFns = [
               attrs: { for: "calculator_rente_herbeleggen_on" }
             },
             [_vm._v("Aan")]
-          )
+          ),
+          _vm._v(" "),
+          _c("span", { staticClass: "checkmark" })
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "checkbox-holder bold" }, [
-        _c("div", { staticClass: "padding-inside-radio" }, [
+        _c("div", { staticClass: "checkmark-container padding-inside-radio" }, [
           _c("input", {
-            staticClass: "radio-button-input",
             attrs: {
               type: "radio",
               id: "calculator_rente_herbeleggen_off",
@@ -47855,7 +47857,9 @@ var staticRenderFns = [
               attrs: { for: "calculator_rente_herbeleggen_off" }
             },
             [_vm._v("Uit")]
-          )
+          ),
+          _vm._v(" "),
+          _c("span", { staticClass: "checkmark" })
         ])
       ])
     ])
