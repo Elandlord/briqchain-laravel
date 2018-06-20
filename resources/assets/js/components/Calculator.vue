@@ -39,15 +39,21 @@
                             </div>
                             <div class="calculator__form-group">
                                 <label class="calculator__form-label" for="calculator_aantal_briqs">{{ reinvestinterest }}</label>
-                                <div class="calculator__input-holder">
                                     <!--<div class="calculator__input-icon">
                                         <img class="calculator__input-img" :src="url + '/static/img/input-logo.svg'" width="19" height="20" alt="Briqs">
                                     </div>
                                     <input class="calculator__form-input" type="number" id="calculator_rente_herbeleggen" name="calculator_rente_herbeleggen" required="required"> -->
-                                    <div class="">
-                                        <input type="checkbox" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen_on" /> Aan
+                                <div class=" padding-radio-buttons">                            
+                                    <div class="checkbox-holder bg-main text-light bold">
+                                        <div class="padding-inside-radio">
+                                            <input type="radio" checked="checked" class="radio-button-input" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_on">Aan</label>
+                                        </div>
                                     </div>
-                                    <input type="checkbox" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen_off" /> Uit
+                                    <div class="checkbox-holder bold">
+                                        <div class="padding-inside-radio">
+                                            <input type="radio" class="radio-button-input" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_off">Uit</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

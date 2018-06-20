@@ -2600,3 +2600,40 @@ p {
   background-color: #3a395b;
 }
 
+.text-light {
+  color: #FFFFFF;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.checkbox-holder {
+  display: inline-block;
+  border-radius: 4px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.padding-inside-radio {
+  padding: 5px 3px 5px 3px;
+}
+
+.radio-button-input {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  -ms-appearance: checkbox;
+  font-size: 17px;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.padding-radio-buttons {
+  padding: 14px 14px 16px;
+  width: 100%;
+}
+
