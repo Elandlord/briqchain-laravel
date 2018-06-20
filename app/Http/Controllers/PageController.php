@@ -64,10 +64,12 @@ class PageController extends Controller
         $buttons = $home->getGroup('home.hero_knoppen')->getArray();
 
         $points = $home->getGroup('home.punten')->getArray();
+
+        $app_url = env('APP_URL');
         
         $lightBlue = false;
 
-        return view('home', compact('home', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'buttons', 'points'));
+        return view('home', compact('home', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'buttons', 'points', 'app_url'));
     }
 
     public function fondsen(Request $request)

@@ -54,7 +54,8 @@
 	</script>
 	<!--End of Tawk.to Script-->
 
-	<script type="text/javascript" src="js/calculator.js"></script>
+	{{-- <script type="text/javascript" src="js/calculator.js"></script> --}}
+	<script type="text/javascript" src="js/app.js"></script>
 
 	<script
 	src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

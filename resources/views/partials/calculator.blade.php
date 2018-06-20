@@ -1,80 +1,18 @@
-<div class="calculator__topline">
-	<svg class="calculator__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/></svg>
-</div>
-<div class="calculator__content">
-	<div class="wrapper wrapper--small">
-		<div class="calculator__block">
-			<h2 class="calculator__title"><?php echo $siteWide->getText('site_breed.calculator_titel'); ?></h2>
-			<div class="calculator__badges">
-				<div class="calculator__large-badge">
-					<span class="calculator__badge-title">3<span class="calculator__badge-title-sign">%</span></span>
-					<span class="calculator__badge-content"><?php echo $siteWide->getText('site_breed.bonus'); ?></span>
-				</div>
-				<div class="calculator__small-badge">
-					<span class="calculator__badge-title">4<span class="calculator__badge-title-sign">%</span></span>
-					<span class="calculator__badge-content"><?php echo $siteWide->getText('site_breed.interest'); ?></span>
-				</div>
-			</div>			
-			<div class="calculator__form-wrapper">
-				<div class="calculator__form">
-					<div class="calculator__form-group">
-						<label class="calculator__form-label" for="calculator_inleg_in_euros"><?php echo $siteWide->getText('site_breed.investment'); ?></label>
-						<div class="calculator__input-holder">
-							<div class="calculator__input-icon">
-								<img class="calculator__input-img" src="{{ env('APP_URL') }}/static/img/input-euro.svg" width="10" height="12" alt="Euro">
-							</div>
-							<input class="calculator__form-input" type="number" id="calculator_inleg_in_euros" name="calculator_inleg_in_euros" required="required" value="100" step="10" min="10">
-						</div>
-					</div>
-					<div class="calculator__form-group">
-						<label class="calculator__form-label" for="calculator_aantal_briqs"><?php echo $siteWide->getText('site_breed.amount_briqs'); ?></label>
-						<div class="calculator__input-holder">
-							<div class="calculator__input-icon">
-								<img class="calculator__input-img" src="{{ env('APP_URL') }}/static/img/input-logo.svg" width="19" height="20" alt="Briqs">
-							</div>
-							<input class="calculator__form-input" type="number" id="calculator_aantal_briqs" name="calculator_aantal_briqs" required="required" value="10" step="1" min="1">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="calculator__results">
-				<div class="calculator__result calculator__result--first">
-					<div class="calculator__result-label"><?php echo $siteWide->getText('site_breed.month'); ?></div>
-					<div class="calculator__result-value">
-						<span class="calculator__result-sign">€</span>
-						<span class="calculator__result-amount" id="calculator_per_maand">0,33</span>
-					</div>
-				</div>
-				<div class="calculator__result">
-					<div class="calculator__result-label"><?php echo $siteWide->getText('site_breed.year'); ?></div>
-					<div class="calculator__result-value">
-						<span class="calculator__result-sign">€</span>
-						<span class="calculator__result-amount" id="calculator_per_paar">4,-</span>
-					</div>
-				</div>
-				<div class="calculator__result calculator__result--last">
-					<div class="calculator__result-label"><?php echo $siteWide->getText('site_breed.return_5_year'); ?></div>
-					<div class="calculator__result-value">
-						<span class="calculator__result-sign">€</span>
-						<span class="calculator__result-amount calculator__result-amount--light" id="calculator_per_vijf_paar">23,-</span>
-					</div>
-				</div>
-			</div>
-			<div class="calculator__extra-note">
-				<?php echo $siteWide->getText('site_breed.redeem'); ?>
-			</div>
-			<div class="calculator__footer">
-				<ul class="calculator__bullets">
-					<li><?php echo $siteWide->getText('site_breed.exclusive'); ?></li>
-					<li><?php echo $siteWide->getText('site_breed.rights'); ?></li>
-				</ul>
-				<div class="calculator__footer-action">
-					<a href="{{ env('APP_URL') }}/sign-up" class="button button--green">
-						<img class="button__img button__briqs" src="{{ env('APP_URL') }}/static/img/button-logo.svg" width="19" height="20" alt="Briqs">
-						<?php echo $siteWide->getText('site_breed.buy_briqs'); ?>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<calculator 
+	calculatortitle="{{ $siteWide->getText('site_breed.calculator_titel') }}"
+	bonus="{{ $siteWide->getText('site_breed.bonus') }}"
+	interest="{{ $siteWide->getText('site_breed.interest') }}"
+	investment="{{ $siteWide->getText('site_breed.investment') }}"
+	andor="{{ $siteWide->getText('site_breed.and_or') }}"
+	url="{{ $app_url }}"
+	amountbriqs="{{ $siteWide->getText('site_breed.amount_briqs') }}"
+	month="{{ $siteWide->getText('site_breed.month') }}"
+	year="{{ $siteWide->getText('site_breed.year') }}"
+	fiveyears="{{ $siteWide->getText('site_breed.return_5_year') }}"
+	redeem="{{ $siteWide->getText('site_breed.redeem') }}"
+	exclusive="{{ $siteWide->getText('site_breed.exclusive') }}"
+	rights="{{ $siteWide->getText('site_breed.rights') }}"
+	buybriqs="{{ $siteWide->getText('site_breed.buy_briqs') }}"
+	monthlyinvestment="{{ $siteWide->getText('site_breed.monthly_investment') }}"
+	reinvestinterest="{{ $siteWide->getText('site_breed.reinvest_interest') }}"
+></calculator>
