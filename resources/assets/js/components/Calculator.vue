@@ -171,12 +171,13 @@
         methods: {
             calculate(){
                 this.loading = true;
+                console.log(this.reinvest);
                 var data = {
                     'startkapitaal': this.initialInvestment,
                     'inlegPerMaand': this.monthlyAdditionalInvestment,
-                    'herbeleggen': this.reinvest,
+                    'herbeleggen': this.reinvest.toString(),
                     'looptijden': '1,5,10,20,30',
-                    'rendement': 3.5,
+                    'rendement': 4,
                 };
                 axios.post('/calculate/return', data).then((response) => {
                     let jaren = collect(response.data.results.jaren);
@@ -184,6 +185,8 @@
                     this.eindkapitaal = Math.round(result.eindkapitaal);
                     this.perjaar = Math.round((result.eindkapitaal / result.looptijd));
                     this.permaand = parseFloat((result.eindkapitaal / result.looptijd / 12)).toFixed(2);
+                    console.log(this.reinvest, "Beleggen");
+                    console.log(response, "Response");
                     this.loading = false;
                 });
             }
