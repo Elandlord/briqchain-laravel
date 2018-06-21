@@ -47604,19 +47604,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.loading = true;
+            console.log(this.reinvest);
             var data = {
                 'startkapitaal': this.initialInvestment,
                 'inlegPerMaand': this.monthlyAdditionalInvestment,
-                'herbeleggen': this.reinvest,
+                'herbeleggen': this.reinvest.toString(),
                 'looptijden': '1,5,10,20,30',
-                'rendement': 3.5
+                'rendement': 4
             };
             axios.post('/calculate/return', data).then(function (response) {
                 var jaren = collect(response.data.results.jaren);
                 var result = jaren.firstWhere('looptijd', _this.duration.toString());
                 _this.eindkapitaal = Math.round(result.eindkapitaal);
-                _this.perjaar = Math.round(result.eindkapitaal / result.looptijd);
-                _this.permaand = parseFloat(result.eindkapitaal / result.looptijd / 12).toFixed(2);
+                _this.perjaar = parseFloat(result.rendementAbs / result.looptijd).toFixed(2);
+                _this.permaand = parseFloat(result.rendementAbs / result.looptijd / 12).toFixed(2);
                 _this.loading = false;
             });
         }
@@ -47660,7 +47661,7 @@ var render = function() {
               _vm._m(0),
               _vm._v(" "),
               _c("span", { staticClass: "calculator__badge-content" }, [
-                _vm._v(_vm._s(_vm.bonus))
+                _vm._v(_vm._s(_vm.interest))
               ])
             ]),
             _vm._v(" "),
@@ -47668,7 +47669,7 @@ var render = function() {
               _vm._m(1),
               _vm._v(" "),
               _c("span", { staticClass: "calculator__badge-content" }, [
-                _vm._v(_vm._s(_vm.interest))
+                _vm._v(_vm._s(_vm.bonus))
               ])
             ])
           ]),
@@ -47957,7 +47958,7 @@ var render = function() {
                   },
                   [
                     _vm.perjaar && !_vm.loading
-                      ? _c("span", [_vm._v(_vm._s(_vm.perjaar) + ",-")])
+                      ? _c("span", [_vm._v(_vm._s(_vm.perjaar))])
                       : _c("span", [
                           _c("img", {
                             attrs: {
@@ -48083,14 +48084,6 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "calculator__extra-note" }, [
-            _vm._v(
-              "\n                    " +
-                _vm._s(_vm.redeem) +
-                "\n                "
-            )
-          ]),
-          _vm._v(" "),
           _c("div", { staticClass: "calculator__footer" }, [
             _c("ul", { staticClass: "calculator__bullets" }, [
               _c("li", { domProps: { innerHTML: _vm._s(_vm.exclusive) } }),
@@ -48135,7 +48128,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "calculator__badge-title" }, [
-      _vm._v("3"),
+      _vm._v("4"),
       _c("span", { staticClass: "calculator__badge-title-sign" }, [_vm._v("%")])
     ])
   },
@@ -48144,8 +48137,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "calculator__badge-title" }, [
-      _vm._v("4"),
-      _c("span", { staticClass: "calculator__badge-title-sign" }, [_vm._v("%")])
+      _vm._v("€"),
+      _c("span", { staticClass: "calculator__badge-title-sign" }, [
+        _vm._v("10")
+      ])
     ])
   }
 ]

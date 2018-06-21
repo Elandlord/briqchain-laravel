@@ -78,7 +78,7 @@
                             <div class="calculator__result-value">
                                 <span class="calculator__result-sign">€</span>
                                 <span class="calculator__result-amount" id="calculator_per_paar">
-                                    <span v-if="perjaar && !loading">{{ perjaar }},-</span>
+                                    <span v-if="perjaar && !loading">{{ perjaar }}</span>
                                     <span v-else>
                                         <img width="20" height="20" src="/images/oval.svg" />
                                     </span>
@@ -183,10 +183,8 @@
                     let jaren = collect(response.data.results.jaren);
                     let result = jaren.firstWhere('looptijd', this.duration.toString())
                     this.eindkapitaal = Math.round(result.eindkapitaal);
-                    this.perjaar = Math.round((result.eindkapitaal / result.looptijd));
-                    this.permaand = parseFloat((result.eindkapitaal / result.looptijd / 12)).toFixed(2);
-                    console.log(this.reinvest, "Beleggen");
-                    console.log(response, "Response");
+                    this.perjaar = parseFloat((result.rendementAbs / result.looptijd)).toFixed(2);
+                    this.permaand = parseFloat((result.rendementAbs / result.looptijd / 12)).toFixed(2);
                     this.loading = false;
                 });
             }

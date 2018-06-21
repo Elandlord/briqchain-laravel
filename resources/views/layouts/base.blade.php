@@ -38,7 +38,7 @@
 		</script>
 	@endif
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/app.js?<?php echo microtime(); ?>"></script>
 
 		
 	<!--Start of Tawk.to Script-->
