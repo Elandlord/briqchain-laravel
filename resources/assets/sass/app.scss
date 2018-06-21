@@ -1128,9 +1128,14 @@ p{
 }
 
 .calculator__form-group{
-	width: 33%;
 	display: table-cell;
 	vertical-align: bottom;
+}
+
+@media (min-width: 991px) {
+	.calculator__form-group{
+		width: 33.33333%;	
+	}
 }
 
 .calculator__form-label{

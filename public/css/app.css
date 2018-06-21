@@ -1433,9 +1433,14 @@ p {
 }
 
 .calculator__form-group {
-  width: 33%;
   display: table-cell;
   vertical-align: bottom;
+}
+
+@media (min-width: 991px) {
+  .calculator__form-group {
+    width: 33.33333%;
+  }
 }
 
 .calculator__form-label {
@@ -2698,8 +2703,9 @@ p {
   color: #91aac0;
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: bold;
   border: none;
+  letter-spacing: 0.15em;
 }
 
 .option_box {
