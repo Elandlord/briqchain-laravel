@@ -9,12 +9,12 @@
                     <h2 class="calculator__title">{{ calculatortitle }}</h2>
                     <div class="calculator__badges">
                         <div class="calculator__large-badge">
-                            <span class="calculator__badge-title">3<span class="calculator__badge-title-sign">%</span></span>
-                            <span class="calculator__badge-content">{{ bonus }}</span>
-                        </div>
-                        <div class="calculator__small-badge">
                             <span class="calculator__badge-title">4<span class="calculator__badge-title-sign">%</span></span>
                             <span class="calculator__badge-content">{{ interest }}</span>
+                        </div>
+                        <div class="calculator__small-badge">
+                            <span class="calculator__badge-title">&euro;<span class="calculator__badge-title-sign">10</span></span>
+                            <span class="calculator__badge-content">{{ bonus }}</span>
                         </div>
                     </div>			
                     <div class="calculator__form-wrapper">
@@ -107,9 +107,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calculator__extra-note">
+                    <!-- <div class="calculator__extra-note">
                         {{ redeem }}
-                    </div>
+                    </div> -->
                     <div class="calculator__footer">
                         <ul class="calculator__bullets">
                             <li v-html="exclusive"></li>
