@@ -47585,7 +47585,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             initialInvestment: 100,
             monthlyAdditionalInvestment: 100,
-            reinvest: true,
+            reinvest: 'true',
             duration: 5,
             results: null,
             permaand: null,
@@ -47604,7 +47604,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.loading = true;
-            console.log(this.reinvest);
             var data = {
                 'startkapitaal': this.initialInvestment,
                 'inlegPerMaand': this.monthlyAdditionalInvestment,
@@ -47615,11 +47614,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/calculate/return', data).then(function (response) {
                 var jaren = collect(response.data.results.jaren);
                 var result = jaren.firstWhere('looptijd', _this.duration.toString());
-                _this.eindkapitaal = Math.round(result.eindkapitaal);
-                _this.perjaar = parseFloat(result.rendementAbs / result.looptijd).toFixed(2);
-                _this.permaand = parseFloat(result.rendementAbs / result.looptijd / 12).toFixed(2);
+
+                var perjaar = parseFloat(result.rendementAbs / result.looptijd).toFixed(2).toString().replace(".", ",");
+                var permaand = parseFloat(result.rendementAbs / result.looptijd / 12).toFixed(2).toString().replace(".", ",");
+
+                perjaar = _this.parseToDotNumber(perjaar.split(",")[0]).concat(",").concat(perjaar.split(",")[1]);
+                permaand = _this.parseToDotNumber(permaand.split(",")[0]).concat(",").concat(permaand.split(",")[1]);
+                _this.eindkapitaal = _this.parseToDotNumber(Math.round(result.eindkapitaal));
+
+                if (perjaar.split(",")[1] == "00") {
+                    _this.perjaar = perjaar.split(",")[0].concat(",-");
+                } else {
+                    _this.perjaar = perjaar;
+                }
+
+                if (permaand.split(",")[1] == "00") {
+                    _this.permaand = permaand.split(",")[0].concat(",-");
+                } else {
+                    _this.permaand = permaand;
+                }
+
                 _this.loading = false;
             });
+        },
+        parseToDotNumber: function parseToDotNumber(numberBeforeComma) {
+            numberBeforeComma += '';
+            var x = numberBeforeComma.split('.');
+            var x1 = x[0];
+            var x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + '.' + '$2');
+            }
+            return x1 + x2;
         }
     }
 });
@@ -47815,88 +47842,104 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: " padding-radio-buttons" }, [
-                  _c("div", { staticClass: "checkbox-holder bg-main" }, [
-                    _c("div", { staticClass: "padding-inside-radio" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.reinvest,
-                            expression: "reinvest"
-                          }
-                        ],
-                        attrs: {
-                          type: "radio",
-                          value: "true",
-                          checked: "checked",
-                          id: "calculator_rente_herbeleggen_on",
-                          name: "calculator_rente_herbeleggen"
-                        },
-                        domProps: { checked: _vm._q(_vm.reinvest, "true") },
-                        on: {
-                          change: [
-                            function($event) {
-                              _vm.reinvest = "true"
-                            },
-                            function($event) {
-                              _vm.calculate()
+                  _c(
+                    "div",
+                    {
+                      staticClass: "checkbox-holder",
+                      class: { "bg-main": _vm.reinvest == "true" }
+                    },
+                    [
+                      _c("div", { staticClass: "padding-inside-radio" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reinvest,
+                              expression: "reinvest"
                             }
-                          ]
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "pointer text-light bold",
-                          attrs: { for: "calculator_rente_herbeleggen_on" }
-                        },
-                        [_vm._v("Aan")]
-                      )
-                    ])
-                  ]),
+                          ],
+                          attrs: {
+                            type: "radio",
+                            value: "true",
+                            checked: "checked",
+                            id: "calculator_rente_herbeleggen_on",
+                            name: "calculator_rente_herbeleggen"
+                          },
+                          domProps: { checked: _vm._q(_vm.reinvest, "true") },
+                          on: {
+                            change: [
+                              function($event) {
+                                _vm.reinvest = "true"
+                              },
+                              function($event) {
+                                _vm.calculate()
+                              }
+                            ]
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "pointer text-light bold",
+                            class: { "text-main": _vm.reinvest == "false" },
+                            attrs: { for: "calculator_rente_herbeleggen_on" }
+                          },
+                          [_vm._v("Aan")]
+                        )
+                      ])
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("div", { staticClass: "checkbox-holder bold" }, [
-                    _c("div", { staticClass: "padding-inside-radio" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.reinvest,
-                            expression: "reinvest"
-                          }
-                        ],
-                        attrs: {
-                          type: "radio",
-                          value: "false",
-                          id: "calculator_rente_herbeleggen_off",
-                          name: "calculator_rente_herbeleggen"
-                        },
-                        domProps: { checked: _vm._q(_vm.reinvest, "false") },
-                        on: {
-                          change: [
-                            function($event) {
-                              _vm.reinvest = "false"
-                            },
-                            function($event) {
-                              _vm.calculate()
+                  _c(
+                    "div",
+                    {
+                      staticClass: "checkbox-holder bold",
+                      class: { "bg-main": _vm.reinvest == "false" }
+                    },
+                    [
+                      _c("div", { staticClass: "padding-inside-radio" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.reinvest,
+                              expression: "reinvest"
                             }
-                          ]
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "label",
-                        {
-                          staticClass: "pointer",
-                          attrs: { for: "calculator_rente_herbeleggen_off" }
-                        },
-                        [_vm._v("Uit")]
-                      )
-                    ])
-                  ])
+                          ],
+                          attrs: {
+                            type: "radio",
+                            value: "false",
+                            id: "calculator_rente_herbeleggen_off",
+                            name: "calculator_rente_herbeleggen"
+                          },
+                          domProps: { checked: _vm._q(_vm.reinvest, "false") },
+                          on: {
+                            change: [
+                              function($event) {
+                                _vm.reinvest = "false"
+                              },
+                              function($event) {
+                                _vm.calculate()
+                              }
+                            ]
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "pointer",
+                            class: { "text-light": _vm.reinvest == "false" },
+                            attrs: { for: "calculator_rente_herbeleggen_off" }
+                          },
+                          [_vm._v("Uit")]
+                        )
+                      ])
+                    ]
+                  )
                 ])
               ])
             ])
@@ -48138,9 +48181,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "calculator__badge-title" }, [
       _vm._v("€"),
-      _c("span", { staticClass: "calculator__badge-title-sign" }, [
-        _vm._v("10")
-      ])
+      _c(
+        "span",
+        {
+          staticClass: "calculator__badge-title-sign",
+          staticStyle: {
+            position: "relative",
+            bottom: "3px",
+            "font-size": "27px"
+          }
+        },
+        [_vm._v("10")]
+      )
     ])
   }
 ]

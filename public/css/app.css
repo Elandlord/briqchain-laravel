@@ -2610,6 +2610,10 @@ p {
   color: #FFFFFF;
 }
 
+.text-main {
+  color: #3a395b;
+}
+
 .bold {
   font-weight: 700;
 }

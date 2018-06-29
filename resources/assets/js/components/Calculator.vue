@@ -13,7 +13,7 @@
                             <span class="calculator__badge-content">{{ interest }}</span>
                         </div>
                         <div class="calculator__small-badge">
-                            <span class="calculator__badge-title">&euro;<span class="calculator__badge-title-sign">10</span></span>
+                            <span class="calculator__badge-title">&euro;<span class="calculator__badge-title-sign" style="position: relative; bottom: 3px; font-size: 27px;">10</span></span>
                             <span class="calculator__badge-content">{{ bonus }}</span>
                         </div>
                     </div>			
@@ -44,14 +44,14 @@
                                     </div>
                                     <input class="calculator__form-input" type="number" id="calculator_rente_herbeleggen" name="calculator_rente_herbeleggen" required="required"> -->
                                 <div class=" padding-radio-buttons">                            
-                                    <div class="checkbox-holder bg-main">
+                                    <div class="checkbox-holder" :class="{ 'bg-main': reinvest == 'true' }">
                                         <div class="padding-inside-radio">
-                                            <input type="radio" @change="calculate()" v-model="reinvest" value="true" checked="checked" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer text-light bold" for="calculator_rente_herbeleggen_on">Aan</label>
+                                            <input type="radio" @change="calculate()" v-model="reinvest" value="true" checked="checked" id="calculator_rente_herbeleggen_on" name="calculator_rente_herbeleggen" /> <label class="pointer text-light bold" :class="{ 'text-main': reinvest == 'false' }" for="calculator_rente_herbeleggen_on">Aan</label>
                                         </div>
                                     </div>
-                                    <div class="checkbox-holder bold">
+                                    <div class="checkbox-holder bold" :class="{ 'bg-main': reinvest == 'false' }">
                                         <div class="padding-inside-radio">
-                                            <input type="radio" @change="calculate()" v-model="reinvest" value="false" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" for="calculator_rente_herbeleggen_off">Uit</label>
+                                            <input type="radio" @change="calculate()" v-model="reinvest" value="false" id="calculator_rente_herbeleggen_off" name="calculator_rente_herbeleggen" /> <label class="pointer" :class="{ 'text-light': reinvest == 'false' }" for="calculator_rente_herbeleggen_off">Uit</label>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@
             return {
                 initialInvestment: 100,
                 monthlyAdditionalInvestment: 100,
-                reinvest: true,
+                reinvest: 'true',
                 duration: 5,
                 results: null,
                 permaand: null,
@@ -171,7 +171,6 @@
         methods: {
             calculate(){
                 this.loading = true;
-                console.log(this.reinvest);
                 var data = {
                     'startkapitaal': this.initialInvestment,
                     'inlegPerMaand': this.monthlyAdditionalInvestment,
@@ -182,11 +181,42 @@
                 axios.post('/calculate/return', data).then((response) => {
                     let jaren = collect(response.data.results.jaren);
                     let result = jaren.firstWhere('looptijd', this.duration.toString())
-                    this.eindkapitaal = Math.round(result.eindkapitaal);
-                    this.perjaar = parseFloat((result.rendementAbs / result.looptijd)).toFixed(2);
-                    this.permaand = parseFloat((result.rendementAbs / result.looptijd / 12)).toFixed(2);
+                    
+
+                    let perjaar = parseFloat((result.rendementAbs / result.looptijd)).toFixed(2).toString().replace(".", ",");
+                    let permaand = parseFloat((result.rendementAbs / result.looptijd / 12)).toFixed(2).toString().replace(".", ",");
+
+                    perjaar = this.parseToDotNumber(perjaar.split(",")[0]).concat(",").concat(perjaar.split(",")[1]);
+                    permaand = this.parseToDotNumber(permaand.split(",")[0]).concat(",").concat(permaand.split(",")[1])
+                    this.eindkapitaal = this.parseToDotNumber(Math.round(result.eindkapitaal));
+
+                    if(perjaar.split(",")[1] == "00"){
+                        this.perjaar = perjaar.split(",")[0].concat(",-");
+                    }else{
+                        this.perjaar = perjaar;
+                    }
+
+                    if(permaand.split(",")[1] == "00"){
+                        this.permaand = permaand.split(",")[0].concat(",-");
+                    }else{
+                        this.permaand = permaand;
+                    }
+
                     this.loading = false;
                 });
+            },
+
+            parseToDotNumber(numberBeforeComma)
+            {
+                numberBeforeComma += '';
+                var x = numberBeforeComma.split('.');
+                var x1 = x[0];
+                var x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                }
+                return x1 + x2;
             }
         }
     }
