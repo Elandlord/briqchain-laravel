@@ -6,10 +6,13 @@ use Prismic\Api;
 use Prismic\LinkResolver;
 use Prismic\Predicates;
 use Prismic\Document;
+use App\EmailCatcher;
 
 use App\Enums\AcceptedLanguages;
 
 use Illuminate\Support\Facades\Session;
+
+use Carbon\Carbon;
 
 use App;
 
@@ -17,10 +20,36 @@ class PageController extends Controller
 {
     public $api;
     public $locale;
+    public $ip_address;
+    public $pop_up;
 
     public function __construct()
     {
         $this->api = Api::get(env('PRISMIC_URL'));
+        $this->getEmailCatcher();
+    }
+
+    public function getEmailCatcher()
+    {
+        $this->ip_address = $_SERVER['REMOTE_ADDR'];
+
+        $email_catcher = EmailCatcher::firstOrCreate(
+            ['ip_address' => $this->ip_address]
+        );
+
+        if($email_catcher->date_last_pop_up != null){
+            $carbonInstance = Carbon::createFromFormat('Y-m-d', $email_catcher->date_last_pop_up);
+            if($carbonInstance->addDay()->isPast()){
+                $this->pop_up = true;
+            }
+            return;
+        }else{
+            $this->pop_up = true;
+            return;
+        }
+
+        $this->pop_up = false;
+        return;
     }
 
     public function getLocale($request)
@@ -69,7 +98,10 @@ class PageController extends Controller
         
         $lightBlue = false;
 
-        return view('home', compact('home', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'buttons', 'points', 'app_url'));
+        $ip_address = $this->ip_address;
+        $pop_up = $this->pop_up;
+
+        return view('home', compact('home', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'buttons', 'points', 'app_url', 'ip_address', 'pop_up'));
     }
 
     public function fondsen(Request $request)
@@ -99,7 +131,10 @@ class PageController extends Controller
         
         $lightBlue = true;
 
-        return view('fondsen', compact('fondsen', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'details', 'app_url'));
+        $ip_address = $this->ip_address;
+        $pop_up = $this->pop_up;
+
+        return view('fondsen', compact('fondsen', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'details', 'app_url', 'ip_address', 'pop_up'));
     }
 
     public function zoWerktHet(Request $request)
@@ -130,7 +165,10 @@ class PageController extends Controller
         
         $lightBlue = false;
 
-        return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'questions', 'app_url'));
+        $ip_address = $this->ip_address;
+        $pop_up = $this->pop_up;
+
+        return view('zo-werkt-het', compact('zoWerktHet', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'questions', 'app_url', 'ip_address', 'pop_up'));
     }
 
     public function about(Request $request)
@@ -162,7 +200,10 @@ class PageController extends Controller
         
         $lightBlue = false;
 
-        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members', 'partners', 'app_url'));
+        $ip_address = $this->ip_address;
+        $pop_up = $this->pop_up;
+
+        return view('about', compact('about', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'members', 'partners', 'app_url', 'ip_address', 'pop_up'));
     }
 
     public function aanmelden(Request $request)
@@ -189,8 +230,11 @@ class PageController extends Controller
         
         $lightBlue = false;
 
+        $ip_address = $this->ip_address;
+        $pop_up = $this->pop_up;
+
         $app_url = env('APP_URL');        
 
-        return view('aanmelden', compact('aanmelden', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'app_url'));
+        return view('aanmelden', compact('aanmelden', 'siteWide', 'page_title', 'meta_description', 'lightBlue', 'app_url', 'ip_address', 'pop_up'));
     }
 }

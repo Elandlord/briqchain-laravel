@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('calculator', require('./components/Calculator.vue'));
+Vue.component('email-catcher', require('./components/EmailCatcher.vue'));
 
 const app = new Vue({
     el: '#app'
