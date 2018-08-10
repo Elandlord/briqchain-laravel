@@ -39,7 +39,7 @@ class PageController extends Controller
 
         if($email_catcher->date_last_pop_up != null){
             $carbonInstance = Carbon::createFromFormat('Y-m-d', $email_catcher->date_last_pop_up);
-            if($carbonInstance->addDay()->isPast()){
+            if($carbonInstance->addMonth()->isPast()){
                 $this->pop_up = true;
             }
             return;
