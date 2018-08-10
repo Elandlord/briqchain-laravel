@@ -35,7 +35,9 @@ class EmailSubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        EmailSubscription::create($request->all());
+        $emailSubscription = EmailSubscription::create($request->all());
+
+        return response()->json($emailSubscription, 201);
     }
 
     /**

@@ -68,6 +68,8 @@ class EmailCatcherController extends Controller
     public function update(EmailCatcherUpdateRequest $request, EmailCatcher $emailCatcher)
     {
         $emailCatcher->update($request->all());
+
+        return response()->json($emailCatcher, 201);
     }
 
     /**
