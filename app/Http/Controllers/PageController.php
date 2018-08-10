@@ -31,7 +31,11 @@ class PageController extends Controller
 
     public function getEmailCatcher()
     {
-        $this->ip_address = $_SERVER['REMOTE_ADDR'];
+        if(!empty($_SERVER['REMOTE_ADDR'])){
+            $this->ip_address = $_SERVER['REMOTE_ADDR'];
+        }else{
+            $this->ip_address = "127.0.0.1";
+        }
 
         $email_catcher = EmailCatcher::firstOrCreate(
             ['ip_address' => $this->ip_address]

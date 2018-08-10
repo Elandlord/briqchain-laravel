@@ -23,4 +23,6 @@ Route::get('language/{language}', 'LanguageController@changeLanguage');
 
 Route::post('calculate/return', 'CalculateController@calculate');
 
-Route::post('email-catcher/{emailCatcher}');
+
+Route::resource('emailCatchers', 'EmailCatcherController');
+Route::resource('emailSubscriptions', 'EmailSubscriptionController');
