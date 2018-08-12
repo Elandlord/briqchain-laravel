@@ -22,3 +22,7 @@ Route::post('/sign-up/mail', 'MailController@aanmelden');
 Route::get('language/{language}', 'LanguageController@changeLanguage');
 
 Route::post('calculate/return', 'CalculateController@calculate');
+
+
+Route::resource('emailCatchers', 'EmailCatcherController');
+Route::resource('emailSubscriptions', 'EmailSubscriptionController');
