@@ -7,6 +7,7 @@
 	<meta name="description" content="{{ $meta_description }}">
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/static/img/favicon.png">
 	
 	<link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo microtime(); ?>">
