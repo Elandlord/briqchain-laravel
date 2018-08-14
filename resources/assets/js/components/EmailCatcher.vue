@@ -1,20 +1,27 @@
 <template>
-    <div v-show="visible" class="catcher__overlay absolute pin-l pin-t w-full h-full z-50 flex justify-center items-center">
-        <div class="catcher__container shadow rounded overflow-hidden bg-white">
+    <div v-show="visible"
+         class="catcher__overlay absolute pin-l pin-t w-full h-full z-50 flex justify-center items-center">
+        <div class="catcher__container shadow rounded overflow-hidden bg-white relative">
+
             <form id="newsletterForm">
 
-                <div class="catcher__close_button"></div>
+                <div @click="close()"
+                     class="catcher__close_button absolute rounded-full mt-6 mr-6 pin-r pin-t bg-deep-blue-lighter cursor-pointer">
+                    <i class="material-icons text-white text-xs">
+                        close
+                    </i>
+                </div>
 
                 <div class="catcher__top_container bg-blue-grey py-10 px-16">
 
-                    <p class="catcher__annotation uppercase m-0 bold text-grey text-xs">Nieuwsbrief</p>
+                    <p class="catcher__annotation uppercase m-0 bold text-grey ">Nieuwsbrief</p>
 
                     <div class="catcher__title_container mt-5 flex items-center">
                         <i class="catcher__icon material-icons mr-5"> email </i>
                         <h1 class="catcher__title inline-block text-2xl"> Sorry dat we je ophouden</h1>
                     </div>
 
-                    <p class="catcher__description text-xs mb-0">
+                    <p class="catcher__description text-xs mb-0 tracking-wide">
                         We zien dat je onze website wilt verlaten,
                         schrijf je in voor onze nieuwsbrief om op de
                         hoogte te blijven van Briqchain.
@@ -66,11 +73,11 @@
                             </i>
                         </div>
 
-                        <a class="catcher__cookies_and_terms mr-4 text-xs no-underline text-deep-blue-lighter" href="#">
+                        <a class="catcher__cookies_and_terms mr-4 no-underline text-deep-blue-lighter" href="#">
                             Cookiebeleid & Algemene voorwaarden</a>
 
                         <button @click.prevent="confirmCookie()"
-                                class="catcher__subscribe_button text-xs float-right px-10 py-3 rounded shadow hover:shadow-md catcher__transition  hover:bg-jade-light bg-jade text-white">
+                                class="outline-none catcher__subscribe_button text-xs float-right px-10 py-3 rounded shadow hover:shadow-md catcher__transition  hover:bg-jade-light bg-jade text-white">
                             Inschrijven
                         </button>
                     </div>
@@ -88,7 +95,15 @@
 
 <style lang="scss">
     .catcher__overlay {
-        background: rgba(0, 0, 0, .4);
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .catcher__annotation {
+        font-size: 0.65rem;
+    }
+
+    .catcher__close_button {
+        padding: 0px 5px 0px 6px;
     }
 
     .catcher__container {
@@ -108,11 +123,11 @@
     }
 
     .catcher__icon {
-        font-size: 40px;
+        font-size: 2.5rem;
     }
 
     .catcher__input_icon {
-        font-size: 17px;
+        font-size: 1.1rem;
     }
 
     .catcher__checkbox {
@@ -121,19 +136,22 @@
     }
 
     .catcher__checkbox_icon {
-        font-size: 10px;
+        font-size: 0.6rem;
         position: relative;
         bottom: 4px;
         right: 1px;
     }
 
     .catcher__error_message {
-        font-size: 12px;
+        font-size: 0.6rem;
         color: red;
         position: relative;
         bottom: 20px;
     }
 
+    .catcher__cookies_and_terms {
+        font-size: 0.6rem;
+    }
 
 
 </style>
@@ -142,6 +160,8 @@
     export default {
         props: {
             ipaddress: null,
+            display: null,
+            emailcatcher: null,
         },
 
         data() {
@@ -149,35 +169,44 @@
                 visible: false,
                 checked: false,
                 showMessage: false,
+                emailCatcher: JSON.parse(this.emailcatcher),
             }
         },
 
         mounted() {
-
+            console.log(this.emailCatcher);
             // show e-mailcatcher when the user moves its mouse from the page.
-            $(document).bind("mouseleave", (e) => {
-                if (e.pageY - $(window).scrollTop() <= 1) {
-                    this.visible = true;
-                }
-            });
+            if (this.display)
+                document.addEventListener("mouseleave", this.showOnPageLeave, true);
         },
 
         methods: {
-            showEmailCatcher() {
-                this.visible = true;
+            showOnPageLeave(e) {
+                if (e.pageY - $(window).scrollTop() <= 1 && this.display) {
+                    this.visible = true;
+                }
             },
 
-            hideEmailCatcher() {
+            close() {
+                document.removeEventListener("mouseleave", this.showOnPageLeave, true);
+                this.updateLastPopUpDate();
+
                 this.visible = false;
             },
 
             confirmCookie() {
                 if (this.checked) {
+                    document.removeEventListener("mouseleave", this.showOnPageLeave, true);
                     $('#newsletterForm').submit();
                 } else {
+
                     this.showMessage = true;
                 }
+            },
 
+            updateLastPopUpDate() {
+                axios.put('/emailCatchers/' + this.emailCatcher.id, {}).then((response) => {
+                });
             }
 
 

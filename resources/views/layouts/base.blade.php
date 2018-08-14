@@ -24,9 +24,7 @@
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 
 	<div id="app">
-		@if($pop_up)
-			<email-catcher ipaddress="{{ $ip_address }}"></email-catcher>
-		@endif
+        <email-catcher display="{{ $pop_up }}" emailcatcher="{{ $emailCatcher }}" ipaddress="{{ $ip_address }}"></email-catcher>
 
 		@yield('content')
 	</div>
