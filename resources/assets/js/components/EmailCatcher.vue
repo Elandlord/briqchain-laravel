@@ -167,7 +167,7 @@
 
         data() {
             return {
-                visible: true,
+                visible: false,
                 checked: false,
                 showMessage: false,
                 emailSubscriber: {
