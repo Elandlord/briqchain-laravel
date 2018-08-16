@@ -24,7 +24,7 @@
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 
 	<div id="app">
-        <email-catcher display="{{ $pop_up }}" emailcatcher="{{ $emailCatcher }}" ipaddress="{{ $ip_address }}"></email-catcher>
+        <email-catcher display="{{ $should_pop_up }}" emailcatcher="{{ $emailCatcher }}" ipaddress="{{ $ip_address }}"></email-catcher>
 
 		@yield('content')
 	</div>
@@ -43,6 +43,22 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
 	<script type="text/javascript" src="js/app.js?<?php echo microtime(); ?>"></script>
 
+
+
+
+	<!-- Start of Sleeknote signup and lead generation tool - www.sleeknote.com -->
+	<script id="sleeknoteScript" type="text/javascript">
+        (function (){
+            var sleeknoteScriptTag=document.createElement("script");
+            sleeknoteScriptTag.type="text/javascript";
+            sleeknoteScriptTag.charset="utf-8";
+            sleeknoteScriptTag.src=("//sleeknotecustomerscripts.sleeknote.com/13839.js");
+            var s=document.getElementById("sleeknoteScript");
+            s.parentNode.insertBefore(sleeknoteScriptTag, s);
+        })(); </script>
+	<!-- End of Sleeknote signup and lead generation tool - www.sleeknote.com -->
+
+	
 		
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">

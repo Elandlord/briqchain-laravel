@@ -11,13 +11,12 @@ class EmailCatcherComposer
 
 
     private $ip_address;
-    private $pop_up;
+    private $should_pop_up;
 
 
     public function __construct()
     {
-
-
+        $this->ip_address = \Request::ip();
     }
 
 
@@ -32,7 +31,7 @@ class EmailCatcherComposer
     {
         $view->with([
             'emailCatcher' => $this->getEmailCatcher(),
-            'pop_up' => $this->pop_up,
+            'should_pop_up' => $this->should_pop_up,
             'ip_address' => $this->ip_address,
         ]);
         
@@ -40,21 +39,12 @@ class EmailCatcherComposer
 
     public function getEmailCatcher()
     {
-        $this->ip_address = \Request::ip();
-        $this->pop_up = true;
-
         $email_catcher = EmailCatcher::firstOrCreate(
             ['ip_address' => $this->ip_address],
-            ['date_last_pop_up' => Carbon::now()->format('Y-m-d')]
+            ['date_last_pop_up' => "1970-01-01"]
         );
 
-        if($email_catcher->date_last_pop_up != null){
-            $carbonInstance = Carbon::createFromFormat('Y-m-d', $email_catcher->date_last_pop_up)->addMonth(30);
-
-            if(!$carbonInstance->isPast()){
-                $this->pop_up = false;
-            }
-        }
+        $this->should_pop_up = $email_catcher->date_last_pop_up->addMonth()->isPast();
 
         return $email_catcher;
     }

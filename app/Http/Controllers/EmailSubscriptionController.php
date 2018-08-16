@@ -37,8 +37,11 @@ class EmailSubscriptionController extends Controller
     {
         $emailSubscription = EmailSubscription::create($request->all());
 
+
         return response()->json($emailSubscription, 201);
     }
+
+
 
     /**
      * Display the specified resource.
