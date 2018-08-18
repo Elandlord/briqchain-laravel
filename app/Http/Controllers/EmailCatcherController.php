@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EmailCatcher;
 use App\Http\Requests\EmailCatcherUpdateRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class EmailCatcherController extends Controller
@@ -67,7 +68,9 @@ class EmailCatcherController extends Controller
      */
     public function update(EmailCatcherUpdateRequest $request, EmailCatcher $emailCatcher)
     {
-        $emailCatcher->update($request->all());
+        $emailCatcher->update([
+            'date_last_pop_up' => Carbon::now()->format('Y-m-d')
+        ]);
 
         return response()->json($emailCatcher, 201);
     }
