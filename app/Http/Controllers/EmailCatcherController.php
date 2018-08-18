@@ -83,6 +83,6 @@ class EmailCatcherController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

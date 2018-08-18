@@ -219,14 +219,14 @@
                     name: this.emailSubscriber.name,
                     email_address: this.emailSubscriber.email_address,
                     ip_address: this.emailCatcher.ip_address,
-                    opt_in: "Akkoord gegaan door middel van klikken op een vinkje op de pop-up. ",
+                    opt_in: 1,
                     opt_in_type: "Vinkje",
+                    terminology: "Akkoord gegaan door middel van klikken op een vinkje op de pop-up."
                 }).then(() => {
+
                 });
 
             }
-
-
 
 
         }

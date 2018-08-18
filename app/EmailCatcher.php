@@ -16,4 +16,14 @@ class EmailCatcher extends Model
         'date_last_pop_up',
         'is_active'
     ];
+
+    public static function disable()
+    {
+        $emailCatcher = Static::where('ip_address', \Request::ip())->first();
+
+        $emailCatcher->is_subscribed = true;
+        $emailCatcher->save();
+
+
+    }
 }

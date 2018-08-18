@@ -23,6 +23,11 @@ Route::get('language/{language}', 'LanguageController@changeLanguage');
 
 Route::post('calculate/return', 'CalculateController@calculate');
 
-
 Route::resource('emailCatchers', 'EmailCatcherController');
 Route::resource('emailSubscriptions', 'EmailSubscriptionController');
+Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::get('/email-subscriptions', 'EmailSubscriptionController@index');
+    Route::get('/export/email-subscriptions', 'EmailSubscriptionController@export')->name('email-subscriptions.export');
+});

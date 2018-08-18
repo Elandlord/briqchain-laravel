@@ -17,7 +17,7 @@ class CreateEmailCatchersTable extends Migration
             $table->increments('id');
             $table->string('ip_address');
             $table->date('date_last_pop_up')->nullable()->default(null);
-            $table->boolean('is_subscribed')->default(true);
+            $table->boolean('is_subscribed')->default(false);
             $table->timestamps();
         });
     }

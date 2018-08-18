@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\EmailCatcher;
 use App\EmailSubscription;
+use App\Exports\EmailSubscriptionsExport;
+use App\Mail\NewEmailSubscribtion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmailSubscriptionController extends Controller
 {
@@ -14,7 +19,17 @@ class EmailSubscriptionController extends Controller
      */
     public function index()
     {
-        //
+        $emailSubscriptions = EmailSubscription::all();
+
+        return view('cms.email-subscription.index', compact(
+            'emailSubscriptions'
+        ));
+    }
+
+
+    public function export()
+    {
+        return Excel::download(new EmailSubscriptionsExport, 'nieuwbrief-inschrijvingen.xlsx');
     }
 
     /**
@@ -37,6 +52,9 @@ class EmailSubscriptionController extends Controller
     {
         $emailSubscription = EmailSubscription::create($request->all());
 
+        Mail::to('jos@briqchain.com')->send(new NewEmailSubscribtion($emailSubscription));
+
+        EmailCatcher::disable();
 
         return response()->json($emailSubscription, 201);
     }

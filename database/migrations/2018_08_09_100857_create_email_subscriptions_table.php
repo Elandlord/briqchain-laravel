@@ -19,7 +19,7 @@ class CreateEmailSubscriptionsTable extends Migration
             $table->string('email_address');
             $table->string('ip_address');
             $table->boolean('opt_in');
-            $table->boolean('opt_in_type');
+            $table->string('opt_in_type');
             $table->text('terminology');
 
             $table->timestamps();
