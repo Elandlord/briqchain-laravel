@@ -184,6 +184,16 @@
                 document.addEventListener("mouseleave", this.showOnPageLeave, true);
         },
 
+        watch: {
+            visible(visible) {
+                if(visible) {
+                    document.body.style.setProperty('overflow', 'hidden');
+                } else {
+                    document.body.style.removeProperty('overflow');
+                }
+            }
+        },
+
         methods: {
             showOnPageLeave(e) {
                 if (e.pageY - $(window).scrollTop() <= 1) {
