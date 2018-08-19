@@ -2,13 +2,12 @@
 
 namespace App\Mail;
 
-use App\EmailSubscription;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NewEmailSubscribtion extends Mailable
+class SubscriptionConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,8 +30,8 @@ class NewEmailSubscribtion extends Mailable
      */
     public function build()
     {
-        return $this->from('jos@briqchain.com')
-            ->markdown('cms.emails.newsletter.new-email-subscription')->with([
+        return $this->from('info@briqchain.com')
+            ->markdown('cms.emails.newsletter.user-confirmation')->with([
                 'emailSubscription' => $this->emailSubscription,
             ]);
     }

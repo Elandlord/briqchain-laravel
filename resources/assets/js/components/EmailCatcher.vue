@@ -1,8 +1,7 @@
 <template>
     <div v-show="visible"
-         class="catcher__overlay absolute pin-l pin-t w-full h-full z-50 flex justify-center items-center">
+         class="catcher__overlay fixed pin-l pin-t w-full h-full z-50 flex justify-center items-center">
         <div class="catcher__container shadow rounded overflow-hidden bg-white relative">
-
 
             <div @click="close()"
                  class="catcher__close_button absolute rounded-full mt-6 mr-6 pin-r pin-t bg-deep-blue-lighter cursor-pointer">
@@ -87,6 +86,13 @@
                     U bent nog niet akkoord gegaan met ons cookiebeleid en onze algemene voorwaarden.
                 </p>
 
+                <p v-if="!checked && showMessage" class="catcher__error_message text-center w-full ">
+                    U bent nog niet akkoord gegaan met ons cookiebeleid en onze algemene voorwaarden.
+                </p>
+                <p v-if="success" class="catcher__error_message text-center w-full ">
+                    Gelukt! Bedankt voor het inschrijven voor de nieuwsbrief.
+                </p>
+
             </div>
 
         </div>
@@ -169,6 +175,7 @@
             return {
                 visible: false,
                 checked: false,
+                success: false,
                 showMessage: false,
                 emailSubscriber: {
                     name: null,
@@ -213,6 +220,7 @@
                     document.removeEventListener("mouseleave", this.showOnPageLeave, true);
 
                     this.storeSubscription();
+                    this.notifyUser();
                 } else {
 
                     this.showMessage = true;
@@ -236,7 +244,16 @@
 
                 });
 
+            },
+
+            notifyUser() {
+                this.success = true;
+
+                setTimeout(() => {
+                    this.visible = false;
+                }, 2000);
             }
+
 
 
         }

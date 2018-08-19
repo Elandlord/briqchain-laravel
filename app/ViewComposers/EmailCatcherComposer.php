@@ -3,6 +3,7 @@
 namespace App\ViewComposers;
 
 use App\EmailCatcher;
+use App\EmailSubscription;
 use Carbon\Carbon;
 use Illuminate\View\View;
 
@@ -39,13 +40,15 @@ class EmailCatcherComposer
 
     public function getEmailCatcher()
     {
-        $email_catcher = EmailCatcher::firstOrCreate(
+        $emailCatcher = EmailCatcher::firstOrCreate(
             ['ip_address' => $this->ip_address],
             ['date_last_pop_up' => "1970-01-01"]
         );
 
-        $this->should_pop_up = $email_catcher->date_last_pop_up->addMonth()->isPast();
+        $emailSubscription = EmailSubscription::where('ip_address', \Request::ip())->first();
 
-        return $email_catcher;
+        $this->should_pop_up = $emailCatcher->date_last_pop_up->addMonth()->isPast() && $emailSubscription == null;
+
+        return $emailCatcher;
     }
 }

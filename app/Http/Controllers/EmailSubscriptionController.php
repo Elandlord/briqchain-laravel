@@ -50,8 +50,16 @@ class EmailSubscriptionController extends Controller
      */
     public function store(Request $request)
     {
+//        $siteWide = $this->api->getSingle('site_breed');
+//        foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
+//            if ($locale == $altLang->getLang()) {
+//                $siteWide = $this->api->getByID($altLang->getId());
+//            }
+//        }
+
         $emailSubscription = EmailSubscription::create($request->all());
 
+        Mail::to('jos@briqchain.com')->send(new NewEmailSubscribtion($emailSubscription));
         Mail::to('jos@briqchain.com')->send(new NewEmailSubscribtion($emailSubscription));
 
         EmailCatcher::disable();
