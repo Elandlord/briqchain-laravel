@@ -36,7 +36,7 @@
 				email="{{ $siteWide->getText('site_breed.email') }}"
 				signup="{{ $siteWide->getText('site_breed.submit') }}"
 				error="{{ $siteWide->getText('site_breed.error_catcher') }}"
-				catcher_success="{{ $siteWide->getText('site_breed.success_catcber') }}"
+				catcher_success="{{ $siteWide->getText('site_breed.success_catcher') }}"
 		></email-catcher>
 
 		@yield('content')

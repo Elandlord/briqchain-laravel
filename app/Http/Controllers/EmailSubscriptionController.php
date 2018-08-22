@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\EmailCatcher;
 use App\EmailSubscription;
 use App\Exports\EmailSubscriptionsExport;
-use App\Mail\NewEmailSubscribtion;
 use App\Mail\NewEmailSubscription;
 use App\Mail\SubscriptionConfirmation;
 use Illuminate\Http\Request;

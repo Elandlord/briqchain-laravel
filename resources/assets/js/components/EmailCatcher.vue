@@ -84,7 +84,7 @@
                     {{ error }}
                 </p>
 
-                <p v-if="success" class="catcher__error_message text-center w-full ">
+                <p v-if="success" class="catcher__success_message text-center w-full ">
                     {{ catcher_success }}
                 </p>
 
@@ -146,6 +146,13 @@
     .catcher__error_message {
         font-size: 0.6rem;
         color: red;
+        position: relative;
+        bottom: 20px;
+    }
+
+    .catcher__success_message {
+        font-size: 0.6rem;
+        color: green;
         position: relative;
         bottom: 20px;
     }
