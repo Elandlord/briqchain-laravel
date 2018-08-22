@@ -1,6 +1,6 @@
 <template>
     <div v-show="visible"
-         class="catcher__overlay fixed pin-l pin-t w-full h-full z-50 flex justify-center items-center">
+         class="catcher__overlay fixed pin-l pin-t w-full h-full z-2000 flex justify-center items-center">
         <div class="catcher__container shadow rounded overflow-hidden bg-white relative">
 
             <div @click="close()"
@@ -12,17 +12,15 @@
 
             <div class="catcher__top_container bg-blue-grey py-10 px-16">
 
-                <p class="catcher__annotation uppercase m-0 bold text-grey ">Nieuwsbrief</p>
+                <p class="catcher__annotation uppercase m-0 bold text-grey ">{{ newsletter }}</p>
 
                 <div class="catcher__title_container mt-5 flex items-center">
                     <i class="catcher__icon material-icons mr-5"> email </i>
-                    <h1 class="catcher__title inline-block text-2xl"> Sorry dat we je ophouden</h1>
+                    <h1 class="catcher__title inline-block text-2xl"> {{ title }}</h1>
                 </div>
 
                 <p class="catcher__description text-xs mb-0 tracking-wide">
-                    We zien dat je onze website wilt verlaten,
-                    schrijf je in voor onze nieuwsbrief om op de
-                    hoogte te blijven van Briqchain.
+                    {{ description }}
                 </p>
 
             </div>
@@ -32,7 +30,7 @@
                 <div class="flex flex-row mb-10">
 
                     <div class="catcher__input_container w-1/2 pr-2">
-                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">Naam</label>
+                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ name }}</label>
 
                         <div class="catcher__input border-blue-grey border-solid border rounded flex ">
                             <div class="border-r border-blue-grey border-solid inline-block py-2 px-2">
@@ -48,7 +46,7 @@
 
 
                     <div class="catcher__input_container w-1/2 pl-2">
-                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">E-mailadres</label>
+                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ email }}</label>
 
                         <div class="catcher__input border-blue-grey border-solid border rounded flex ">
                             <div class="border-r border-blue-grey border-solid inline-block py-2 px-2">
@@ -74,23 +72,20 @@
                     </div>
 
                     <a class="catcher__cookies_and_terms mr-4 no-underline text-deep-blue-lighter" href="#">
-                        Cookiebeleid & Algemene voorwaarden</a>
+                        {{ cookie }}</a>
 
                     <button @click.prevent="checkIfCookieConfirmed()"
                             class="outline-none catcher__subscribe_button text-xs float-right px-10 py-3 rounded shadow hover:shadow-md catcher__transition  hover:bg-jade-light bg-jade text-white">
-                        Inschrijven
+                        {{ signup }}
                     </button>
                 </div>
 
                 <p v-if="!checked && showMessage" class="catcher__error_message text-center w-full ">
-                    U bent nog niet akkoord gegaan met ons cookiebeleid en onze algemene voorwaarden.
+                    {{ error }}
                 </p>
 
-                <p v-if="!checked && showMessage" class="catcher__error_message text-center w-full ">
-                    U bent nog niet akkoord gegaan met ons cookiebeleid en onze algemene voorwaarden.
-                </p>
                 <p v-if="success" class="catcher__error_message text-center w-full ">
-                    Gelukt! Bedankt voor het inschrijven voor de nieuwsbrief.
+                    {{ catcher_success }}
                 </p>
 
             </div>
@@ -161,6 +156,10 @@
         top: 2px;
     }
 
+    .z-2000 {
+        z-index: 2000;
+    }
+
 
 </style>
 
@@ -169,6 +168,15 @@
         props: {
             display: null,
             emailcatcher: null,
+            newsletter: null,
+            title: null,
+            description: null,
+            name: null,
+            email: null,
+            cookie: null,
+            signup: null,
+            error: null,
+            catcher_success: null,
         },
 
         data() {

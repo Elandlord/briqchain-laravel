@@ -6,6 +6,8 @@ use App\EmailCatcher;
 use App\EmailSubscription;
 use App\Exports\EmailSubscriptionsExport;
 use App\Mail\NewEmailSubscribtion;
+use App\Mail\NewEmailSubscription;
+use App\Mail\SubscriptionConfirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -59,8 +61,8 @@ class EmailSubscriptionController extends Controller
 
         $emailSubscription = EmailSubscription::create($request->all());
 
-        Mail::to('jos@briqchain.com')->send(new NewEmailSubscribtion($emailSubscription));
-        Mail::to('jos@briqchain.com')->send(new NewEmailSubscribtion($emailSubscription));
+        Mail::to('jos@briqchain.com')->send(new NewEmailSubscription($emailSubscription));
+        Mail::to($request->get('email_address'))->send(new SubscriptionConfirmation($emailSubscription));
 
         EmailCatcher::disable();
 

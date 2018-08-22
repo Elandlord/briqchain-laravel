@@ -24,7 +24,20 @@
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 
 	<div id="app">
-        <email-catcher display="{{ $should_pop_up }}" emailcatcher="{{ $emailCatcher }}" ipaddress="{{ $ip_address }}"></email-catcher>
+        <email-catcher
+				display="{{ $should_pop_up }}"
+				emailcatcher="{{ $emailCatcher }}"
+				ipaddress="{{ $ip_address }}"
+				newsletter="{{ $siteWide->getText('site_breed.newsletter') }}"
+				title="{{ $siteWide->getText('site_breed.title')  }}"
+				description="{{ $siteWide->getText('site_breed.description') }}"
+				cookie="{{ $siteWide->getText('site_breed.cookie') }}"
+				name="{{ $siteWide->getText('site_breed.name') }}"
+				email="{{ $siteWide->getText('site_breed.email') }}"
+				signup="{{ $siteWide->getText('site_breed.submit') }}"
+				error="{{ $siteWide->getText('site_breed.error_catcher') }}"
+				catcher_success="{{ $siteWide->getText('site_breed.success_catcber') }}"
+		></email-catcher>
 
 		@yield('content')
 	</div>

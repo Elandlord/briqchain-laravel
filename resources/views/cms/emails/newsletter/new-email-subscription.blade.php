@@ -1,10 +1,12 @@
 @component('mail::message')
 
-    Beste Jos,
-
-    Er is een nieuwsbriefinschrijving met de volgende gegevens:
-
-    naam: {{ $emailSubscription->name }}
-    email: {{ $emailSubscription->email_address }}
-
+    <p>Beste Jos,</p>
+    <br/>
+    <p>Er is een nieuwsbriefinschrijving met de volgende gegevens:</p>
+    <br/>
+    <p>Naam: {{ $emailSubscription->name }}</p>
+    <p>Email: {{ $emailSubscription->email_address }}</p>
+    <br/>
+    <p>Deze gegevens zijn ook te bekijken in het beheersysteem.</p>
+    <br/>
 @endcomponent
