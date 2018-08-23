@@ -1,13 +1,13 @@
 @component('mail::message')
-    Beste {{ $emailSubscription->name }},
+    {{  $mail->getText('mails.contact_greeting') }} {{ $emailSubscription->name }},
 
-    Je hebt je ingeschreven voor de nieuwsbrief van Briqchain.com:
+    {{  $mail->getText('mails.contact_opening_paragraph') }}
 
-    Naam: {{ $emailSubscription->name }}
-    Email: {{ $emailSubscription->email_address }}
+    {{  $mail->getText('mails.contact_name') }} {{ $emailSubscription->name }}
+    {{  $mail->getText('mails.contact_greeting') }} {{ $emailSubscription->email_address }}
 
-    Je kan je te alle tijden uitschrijven voor deze nieuwsbrief via de link in een nieuwsbrief.
+    {{  $mail->getText('mails.contact_closing_paragraph') }}
 
-    Met vriendelijke groet,
+    {{  $mail->getText('mails.contact_ending') }}
     Team Briqchain
 @endcomponent

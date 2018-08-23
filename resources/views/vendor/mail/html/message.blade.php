@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            <?php echo config('app.url') . '/hoi' ?>
+            <img src="https://briqchain.com/static/img/logo.svg" />
         @endcomponent
     @endslot
 

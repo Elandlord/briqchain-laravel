@@ -1,15 +1,13 @@
 @component('mail::message')
-Beste {{ $form_data['name'] }},
+{{  $mail->getText('mails.contact_greeting') }} {{ $form_data['name'] }},
 <br/>
-<p>U heeft zich zojuist via <a href="{{ env('APP_URL') }}">{{ env('APP_NAME')}}</a> aangemeld voor de primaire obligatie uitgifte van {{ env('APP_NAME')}}.</p>
-U heeft de volgende gegevens achtergelaten:
+<p>{{  $mail->getText('mails.contact_opening_paragraph') }}</p>
 
-<strong>Naam:</strong> {{ $form_data['name'] }}<br/>
-<strong>Email:</strong> {{ $form_data['email_address'] }}
-
-<p>Wij houden u op de hoogte van de voortgang van Briqchain.</p>
-
-Vriendelijke groet,
+{{  $mail->getText('mails.contact_list_credentials') }}<br/>
+<strong>{{  $mail->getText('mails.contact_name') }}</strong> {{ $form_data['name'] }}<br/>
+<strong>{{  $mail->getText('mails.contact_email') }}</strong> {{ $form_data['email_address'] }}<br/>
+<p>{{  $mail->getText('mails.contact_closing_paragraph') }}</p>
+{{  $mail->getText('mails.contact_ending') }}
 <br/>
 <strong>{{ env('APP_NAME') }}</strong>
 @endcomponent

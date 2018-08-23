@@ -36,8 +36,11 @@ class MailController extends Controller
     {
         $locale = $this->getLocale($request);
 
-        Mail::to($request->get('email_address'))->send(new Application($request->all()));
-        Mail::to(env('MAIL_USERNAME'))->send(new Contact($request->all()));
+        // Confirmation email
+        $confirmation_mail = $this->api->getByID('W35kliMAACIAi3kF');
+
+        // Contact mail
+        $contact_mail = $this->api->getByID('W35j4iMAAB4Ai3Xd');
 
         $aangemeld = $this->api->getSingle('aangemeld');
         $siteWide = $this->api->getSingle('site_breed');
@@ -53,6 +56,21 @@ class MailController extends Controller
                 $aangemeld = $this->api->getByID($altLang->getId());
             }
         }
+
+        foreach(($altLangs = $confirmation_mail->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $confirmation_mail = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach(($altLangs = $contact_mail->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $contact_mail = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        Mail::to(env('MAIL_USERNAME'))->send(new Contact($request->all(), $contact_mail));
+        Mail::to($request->get('email_address'))->send(new Application($request->all(), $confirmation_mail));
 
         $page_title = $aangemeld->getText('aangemeld.page_title');
         $meta_description = $aangemeld->getText('aangemeld.page_description');

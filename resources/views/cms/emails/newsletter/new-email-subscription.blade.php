@@ -1,11 +1,11 @@
 @component('mail::message')
 
-    Beste Jos,
+    {{  $mail->getText('mails.contact_greeting') }},
 
-    Er is een nieuwsbriefinschrijving met de volgende gegevens:
+    {{  $mail->getText('mails.contact_list_credentials') }}
 
-    Naam: {{ $emailSubscription->name }}
-    Email: {{ $emailSubscription->email_address }}
+    {{  $mail->getText('mails.name') }} {{ $emailSubscription->name }}
+    {{  $mail->getText('mails.email') }} {{ $emailSubscription->email_address }}
 
-    Deze gegevens zijn ook te bekijken in het beheersysteem.
+    {{  $mail->getText('mails.contact_closing_paragraph') }}
 @endcomponent
