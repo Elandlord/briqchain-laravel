@@ -1,5 +1,6 @@
 <template>
-    <div v-show="visible" class="catcher__overlay fixed pin-l pin-t w-full h-full z-2000 flex justify-center items-center">
+    <div v-show="visible"
+         class="catcher__overlay fixed pin-l pin-t w-full h-full z-2000 flex justify-center items-center">
 
         <div class="catcher__container shadow rounded overflow-hidden bg-white relative">
 
@@ -47,7 +48,8 @@
 
                     <!-- Email adres input placeholder -->
                     <div class="catcher__input_container mt-2 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pl-2 md:pl-2 lg:pl-2">
-                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ email }}</label>
+                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ email
+                            }}</label>
 
                         <div class="catcher__input border-blue-grey border-solid border rounded flex ">
                             <div class="border-r border-blue-grey border-solid inline-block py-2 px-2">
@@ -192,6 +194,7 @@
                 visible: false,
                 checked: false,
                 success: false,
+                timeBeforePopUp: 20000,
                 showMessage: false,
                 emailSubscriber: {
                     name: null,
@@ -202,14 +205,23 @@
         },
 
         mounted() {
-            // show e-mailcatcher when the user moves its mouse from the page.
+
             if (this.display)
-                document.addEventListener("mouseleave", this.showOnPageLeave, true);
+            document.addEventListener("mouseleave", this.showOnPageLeave, true);
+            // show e-mailcatcher when the user moves its mouse from the page.
+
+            if(($(document).width() < 768) && this.display) {
+                setTimeout(() => {
+                    this.visible = true;
+                    this.updateLastPopUpDate();
+                }, this.timeBeforePopUp);
+            }
+
         },
 
         watch: {
             visible(visible) {
-                if(visible) {
+                if (visible) {
                     document.body.style.setProperty('overflow', 'hidden');
                 } else {
                     document.body.style.removeProperty('overflow');
@@ -269,7 +281,6 @@
                     this.visible = false;
                 }, 2000);
             }
-
 
 
         }
