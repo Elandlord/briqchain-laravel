@@ -1,6 +1,7 @@
 <template>
     <div v-show="visible"
          class="catcher__overlay fixed pin-l pin-t w-full h-full z-2000 flex justify-center items-center">
+
         <div class="catcher__container shadow rounded overflow-hidden bg-white relative">
 
             <div @click="close()"
@@ -10,7 +11,7 @@
                 </i>
             </div>
 
-            <div class="catcher__top_container bg-blue-grey py-10 px-16">
+            <div class="catcher__top_container bg-blue-grey py-10 px-8 sm:px-16 md:px-16 lg:px-16 xl:px-16 ">
 
                 <p class="catcher__annotation uppercase m-0 bold text-grey ">{{ newsletter }}</p>
 
@@ -25,11 +26,12 @@
 
             </div>
 
-            <div class="catcher__bottom_container px-16 py-10 ">
+            <div class="catcher__bottom_container px-8 sm:px-16 md:px-16 lg:px-16 xl:px-16  py-6 sm:py-10 md:py-10 lg:py-10 xl:py-10">
 
-                <div class="flex flex-row mb-10">
+                <div class="flex flex-col md:flex-row lg:flex-row mb-10">
 
-                    <div class="catcher__input_container w-1/2 pr-2">
+                    <!-- Name input placeholder -->
+                    <div class="catcher__input_container w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pr-2 md:pr-2 lg:pr-2">
                         <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ name }}</label>
 
                         <div class="catcher__input border-blue-grey border-solid border rounded flex ">
@@ -44,9 +46,10 @@
 
                     </div>
 
-
-                    <div class="catcher__input_container w-1/2 pl-2">
-                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ email }}</label>
+                    <!-- Email adres input placeholder -->
+                    <div class="catcher__input_container mt-2 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pl-2 md:pl-2 lg:pl-2">
+                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ email
+                            }}</label>
 
                         <div class="catcher__input border-blue-grey border-solid border rounded flex ">
                             <div class="border-r border-blue-grey border-solid inline-block py-2 px-2">
@@ -66,7 +69,7 @@
 
                     <div @click="checked = !checked"
                          class="cursor-pointer catcher__checkbox border-blue-grey border-solid border-2 rounded px-1 mr-2">
-                        <i v-if="checked" class="catcher__checkbox_icon text-grey material-icons text-dark-blue">
+                        <i v-if="checked" class="catcher__checkbox_icon text-jade material-icons text-dark-blue">
                             check
                         </i>
                     </div>
@@ -191,6 +194,7 @@
                 visible: false,
                 checked: false,
                 success: false,
+                timeBeforePopUp: 20000,
                 showMessage: false,
                 emailSubscriber: {
                     name: null,
@@ -201,14 +205,23 @@
         },
 
         mounted() {
-            // show e-mailcatcher when the user moves its mouse from the page.
+
             if (this.display)
-                document.addEventListener("mouseleave", this.showOnPageLeave, true);
+            document.addEventListener("mouseleave", this.showOnPageLeave, true);
+            // show e-mailcatcher when the user moves its mouse from the page.
+
+            if(($(document).width() < 768) && this.display) {
+                setTimeout(() => {
+                    this.visible = true;
+                    this.updateLastPopUpDate();
+                }, this.timeBeforePopUp);
+            }
+
         },
 
         watch: {
             visible(visible) {
-                if(visible) {
+                if (visible) {
                     document.body.style.setProperty('overflow', 'hidden');
                 } else {
                     document.body.style.removeProperty('overflow');
@@ -268,7 +281,6 @@
                     this.visible = false;
                 }, 2000);
             }
-
 
 
         }
