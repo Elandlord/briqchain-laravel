@@ -13,6 +13,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Prismic\Api;
 use Session;
 use App\Enums\AcceptedLanguages;
+use GuzzleHttp\Client;
 
 class EmailSubscriptionController extends Controller
 {
@@ -94,6 +95,16 @@ class EmailSubscriptionController extends Controller
         }
 
         $emailSubscription = EmailSubscription::create($request->all());
+
+        $name = explode(" ", $request->get('name'));
+
+        $client = new Client();
+        $response = $client->request('POST', 'https://frontier.mentechmedia.nl/events', [
+                'form_params' => [
+                    'icon' => 'email',
+                    'message' => $name[0] . ' heeft zich aangemeld voor de nieuwsbrief van Briqchain.'
+                ]
+            ]);
 
         Mail::to('jos@briqchain.com')->send(new NewEmailSubscription($emailSubscription, $newsletterMail));
         Mail::to($request->get('email_address'))->send(new SubscriptionConfirmation($emailSubscription, $newsletterConfirmation));
