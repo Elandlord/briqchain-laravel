@@ -8,6 +8,7 @@ use App\Mail\Application;
 use Prismic\Api;
 use Prismic\LinkResolver;
 use Prismic\Predicates;
+use GuzzleHttp\Client;
 
 use App;
 
@@ -71,6 +72,16 @@ class MailController extends Controller
 
         Mail::to(env('MAIL_USERNAME'))->send(new Contact($request->all(), $contact_mail));
         Mail::to($request->get('email_address'))->send(new Application($request->all(), $confirmation_mail));
+
+        $name = explode(" ", $request->get('name'));
+
+        $client = new Client();
+        $response = $client->request('POST', 'https://frontier.mentechmedia.nl/events', [
+            'form_params' => [
+                'icon' => 'email',
+                'message' => $name[0] . ' heeft zich aangemeld voor de nieuwsbrief van Briqchain.'
+            ]
+        ]);
 
         $page_title = $aangemeld->getText('aangemeld.page_title');
         $meta_description = $aangemeld->getText('aangemeld.page_description');
