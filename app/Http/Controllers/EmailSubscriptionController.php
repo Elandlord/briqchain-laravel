@@ -10,9 +10,35 @@ use App\Mail\SubscriptionConfirmation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
+use Prismic\Api;
+use Session;
+use App\Enums\AcceptedLanguages;
+use GuzzleHttp\Client;
 
 class EmailSubscriptionController extends Controller
 {
+    public $api;
+
+    public function __construct()
+    {
+        $this->api = Api::get(env('PRISMIC_URL'));
+    }
+
+    public function getLocale()
+    {
+        $locale = Session::get('applocale');
+
+        if ($locale == null) {
+            $locale = "en-us";
+        }
+
+        if (!in_array($locale, AcceptedLanguages::ACCEPTED_LANGUAGES)) {
+            $locale = "en-us";
+        }
+
+        return $locale;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -51,17 +77,37 @@ class EmailSubscriptionController extends Controller
      */
     public function store(Request $request)
     {
-//        $siteWide = $this->api->getSingle('site_breed');
-//        foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
-//            if ($locale == $altLang->getLang()) {
-//                $siteWide = $this->api->getByID($altLang->getId());
-//            }
-//        }
+        $locale = $this->getLocale();
+
+        $newsletterConfirmation = $this->api->getByID('W35lWyMAACQAi3yL');
+        $newsletterMail = $this->api->getByID('W35lWyMAACQAi3yL');
+
+        foreach(($altLangs = $newsletterConfirmation->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $newsletterConfirmation = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach(($altLangs = $newsletterMail->getAlternateLanguages()) as $altLang){
+            if($locale == $altLang->getLang()){
+                $newsletterMail = $this->api->getByID($altLang->getId());
+            }
+        }
 
         $emailSubscription = EmailSubscription::create($request->all());
 
-        Mail::to('jos@briqchain.com')->send(new NewEmailSubscription($emailSubscription));
-        Mail::to($request->get('email_address'))->send(new SubscriptionConfirmation($emailSubscription));
+        $name = explode(" ", $request->get('name'));
+
+        $client = new Client();
+        $response = $client->request('POST', 'https://frontier.mentechmedia.nl/events', [
+                'form_params' => [
+                    'icon' => 'email',
+                    'message' => $name[0] . ' heeft zich aangemeld voor de nieuwsbrief van Briqchain.'
+                ]
+            ]);
+
+        Mail::to('jos@briqchain.com')->send(new NewEmailSubscription($emailSubscription, $newsletterMail));
+        Mail::to($request->get('email_address'))->send(new SubscriptionConfirmation($emailSubscription, $newsletterConfirmation));
 
         EmailCatcher::disable();
 

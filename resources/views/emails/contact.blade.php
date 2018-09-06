@@ -1,13 +1,13 @@
 @component('mail::message')
-Beste {{ env('APP_NAME')}},
+{{  $mail->getText('mails.contact_greeting') }} {{ env('APP_NAME')}},
 <br/>
-<p>Er heeft zich zojuist via het contactformulier op <a href="{{ env('APP_URL') }}">{{ env('APP_NAME')}}</a> aangemeld voor de primaire obligatie uitgifte van {{ env('APP_NAME')}}.</p>
+<p>{{  $mail->getText('mails.contact_opening_paragraph') }}</p>
 
-De volgende gegevens zijn achtergelaten:<br/>
-<strong>Naam:</strong> {{ $form_data['name'] }}<br/>
-<strong>Email:</strong> {{ $form_data['email_address'] }}<br/>
-<p>U kunt contact opnemen met bovenstaande persoon via het mailadres.</p>
-Vriendelijke groet,
+{{  $mail->getText('mails.contact_list_credentials') }}<br/>
+<strong>{{  $mail->getText('mails.contact_name') }}</strong> {{ $form_data['name'] }}<br/>
+<strong>{{  $mail->getText('mails.contact_email') }}</strong> {{ $form_data['email_address'] }}<br/>
+<p>{{  $mail->getText('mails.contact_closing_paragraph') }}</p>
+{{  $mail->getText('mails.contact_ending') }}
 <br/>
 <strong>{{ env('APP_NAME') }}</strong>
 @endcomponent

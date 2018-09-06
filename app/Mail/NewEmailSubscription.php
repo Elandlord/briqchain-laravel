@@ -13,15 +13,17 @@ class NewEmailSubscription extends Mailable
     use Queueable, SerializesModels;
 
     public $emailSubscription;
+    public $mail;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(EmailSubscription $emailSubscription)
+    public function __construct(EmailSubscription $emailSubscription, $mail)
     {
         $this->emailSubscription = $emailSubscription;
+        $this->mail = $mail;
     }
 
     /**
@@ -32,8 +34,10 @@ class NewEmailSubscription extends Mailable
     public function build()
     {
         return $this->from('jos@briqchain.com')
+            ->subject($this->mail->getText('mails.contact_subject'))
             ->markdown('cms.emails.newsletter.new-email-subscription')->with([
                 'emailSubscription' => $this->emailSubscription,
+                'mail' => $this->mail,
             ]);
     }
 }
