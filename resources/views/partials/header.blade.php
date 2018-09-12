@@ -1,6 +1,6 @@
 <div class="header<?php if($light === true): ?> header--light<?php endif; ?>">
 	<div class="header__left">
-		<a class="logo" href="{{ Config('url') }}">
+		<a class="logo" href="/">
 			<img class="logo__img" src="https://briqchain.com/static/img/logo<?php if($light !== true): ?>-white<?php endif; ?>.svg" width="222" height="43" alt="Briqchain logo">
 			<span class="logo__payoff">
 				<span class="logo__payoff-powered">Powered by</span>
