@@ -37,7 +37,7 @@
 							</div>
 							<div class="fonds__item">
 								<div class="fonds__actions">
-									<a href="aanmelden" class="button button--green">
+									<a href="sign-up" class="button button--green">
 										<img class="button__img button__briqs" src="images/button-logo.svg" width="19" height="20" alt="Briqs">
 										{{ $fondsen->getText('fondsen.buy_briqs') }}
 									</a>
