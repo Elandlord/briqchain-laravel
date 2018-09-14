@@ -106,53 +106,53 @@
 	integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
 	crossorigin="anonymous"></script>
 
-	<script>
+	{{--<script>--}}
 
-		let windowHeight = $( window ).width();
-		let targetLink = $('#targetLink');
-		let dropdown = $('#dropdown');
+		{{--let windowHeight = $( window ).width();--}}
+		{{--let targetLink = $('#targetLink');--}}
+		{{--let dropdown = $('#dropdown');--}}
 
-		if(windowHeight > 1001) {
+		{{--if(windowHeight > 1001) {--}}
 
-			targetLink.on('mouseenter', function() {
-				dropdown.show();
-			});
+			{{--targetLink.on('mouseenter', function() {--}}
+				{{--dropdown.show();--}}
+			{{--});--}}
 
-			targetLink.on('mouseleave', function(event) {
-				if(dropdown.is(':hover')) {
+			{{--targetLink.on('mouseleave', function(event) {--}}
+				{{--if(dropdown.is(':hover')) {--}}
 
-				}else {
-					dropdown.hide();
-				}
-			});
+				{{--}else {--}}
+					{{--dropdown.hide();--}}
+				{{--}--}}
+			{{--});--}}
 
-			setInterval(() => {
-				if(dropdown.is(':hover') || targetLink.is(':hover')) {
+			{{--setInterval(() => {--}}
+				{{--if(dropdown.is(':hover') || targetLink.is(':hover')) {--}}
 
-				}else {
-					dropdown.hide();
-				}
-			}, 1);
+				{{--}else {--}}
+					{{--dropdown.hide();--}}
+				{{--}--}}
+			{{--}, 1);--}}
 
-		} else {
-			targetLink.on('click', function() {
-				if(dropdown.is(':visible')) {
-					dropdown.hide()
-				} else {
-					dropdown.show();
-				}
-			});
+		{{--} else {--}}
+			{{--targetLink.on('click', function() {--}}
+				{{--if(dropdown.is(':visible')) {--}}
+					{{--dropdown.hide()--}}
+				{{--} else {--}}
+					{{--dropdown.show();--}}
+				{{--}--}}
+			{{--});--}}
 
-			$("body").click(function(e) {
-				if(e.target.id !== "targetLink" && e.target.id !== "dropdown") {
-					dropdown.hide();
-				}
-			});
+			{{--$("body").click(function(e) {--}}
+				{{--if(e.target.id !== "targetLink" && e.target.id !== "dropdown") {--}}
+					{{--dropdown.hide();--}}
+				{{--}--}}
+			{{--});--}}
 
 
-		}
+		{{--}--}}
 
-	</script>
+	{{--</script>--}}
 	{{-- <script src="/js/frontier.js"></script> --}}
 </body>
 </html>

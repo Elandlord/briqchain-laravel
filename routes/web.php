@@ -31,3 +31,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/email-subscriptions', 'EmailSubscriptionController@index');
     Route::get('/export/email-subscriptions', 'EmailSubscriptionController@export')->name('email-subscriptions.export');
 });
+
+Route::post('/pre-register', 'PreRegisterController@store')->name('pre-register');

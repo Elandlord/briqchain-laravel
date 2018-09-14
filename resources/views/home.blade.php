@@ -10,18 +10,26 @@
 				<div class="hero__content">
 					<h1 class="hero__title">{{ $home->getText('home.hero_titel') }}</h1>
 					<p class="hero__paragraph">{{ $home->getStructuredText('home.hero_omschrijving')->asText() }}</p>
-					<div class="hero__buttons">
-						
-						
-						@foreach($buttons as $button)
-							@if(strtolower($button->getText('kleur')) == 'groen')
-								@php $color = 'green'; @endphp
-							@elseif(strtolower($button->getText('kleur')) == 'blauw')
-								@php $color = 'blue'; @endphp
-							@endif
-						<a class="button button--{{ $color }}" href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('naam') }}</a>
-						@endforeach
+					{{--<div class="hero__buttons">--}}
+						{{----}}
+						{{----}}
+						{{--@foreach($buttons as $button)--}}
+							{{--@if(strtolower($button->getText('kleur')) == 'groen')--}}
+								{{--@php $color = 'green'; @endphp--}}
+							{{--@elseif(strtolower($button->getText('kleur')) == 'blauw')--}}
+								{{--@php $color = 'blue'; @endphp--}}
+							{{--@endif--}}
+						{{--<a class="button button--{{ $color }}" href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('naam') }}</a>--}}
+						{{--@endforeach--}}
+					{{--</div>--}}
+					<div>
+						<form method="POST" action="{{ route('pre-register') }}">
+							@csrf
+							<input type="email" name="email" class="rounded py-4 px-2 mx-4 w-2/5" placeholder="Email address" required/>
+							<input type="submit" class="rounded py-4 px-5 w-1/5 button button--green" value="Confirm" />
+						</form>
 					</div>
+
 				</div>
 			</div>
 			<div class="badge">
@@ -77,7 +85,7 @@
 				</div>
 			</div>
 			<div class="points__bottomline">
-				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="0 100 0 0 1920 0 0 100" style="fill:#ebf4fb"/></svg>
+				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="0 100 0 0 m1920 0 0 100" style="fill:#ebf4fb"/></svg>
 			</div>
 		</div>
 		
