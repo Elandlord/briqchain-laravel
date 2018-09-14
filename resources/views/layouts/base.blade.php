@@ -153,6 +153,10 @@
 		}
 
 	</script>
+<<<<<<< HEAD
 	{{-- <script src="/js/frontier.js"></script> --}}
+=======
+	{{--<script src="/js/frontier.js"></script>--}}
+>>>>>>> origin/development
 </body>
 </html>

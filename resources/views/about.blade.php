@@ -67,7 +67,7 @@
 									</div>
 									<h3 class="member__name">{!! $partner->getStructuredText('name')->asHtml() !!}</h3>
 									<p class="member__function">{{ $partner->getText('description') }}</p>
-									<a class="button button--purple button--external" target="_blank" href="{{ $partner->getText('website') }}">{{ $about->getText('about.visit_website') }}</a>
+									{{--<a class="button button--purple button--external" target="_blank" href="{{ $partner->getText('website') }}">{{ $about->getText('about.visit_website') }}</a>--}}
 								</div>
 							</div>
 							@endforeach
