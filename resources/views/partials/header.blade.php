@@ -40,23 +40,23 @@
 						<li class="navigation__item">
 							<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
 						</li>
-						<li class="navigation__item">
-							<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>
-							<ul id="dropdown">
-								<li class="navigation__item">
-									<a class="navigation__link" href="http://woningen.briqchain.com/aanbod">{{ $siteWide->getText('site_breed.aanbod') }}</a>
-								</li>
-								<li class="navigation__item">
-									<a class="navigation__link" href="http://woningen.briqchain.com/huren-of-kopen">{{ $siteWide->getText('site_breed.huren_of_kopen') }}</a>
-								</li>
-								<li class="navigation__item">
-									<a class="navigation__link" href="http://woningen.briqchain.com/inschrijven">{{ $siteWide->getText('site_breed.inschrijven') }}</a>
-								</li>
-								<li class="navigation__item">
-									<a class="navigation__link" href="http://woningen.briqchain.com/woning-verkopen">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>
-								</li>
-							</ul>
-						</li>
+						{{--<li class="navigation__item">--}}
+							{{--<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>--}}
+							{{--<ul id="dropdown">--}}
+								{{--<li class="navigation__item">--}}
+									{{--<a class="navigation__link" href="http://woningen.briqchain.com/aanbod">{{ $siteWide->getText('site_breed.aanbod') }}</a>--}}
+								{{--</li>--}}
+								{{--<li class="navigation__item">--}}
+									{{--<a class="navigation__link" href="http://woningen.briqchain.com/huren-of-kopen">{{ $siteWide->getText('site_breed.huren_of_kopen') }}</a>--}}
+								{{--</li>--}}
+								{{--<li class="navigation__item">--}}
+									{{--<a class="navigation__link" href="http://woningen.briqchain.com/inschrijven">{{ $siteWide->getText('site_breed.inschrijven') }}</a>--}}
+								{{--</li>--}}
+								{{--<li class="navigation__item">--}}
+									{{--<a class="navigation__link" href="http://woningen.briqchain.com/woning-verkopen">{{ $siteWide->getText('site_breed.woning_verkopen') }}</a>--}}
+								{{--</li>--}}
+							{{--</ul>--}}
+						{{--</li>--}}
 					</div>
 				</ul>
 				
