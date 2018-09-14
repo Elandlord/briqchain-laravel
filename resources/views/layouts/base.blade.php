@@ -5,23 +5,35 @@
 	
 	<title>{{ $page_title }}</title>
 	<meta name="description" content="{{ $meta_description }}">
-	
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P4DMQXK');</script>
+	<!-- End Google Tag Manager -->
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/static/img/favicon.png">
-	
+
 	<link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo microtime(); ?>">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="HandheldFriendly" content="true">
 	<meta name="MobileOptimized" content="width">
 	<meta name="format-detection" content="telephone=no">
-	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png"> 
+	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body @if($lightBlue == true) class="body--light-blue" @endif>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4DMQXK"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 
 	<div id="app">
         <email-catcher
@@ -41,14 +53,14 @@
 
 		@yield('content')
 	</div>
-	
+
 	@if((env('ANALYTICS')) != null)
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			
+
 			ga('create', '<?php env('ANALYTICS') ?>', 'auto');
 			ga('send', 'pageview');
 		</script>
@@ -71,8 +83,8 @@
         })(); </script>
 	<!-- End of Sleeknote signup and lead generation tool - www.sleeknote.com -->
 
-	
-		
+
+
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">
 	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -113,7 +125,7 @@
 					dropdown.hide();
 				}
 			});
-			
+
 			setInterval(() => {
 				if(dropdown.is(':hover') || targetLink.is(':hover')) {
 
@@ -141,6 +153,6 @@
 		}
 
 	</script>
-	{{--<script src="/js/frontier.js"></script>--}}
+	{{-- <script src="/js/frontier.js"></script> --}}
 </body>
 </html>
