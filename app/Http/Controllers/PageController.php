@@ -51,6 +51,7 @@ class PageController extends Controller
 
         $siteWide = $this->api->getSingle('site_breed');
         $home = $this->api->getSingle('home');
+        $registerForm = $this->api->getSingle('registerform');
 
         foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
@@ -61,6 +62,12 @@ class PageController extends Controller
         foreach (($altLangs = $home->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
                 $home = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        foreach (($altLangs = $registerForm->getAlternateLanguages()) as $altLang) {
+            if ($locale == $altLang->getLang()) {
+                $registerForm = $this->api->getByID($altLang->getId());
             }
         }
 
@@ -78,6 +85,7 @@ class PageController extends Controller
         return view('home', compact(
             'home',
             'siteWide',
+            'registerForm',
             'page_title',
             'meta_description',
             'lightBlue',

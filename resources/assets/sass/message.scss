@@ -1,0 +1,98 @@
+.social__container {
+  z-index: 2000;
+  width: 290px;
+  height: 36px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  .social__balloon {
+    position: relative;
+    background: #EBF4FB;
+    width: 290px;
+    height: 36px;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    overflow: hidden;
+    .social__aside {
+      background: #07D174;
+      float: left;
+      max-width: 75px;
+      min-width: 75px;
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 20px;
+      }
+    }
+    .social__body {
+      padding: 0px 20px 0px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-grow: 1;
+      p.social__message {
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: 1px;
+        padding: 0px;
+        margin: 0px;
+        text-align: left;
+      }
+      .social__time_tag {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        font-size: 10px;
+        font-weight: 300;
+        min-height: 15px;
+        max-height: 15px;
+        p.time__string{
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+    .social__close {
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      z-index: 200;
+      img {
+        width: 7px;
+      }
+    }
+  }
+}
+
+.social__container {
+  -moz-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+  to {
+    width:0;
+    height:0;
+    overflow:hidden;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  to {
+    width:0;
+    height:0;
+    visibility:hidden;
+  }
+}

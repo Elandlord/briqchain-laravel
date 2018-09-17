@@ -10,8 +10,8 @@
 <style>
     .countdown__box {
         position: relative;
-        top: 180px;
-        z-index: 200000;
+        top: 170px;
+        z-index: 2000;
     }
 </style>
 

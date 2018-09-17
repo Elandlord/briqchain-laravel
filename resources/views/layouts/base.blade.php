@@ -51,6 +51,10 @@
 				catcher_success="{{ $siteWide->getText('site_breed.success_catcher') }}"
 		></email-catcher>
 
+		@if (Session::has('message'))
+			@include('partials.message', ['message' => Session::get('message')])
+		@endif
+
 		@yield('content')
 	</div>
 
