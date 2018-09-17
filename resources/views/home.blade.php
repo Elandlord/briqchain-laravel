@@ -25,8 +25,13 @@
 					<div>
 						<form method="POST" action="{{ route('pre-register') }}">
 							@csrf
-							<input type="email" name="email" class="rounded py-4 px-2 mx-4 w-2/5" placeholder="Email address" required/>
-							<input type="submit" class="rounded py-4 px-5 w-1/5 button button--green" value="Confirm" />
+							<input type="email" name="email" class="rounded py-4 px-4 mx-4 lg:w-2/5 md:w-2/5 sm:w-2/5 w-2/5 text-dark-blue" placeholder="{{ $registerForm->getText('registerform.email_placeholder') }}" required/>
+							<input type="submit" class="rounded py-4 px-5 lg:w-1/5 md:w-2/5 sm:w-2/5 w-2/5 button button--green" value="{{ $registerForm->getText('registerform.submit_button') }}" />
+							<label class="container-checkbox text-white">
+								<p>{{ $registerForm->getText('registerform.privacy_statement')  }}</p>
+								<input type="checkbox" class="input-checkbox" required>
+								<span class="checkmark"></span>
+							</label>
 						</form>
 					</div>
 
