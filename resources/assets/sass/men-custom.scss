@@ -140,25 +140,29 @@
         -webkit-appearance: menulist;
     }
 
-  .container-checkbox {
-    display: block;
+
+
+
+
+//  custom checkbox
+.container-checkbox {
+    display: inline-block;
     position: relative;
-    left: 155px;
-    top: 25px;
+
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
+    width: 25px;
+    height: 25px;
 
-  .container-checkbox p{
-    padding: 0px;
-    margin: 0px;
+}
+
+.checkbox_label {
     position: relative;
-    right: 150px;
-    display: block;
-  }
+    color: white;
+}
 
 
 /* Hide the browser's default checkbox */

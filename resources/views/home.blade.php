@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class="frame">
-	<div class="frame__row">
-		<div class="hero">
-			@include('partials.header', ['light' => false])
+    <div class="frame">
+        <div class="frame__row">
+            <div class="hero">
+                @include('partials.header', ['light' => false])
 
                 <div class="hero__container">
                     <div class="hero__content">
@@ -24,20 +24,39 @@
                         {{--@endforeach--}}
                         {{--</div>--}}
 
-                        <div>
+                        <div class="w-full lg:w-1/2 mx-auto text-center">
+
                             <form method="POST" action="{{ route('pre-register') }}">
                                 @csrf
-                                <input type="email" name="email" class="rounded py-4 px-4 mx-4 lg:w-2/5 md:w-2/5 sm:w-2/5 w-2/5 text-dark-blue" placeholder="{{ $registerForm->getText('registerform.email_placeholder') }}" required/>
-                                <input type="submit" class="rounded py-4 px-5 lg:w-1/5 md:w-2/5 sm:w-2/5 w-2/5 button button--green" value="{{ $registerForm->getText('registerform.submit_button') }}" />
-                                <label class="container-checkbox text-white">
-                                    <p>{{ $registerForm->getText('registerform.privacy_statement')  }}</p>
-                                    <input type="checkbox" class="input-checkbox" required>
-                                    <span class="checkmark"></span>
-                                </label>
+
+                                <div class="w-full  md:mx-auto flex flex-wrap">
+                                    <input type="email" name="email"
+                                           class="rounded w-full md:w-2/3 md:mr-2 mb-2 md:mb-0 py-4 px-5 text-dark-blue"
+                                           placeholder="{{ $registerForm->getText('registerform.email_placeholder') }}"
+                                           required/>
+
+                                    <input  type="submit"
+                                           class="rounded w-full md:w-1/4 px-4 py-5 bg-jade text-white"
+                                           value="{{ $registerForm->getText('registerform.submit_button') }}"/>
+                                </div>
+
+                                <div class="flex justify-start items-center" >
+                                    <label class="container-checkbox text-white  mr-2">
+                                        <div class="">
+                                            <input type="checkbox" class="input-checkbox" required>
+                                            <span class="checkmark"></span>
+                                        </div>
+                                    </label>
+                                    <p style="" class="checkbox_label inline-block ml-2 ">{{ $registerForm->getText('registerform.privacy_statement')  }}</p>
+                                    <div style="clear:both;"></div>
+                                </div>
                             </form>
+
                         </div>
 
-                        <countdown countdowndate="21-09-2018"></countdown>
+                        {{--<div class="w-1/2 mx-auto">--}}
+                            {{--<countdown countdowndate="21-09-2018"></countdown>--}}
+                        {{--</div>--}}
 
                     </div>
 
