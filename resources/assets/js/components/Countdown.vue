@@ -2,7 +2,7 @@
         <div  class="w-4/6 mx-auto countdown bg-dark flex flex-col sm:flex-row md:flex-row lg:flex-row justify-center items-center">
 
             <!-- countdown -->
-            <h1 class="border-solid border-blue-grey border-l-6 py-2 pl-10 text-dark-blue">Private Sales starts in </h1>
+            <h1 class=" sm:border-solid md:border-solid lg:border-solid sm:border-blue-grey md:border-blue-grey lg:border-blue-grey sm:border-l-6 md:border-l-6 lg:border-l-6 py-2 px-2 sm:pl-10 md:pl-l0 lg:pl-10text-dark-blue text-center sm:text-left md:text-left lg:text-left">Private Sales starts in </h1>
 
             <div class=" px-10 py-4 sm:py-6 rounded countdown__box flex flex-wrap sm:flex-no-wrap flex-row ">
                 <div class="text-dark-blue font-bold text-center inline-block px-5 "> days <span class=" block">{{ this.days }} </span> </div>

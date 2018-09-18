@@ -43,10 +43,10 @@
 							@csrf
 							<div class="flex items-center justify-center mt-24">
 								<div class="w-1/2 mr-2">
-									<input class="w-full  outline-none shadow px-6 py-4 rounded mr-2" placeholder="email address" type="email" id="email_address" name="email_address" required="required">
+									<input class="w-full  outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" placeholder="email address" type="email" id="email_address" name="email_address" required="required">
 								</div>
 								<div class="">
-									<button class="bg-jade  hover:bg-jade-light px-6 py-4 text-white rounded shadow-md" type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
+									<button class="button button--green" type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
 								</div>
 							</div>
 						</form>
@@ -57,7 +57,7 @@
 					</div>
 				</div>
 
-				<div class="mt-10">
+				<div class="mt-10 mb-10 sm:mb-0 md:mb-0 lg:mb-0">
 					<div class="wrapper wrapper--small">
 						<h2 class="border-solid border-dark-blue px-6 py-4 mb-10 border-l-6  text-dark-blue">Hoe werkt het</h2>
 
