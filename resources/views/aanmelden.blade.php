@@ -43,7 +43,7 @@
 							@csrf
 							<div class="flex items-center justify-center mt-24">
 								<div class="w-1/2 mr-2">
-									<input class="w-full  outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" placeholder="email address" type="email" id="email_address" name="email_address" required="required">
+									<input class="w-full  outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" placeholder="email address" type="email" id="email_address" name="email" required="required">
 								</div>
 								<div class="">
 									<button class="button button--green" type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
