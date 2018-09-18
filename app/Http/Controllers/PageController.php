@@ -220,6 +220,7 @@ class PageController extends Controller
         $aanmelden = $this->api->getSingle('aanmelden');
         $siteWide = $this->api->getSingle('site_breed');
 
+
         foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
                 $siteWide = $this->api->getByID($altLang->getId());
@@ -231,6 +232,8 @@ class PageController extends Controller
                 $aanmelden = $this->api->getByID($altLang->getId());
             }
         }
+
+        $questions = $aanmelden->getGroup('aanmelden.questions')->getArray();
 
         $page_title = $aanmelden->getText('aanmelden.page_title');
         $meta_description = $aanmelden->getText('aanmelden.page_description');
@@ -245,7 +248,8 @@ class PageController extends Controller
             'page_title',
             'meta_description',
             'lightBlue',
-            'app_url'
+            'app_url',
+            'questions'
         ));
     }
 }

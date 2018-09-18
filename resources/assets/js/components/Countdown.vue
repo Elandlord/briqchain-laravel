@@ -1,41 +1,22 @@
 <template>
+        <div  class="w-4/6 mx-auto countdown bg-dark flex flex-col sm:flex-row md:flex-row lg:flex-row justify-center items-center">
 
-        <div class="bg-deep-blue-dark px-10 py-4 sm:py-6 rounded shadow-md countdown__box flex flex-wrap sm:flex-no-wrap flex-row w-full lg:w-3/5 lg:mx-auto">
-            <div class="text-white inline-block px-5 w-1/2 sm:w-full lg:w-1/2"> <span class="text-jade sm:block md:inline-block lg:inline-block">{{ this.days }} </span> days</div>
-            <div class="text-white inline-block px-5 w-1/2 sm:w-full lg:w-1/2"> <span class="text-jade sm:block md:inline-block lg:inline-block">{{ this.hours}} </span> hours</div>
-            <div class="text-white inline-block px-5 w-1/2 sm:w-full lg:w-1/2"> <span class="text-jade sm:block md:inline-block lg:inline-block">{{ this.minutes }} </span> minutes</div>
-            <div class="text-white inline-block px-5 w-1/2 sm:w-full lg:w-1/2"> <span class="text-jade sm:block md:inline-block lg:inline-block">{{ this.seconds }} </span> seconds</div>
+            <!-- countdown -->
+            <h1 class="border-solid border-blue-grey border-l-6 py-2 pl-10 text-dark-blue">Private Sales starts in </h1>
+
+            <div class=" px-10 py-4 sm:py-6 rounded countdown__box flex flex-wrap sm:flex-no-wrap flex-row ">
+                <div class="text-dark-blue font-bold text-center inline-block px-5 "> days <span class=" block">{{ this.days }} </span> </div>
+                <div class="text-dark-blue font-bold text-center inline-block px-5 "> hours <span class=" block">{{ this.hours }} </span> </div>
+                <div class="text-dark-blue font-bold text-center inline-block px-5 "> minutes<span class=" block">{{ this.minutes }} </span> </div>
+            </div>
         </div>
 
 </template>
 
 <style lang="scss">
-    .countdown__box {
+    .countdown {
         position: relative;
-        bottom: 40px;
         z-index: 3;
-        border: 5px solid white;
-
-    }
-
-    @media (min-width: 992px) {
-        .countdown__box {
-            position: relative;
-            top: 60px;
-            z-index: 3;
-
-
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .countdown__box {
-            position: relative;
-            top: 60px;
-            z-index: 3;
-
-
-        }
     }
 </style>
 
@@ -43,7 +24,7 @@
     let moment = require('moment');
 
     export default {
-        props: ['countdowndate'],
+        props: ['countdowndate', 'message'],
         data() {
             return {
                 days: 0,
@@ -63,7 +44,7 @@
 
         methods: {
             setup() {
-                this.date = moment("2018-09-21");
+                this.date = moment(this.countdowndate);
                 console.log(this.date);
                 this.calculateTimeDifference();
             },

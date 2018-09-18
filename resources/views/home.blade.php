@@ -7,33 +7,27 @@
                 @include('partials.header', ['light' => false])
 
                 <div class="hero__container">
-                    <div class="hero__content">
+                    <div class="hero__content ">
                         <h1 class="hero__title">{{ $home->getText('home.hero_titel') }}</h1>
-                        <p class="hero__paragraph">{{ $home->getStructuredText('home.hero_omschrijving')->asText() }}</p>
+                        <p class="hero__paragraph m-0 mb-10">{{ $home->getStructuredText('home.hero_subtitle')->asText() }}</p>
+
                         <div class="hero__buttons">
-
-
-                        @foreach($buttons as $button)
-                            @if(strtolower($button->getText('kleur')) == 'groen')
+                            @foreach($buttons as $button)
+                                @if(strtolower($button->getText('kleur')) == 'groen')
                                     @php $color = 'green'; @endphp
                                 @elseif(strtolower($button->getText('kleur')) == 'blauw')
                                     @php $color = 'blue'; @endphp
                                 @endif
                                 <a class="button button--{{ $color }}"
-                                href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('naam') }}</a>
+                                   href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('naam') }}</a>
                             @endforeach
                         </div>
 
-                        <p class="hero__paragraph">{{ $home->getStructuredText('home.hero_subtitle')->asText() }}</p>
 
                     </div>
 
                 </div>
-
-                <div class="countdown container mx-auto flex">
-                    <countdown countdowndate="21-09-2018"></countdown>
-                </div>
-
+                
                 <div class="badge">
                     <div class="badge__content">
                         <div class="badge__title"><span
