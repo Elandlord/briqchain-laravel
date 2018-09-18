@@ -39,7 +39,7 @@
 						<p class="italic text-left">{{ $aanmelden->getText('aanmelden.private_launch_instruction') }}</p>
 
 						{{--Aanmeld formulier --}}
-						<form method="post" action="sign-up/mail">
+						<form method="post" action="{{ route('pre-register')  }}">
 							@csrf
 							<div class="flex items-center justify-center mt-24">
 								<div class="w-1/2 mr-2">
