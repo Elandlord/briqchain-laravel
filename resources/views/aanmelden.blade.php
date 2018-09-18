@@ -25,7 +25,7 @@
 
 						{{--badge--}}
 						<div class="last-action__badge">
-							<span class="last-action__badge-title mt-2">Private Launch</span>
+							<span class="last-action__badge-title mt-2">Private Sale</span>
 							<span class="last-action__badge-content">1 oktober </span>
 						</div>
 
@@ -43,21 +43,20 @@
 							@csrf
 							<div class="flex items-center justify-center mt-24">
 								<div class="w-1/2 mr-2">
-									<input class="w-full  outline-none shadow px-6 py-4 rounded mr-2" placeholder="email address" type="email" id="email_address" name="email_address" required="required">
+									<input class="w-full  outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" placeholder="E-mailadres" type="email" id="email_address" name="email" required="required">
 								</div>
 								<div class="">
-									<button class="bg-jade  hover:bg-jade-light px-6 py-4 text-white rounded shadow-md" type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
+									<button class="button button--green" type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
 								</div>
 							</div>
 						</form>
 
 						{{--aanmeld subtext--}}
-						<p class="">Indien jij meer dan 500 euro investeert via ons platform in de maand Oktober, dan ontvang jij als onze early investor 5% cashback over je gehele inleg.
-							Dus een direct uitgekeerd rendement die je zelfs direct kan herbeleggen voor nog meer rendement. </p>
+						<p class="">{{ $aanmelden->getText('aanmelden.private_launch_investment') }} </p>
 					</div>
 				</div>
 
-				<div class="mt-10">
+				<div class="mt-10 mb-10 sm:mb-0 md:mb-0 lg:mb-0">
 					<div class="wrapper wrapper--small">
 						<h2 class="border-solid border-dark-blue px-6 py-4 mb-10 border-l-6  text-dark-blue">Hoe werkt het</h2>
 
@@ -67,6 +66,10 @@
 								<label for="question_{{ $index }}" class="question__label question__label_aanmelden"><h3>{{ $question->getText('question') }}</h3></label>
 								<div class="question__answer question__answer_aanmelden">
 									{{ $question->getText('answer') }}
+								</div>
+								<div class="border-solid border-blue-grey border-2"></div>
+								<div class="question__answer question__answer_aanmelden">
+									{{ $question->getText('answer2') }}
 								</div>
 							</div>
 						@endforeach
