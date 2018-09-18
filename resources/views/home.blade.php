@@ -10,6 +10,7 @@
 				<div class="hero__content">
 					<h1 class="hero__title">{{ $home->getText('home.hero_titel') }}</h1>
 					<p class="hero__paragraph">{{ $home->getStructuredText('home.hero_omschrijving')->asText() }}</p>
+					<p class="hero__paragraph">{{ $home->getStructuredText('home.hero_subtitle')->asText() }}</p>
 					{{--<div class="hero__buttons">--}}
 						{{----}}
 						{{----}}
