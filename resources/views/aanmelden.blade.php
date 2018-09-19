@@ -7,7 +7,7 @@
         </div>
 
         <div class="container mx-auto">
-            <countdown countdowndate="2018-10-01"></countdown>
+            <countdown message="{{ $aanmelden->getText('aanmelden.private_launch_countdown_title') }}" countdowndate="2018-10-01"></countdown>
         </div>
 
         <div class="frame__row frame__row--expand">
