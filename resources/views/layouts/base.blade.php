@@ -157,9 +157,7 @@
 		{{--}--}}
 
 	{{--</script>--}}
-	<div id="frontier">
-		<app></app>
-	</div>
-	<script src="/js/frontier.js"></script>
+
+	<script src="/js/frontier.js?<?php echo microtime(); ?>"></script>
 </body>
 </html>
