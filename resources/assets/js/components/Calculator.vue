@@ -25,7 +25,7 @@
                                     <div class="calculator__input-icon">
                                         <img class="calculator__input-img" :src="url + '/static/img/input-euro.svg'" width="10" height="12" alt="Euro">
                                     </div>
-                                    <input class="calculator__form-input" @change="calculate()"  v-model="initialInvestment" type="number" id="calculator_inleg_in_euros" name="calculator_inleg_in_euros" required="required" value="100" step="10" min="0">
+                                    <input class="calculator__form-input" @change="calculate()"  v-model="initialInvestment" type="number" id="calculator_inleg_in_euros" name="calculator_inleg_in_euros" required="required" value="500" step="10" min="0">
                                 </div>
                             </div>
                             <div class="calculator__form-group">
@@ -152,7 +152,7 @@
 
         data() {
             return {
-                initialInvestment: 100,
+                initialInvestment: 500,
                 monthlyAdditionalInvestment: 100,
                 reinvest: 'true',
                 duration: 5,
