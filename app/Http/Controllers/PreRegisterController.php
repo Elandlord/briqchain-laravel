@@ -9,6 +9,7 @@ use Prismic\Api;
 use App\Enums\AcceptedLanguages;
 use Carbon\Carbon;
 use App;
+use GuzzleHttp\Client;
 
 class PreRegisterController extends Controller
 {
@@ -47,9 +48,19 @@ class PreRegisterController extends Controller
             }
         }
 
+        $email = $request->get('email');
+
+        Newsletter::subscribe($email);
+
         $message = $message->getText('message.message');
 
-        Newsletter::subscribe($request->get('email'));
+        $client = new Client();
+        $response = $client->request('POST', 'https://frontier.mentechmedia.nl/events', [
+            'form_params' => [
+                'icon' => 'email',
+                'message' => $email . ' heeft zich aangemeld voor de nieuwsbrief van Briqchain.'
+            ]
+        ]);
 
         Session::flash('message', $message);
 
