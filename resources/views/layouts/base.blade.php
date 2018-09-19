@@ -157,6 +157,9 @@
 		{{--}--}}
 
 	{{--</script>--}}
-	 <script src="/js/frontier.js"></script>
+	<div id="frontier">
+		<app></app>
+	</div>
+	<script src="/js/frontier.js"></script>
 </body>
 </html>
