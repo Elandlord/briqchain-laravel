@@ -53,7 +53,7 @@ class EmailCatcherComposer
 
         $emailSubscription = EmailSubscription::where('ip_address', \Request::ip())->first();
 
-        $this->should_pop_up = $emailCatcher->date_last_pop_up->addMonth()->isPast() && $emailSubscription == null;
+        $this->should_pop_up = $emailCatcher->date_last_pop_up->addDay()->isPast() && $emailSubscription == null;
 
         return $emailCatcher;
     }
