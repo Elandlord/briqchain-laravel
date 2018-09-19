@@ -152,6 +152,8 @@ class PageController extends Controller
             }
         }
 
+        $buttons = $zoWerktHet->getGroup('zo_werkt_het.knoppen')->getArray();
+
         $app_url = env('APP_URL');
 
         $page_title = $zoWerktHet->getText('zo_werkt_het.main_titel');
@@ -168,7 +170,8 @@ class PageController extends Controller
             'meta_description',
             'lightBlue',
             'questions',
-            'app_url'
+            'app_url',
+            'buttons'
         ));
     }
 
