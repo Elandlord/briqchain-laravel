@@ -74,9 +74,11 @@
 
 
 	<script>
-        document.getElementById("briq_video").contentDocument.addEventListener('click', function() {
-            ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');
-        });
+        (function() {
+            document.getElementById("briq_video").contentDocument.addEventListener('click', function() {
+                ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');
+            });
+		})
 	</script>
 
 	<!-- Start of Sleeknote signup and lead generation tool - www.sleeknote.com -->
