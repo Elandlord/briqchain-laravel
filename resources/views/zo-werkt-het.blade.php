@@ -11,7 +11,7 @@
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
 					<div class="split-content__left split-content--half">
-						<iframe class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						<iframe onclick="ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het'); class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 					<div class="split-content__right split-content--half">
 						<h2 class="split-content__title split-content__title--blue">{!! $zoWerktHet->getStructuredText('zo_werkt_het.intro_titel')->asHtml() !!}</h2>
@@ -27,7 +27,7 @@
 					@elseif(strtolower($button->getText('color')) == 'blauw')
 						@php $color = 'blue'; @endphp
 					@endif
-					<a class="button button--{{ $color }}" onclick="ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');"
+					<a class="button button--{{ $color }}" "
 					   href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('name') }}</a>
 				@endforeach
 			</div>
