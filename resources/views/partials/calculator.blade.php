@@ -1,4 +1,6 @@
-<calculator 
+<calculator
+
+
 	calculatortitle="{{ $siteWide->getText('site_breed.calculator_titel') }}"
 	bonus="{{ $siteWide->getText('site_breed.bonus') }}"
 	interest="{{ $siteWide->getText('site_breed.interest') }}"
