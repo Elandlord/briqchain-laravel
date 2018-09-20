@@ -27,7 +27,7 @@
 					@elseif(strtolower($button->getText('color')) == 'blauw')
 						@php $color = 'blue'; @endphp
 					@endif
-					<a class="button button--{{ $color }}" "
+					<a class="button button--{{ $color }}" 
 					   href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('name') }}</a>
 				@endforeach
 			</div>
