@@ -10,8 +10,8 @@
 		<div class="sub-intro">
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
-					<div onclick="ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');" class="split-content__left split-content--half">
-						<iframe class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<div  class="split-content__left split-content--half">
+						<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 					<div class="split-content__right split-content--half">
 						<h2 class="split-content__title split-content__title--blue">{!! $zoWerktHet->getStructuredText('zo_werkt_het.intro_titel')->asHtml() !!}</h2>
@@ -19,6 +19,7 @@
 					</div>
 				</div>
 			</div>
+
 
 			<div class="text-center pt-10">
 				@foreach($buttons as $button)
@@ -64,4 +65,6 @@
 		@include('partials/footer')
 	</div>
 </div>
+
+
 @stop
