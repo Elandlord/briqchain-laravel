@@ -37,6 +37,7 @@
 
 	{{--CSRF --}}
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="theme-color" content="#3C3A6C" />
 </head>
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 	<!-- Google Tag Manager (noscript) -->
