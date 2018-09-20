@@ -58,7 +58,7 @@ class PreRegisterController extends Controller
         $response = $client->request('POST', 'https://frontier.mentechmedia.nl/events', [
             'form_params' => [
                 'icon' => 'email',
-                'message' => $email . ' heeft zich aangemeld voor de nieuwsbrief van Briqchain.'
+                'message' => 'Iemand heeft zich aangemeld voor de Private Sale.'
             ]
         ]);
 

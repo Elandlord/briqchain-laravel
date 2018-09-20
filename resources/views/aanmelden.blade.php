@@ -50,7 +50,8 @@
                                                required="required">
                                     </div>
                                     <div class="">
-                                        <button class="button button--green"
+                                        <button onclick="ga('send', 'event', 'Pre-register', 'Pre registreren');"
+                                                class="button button--green"
                                                 type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
                                     </div>
                                 </div>
