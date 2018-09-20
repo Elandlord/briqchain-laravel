@@ -72,13 +72,14 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
 	<script type="text/javascript" src="js/app.js?<?php echo microtime(); ?>"></script>
 
-
+	<script src="https://player.vimeo.com/api/player.js"></script>
 	<script>
-        (function() {
-            document.getElementById("briq_video").contentDocument.addEventListener('click', function() {
-                ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');
-            });
-		})
+        var iframe = document.getElementById('briq_video');
+        var player = new Vimeo.Player(iframe);
+
+        player.on('play', function() {
+            ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');
+        });
 	</script>
 
 	<!-- Start of Sleeknote signup and lead generation tool - www.sleeknote.com -->
