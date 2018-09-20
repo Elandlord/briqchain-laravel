@@ -14,10 +14,14 @@
 	})(window,document,'script','dataLayer','GTM-P4DMQXK');</script>
 	<!-- End Google Tag Manager -->
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	{{--Favicon--}}
 	<link rel="shortcut icon" type="image/x-icon" href="{{ env('APP_URL') }}/static/img/favicon.png">
 
+	{{--Fonts--}}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	{{--styles--}}
 	<link rel="stylesheet" type="text/css" href="/css/app.css?<?php echo microtime(); ?>">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +30,14 @@
 	<meta name="HandheldFriendly" content="true">
 	<meta name="MobileOptimized" content="width">
 	<meta name="format-detection" content="telephone=no">
+
+	{{--Social media open graph--}}
 	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png">
+	<meta name="twitter:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png" />
+
+	{{--CSRF --}}
 	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="theme-color" content="#3C3A6C" />
 </head>
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 	<!-- Google Tag Manager (noscript) -->
@@ -164,7 +174,6 @@
 		{{--}--}}
 
 	{{--</script>--}}
-
 	<script src="/js/frontier.js?<?php echo microtime(); ?>"></script>
 </body>
 </html>
