@@ -173,7 +173,6 @@
 		{{--}--}}
 
 	{{--</script>--}}
-
 	<script src="/js/frontier.js?<?php echo microtime(); ?>"></script>
 </body>
 </html>
