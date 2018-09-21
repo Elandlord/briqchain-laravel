@@ -119,6 +119,8 @@ class PageController extends Controller
         $page_title = $fondsen->getText('fondsen.main_titel');
         $meta_description = $fondsen->getText('fondsen.main_omschrijving');
         $details = $fondsen->getGroup('fondsen.fonds_details')->getArray();
+        $buttons = $fondsen->getGroup('fondsen.knoppen')->getArray();
+
 
         $lightBlue = true;
 
@@ -129,7 +131,8 @@ class PageController extends Controller
             'meta_description',
             'lightBlue',
             'details',
-            'app_url'
+            'app_url',
+            'buttons'
         ));
     }
 

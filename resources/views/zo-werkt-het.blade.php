@@ -10,8 +10,8 @@
 		<div class="sub-intro">
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
-					<div  class="split-content__left split-content--half">
-						<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<div style="width: 100%;"  class="split-content__left split-content--half">
+						<img style="width: 100%" src="{{ $zoWerktHet->getImage('zo_werkt_het.infographic')->getUrl() }}" />
 					</div>
 					<div class="split-content__right split-content--half">
 						<h2 class="split-content__title split-content__title--blue">{!! $zoWerktHet->getStructuredText('zo_werkt_het.intro_titel')->asHtml() !!}</h2>
@@ -32,6 +32,12 @@
 					   href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('name') }}</a>
 				@endforeach
 			</div>
+
+
+		</div>
+
+		<div class="text-center mt-20">
+			<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 
 		<div class="faq">

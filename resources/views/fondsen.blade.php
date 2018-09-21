@@ -95,6 +95,19 @@
 									{!! $fondsen->getStructuredText('fondsen.fonds_omschrijving')->asHtml() !!}
 								</div>
 							</div>
+
+							<div class="text-center pt-10">
+								@foreach($buttons as $button)
+									@if(strtolower($button->getText('color')) == 'groen')
+										@php $color = 'green'; @endphp
+									@elseif(strtolower($button->getText('color')) == 'blauw')
+										@php $color = 'blue'; @endphp
+									@endif
+									<a class="button button--{{ $color }}"
+									   href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('name') }}</a>
+								@endforeach
+							</div>
+
 						</div>
 					</div>
 				</div>

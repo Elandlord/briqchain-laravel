@@ -4,7 +4,11 @@
 	<meta charset="utf-8">
 	
 	<title>{{ $page_title }}</title>
+
 	<meta name="description" content="{{ $meta_description }}">
+
+	{{--Lanuage--}}
+	<meta http-equiv="language" content="NL">
 
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
