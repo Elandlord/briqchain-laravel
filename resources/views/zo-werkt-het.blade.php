@@ -36,8 +36,19 @@
 
 		</div>
 
-		<div class="text-center mt-20">
-			<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<div style="position: relative; top: 100px; z-index: 250;" class="points">
+			<div class="points__topline">
+				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+					<polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/>
+				</svg>
+			</div>
+			<div style="padding-top: 50px;" class="points__content">
+				<h1 class="text-center split-content__title split-content__title--purple"> <p>Bekijk onze <strong> video </span></h1>
+				<div class="wrapper text-center">
+					<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+			</div>
+
 		</div>
 
 		<div class="faq">
