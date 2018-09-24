@@ -10,6 +10,7 @@ use App\Enums\AcceptedLanguages;
 use Carbon\Carbon;
 use App;
 use GuzzleHttp\Client;
+use App\Http\Requests\PreRegisterRequest;
 
 class PreRegisterController extends Controller
 {
@@ -36,7 +37,7 @@ class PreRegisterController extends Controller
         return $locale;
     }
 
-    public function store(Request $request)
+    public function store(PreRegisterRequest $request)
     {
         $locale = $this->getLocale($request);
 
