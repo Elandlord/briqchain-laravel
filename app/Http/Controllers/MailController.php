@@ -27,7 +27,7 @@ class MailController extends Controller
 
         if($locale == null)
         {
-            $locale = strtolower(explode(",", $request->server('HTTP_ACCEPT_LANGUAGE'))[0]);
+            $locale = 'nl-nl';
         }
         
         return $locale;
