@@ -12,6 +12,7 @@
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "^3.0",
         "prismic/php-sdk": "^3.4",
+        "sentry/sentry-laravel": "^0.10.0",
         "spatie/laravel-newsletter": "^4.2",
         "symfony/psr-http-message-bridge": "^1.0"
     },
