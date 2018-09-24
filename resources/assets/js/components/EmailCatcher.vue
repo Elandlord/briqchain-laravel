@@ -65,7 +65,7 @@
 
                     <div class="catcher__input_container w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pr-2 md:pr-2 lg:pr-2">
                         <div class="catcher__input flex py-3 pl-4 outline-none">
-                            <button @click.prevent="checkIfCookieConfirmed()"
+                            <button @click.prevent="checkIfCookieConfirmed();" id="preRegisterEvent"
                                     class="outline-none catcher__subscribe_button text-xs float-right px-10 py-3 mt-3 rounded shadow hover:shadow-md catcher__transition  hover:bg-jade-light bg-jade text-white">
                                 {{ signup }}
                             </button>
@@ -278,7 +278,6 @@
                 // }).then(() => {
                 //
                 // });
-
                 axios.post('pre-register', {
                    email: this.emailSubscriber.email_address,
                 }).then(() => {
