@@ -29,11 +29,11 @@ class EmailSubscriptionController extends Controller
         $locale = Session::get('applocale');
 
         if ($locale == null) {
-            $locale = "en-us";
+            $locale = "nl-nl";
         }
 
         if (!in_array($locale, AcceptedLanguages::ACCEPTED_LANGUAGES)) {
-            $locale = "en-us";
+            $locale = "nl-nl";
         }
 
         return $locale;
