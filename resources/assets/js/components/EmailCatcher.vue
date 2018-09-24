@@ -31,20 +31,20 @@
                 <div class="flex flex-col md:flex-row lg:flex-row mb-10">
 
                     <!-- Name input placeholder -->
-                    <div class="catcher__input_container w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pr-2 md:pr-2 lg:pr-2">
-                        <label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ name }}</label>
+                    <!--<div class="catcher__input_container w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pr-2 md:pr-2 lg:pr-2">-->
+                        <!--<label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ name }}</label>-->
 
-                        <div class="catcher__input border-blue-grey border-solid border rounded flex ">
-                            <div class="border-r border-blue-grey border-solid inline-block py-2 px-2">
-                                <i class="catcher__input_icon material-icons text-dark-blue">
-                                    person
-                                </i>
-                            </div>
-                            <input type="text" class="py-2 pl-4 inline-block w-full outline-none"
-                                   v-model="emailSubscriber.name">
-                        </div>
+                        <!--<div class="catcher__input border-blue-grey border-solid border rounded flex ">-->
+                            <!--<div class="border-r border-blue-grey border-solid inline-block py-2 px-2">-->
+                                <!--<i class="catcher__input_icon material-icons text-dark-blue">-->
+                                    <!--person-->
+                                <!--</i>-->
+                            <!--</div>-->
+                            <!--<input type="text" class="py-2 pl-4 inline-block w-full outline-none"-->
+                                   <!--v-model="emailSubscriber.name">-->
+                        <!--</div>-->
 
-                    </div>
+                    <!--</div>-->
 
                     <!-- Email adres input placeholder -->
                     <div class="catcher__input_container mt-2 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pl-2 md:pl-2 lg:pl-2">
@@ -63,6 +63,16 @@
 
                     </div>
 
+                    <div class="catcher__input_container w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pr-2 md:pr-2 lg:pr-2">
+                        <div class="catcher__input flex py-3 pl-4 outline-none">
+                            <button @click.prevent="checkIfCookieConfirmed()"
+                                    class="outline-none catcher__subscribe_button text-xs float-right px-10 py-3 mt-3 rounded shadow hover:shadow-md catcher__transition  hover:bg-jade-light bg-jade text-white">
+                                {{ signup }}
+                            </button>
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <div class="flex items-center justify-end ">
@@ -77,10 +87,7 @@
                     <a class="catcher__cookies_and_terms mr-4 no-underline text-deep-blue-lighter" href="#">
                         {{ cookie }}</a>
 
-                    <button @click.prevent="checkIfCookieConfirmed()"
-                            class="outline-none catcher__subscribe_button text-xs float-right px-10 py-3 rounded shadow hover:shadow-md catcher__transition  hover:bg-jade-light bg-jade text-white">
-                        {{ signup }}
-                    </button>
+
                 </div>
 
                 <p v-if="!checked && showMessage" class="catcher__error_message text-center w-full ">
@@ -261,17 +268,22 @@
             },
 
             storeSubscription() {
-                axios.post('/emailSubscriptions', {
-                    name: this.emailSubscriber.name,
-                    email_address: this.emailSubscriber.email_address,
-                    ip_address: this.emailCatcher.ip_address,
-                    opt_in: 1,
-                    opt_in_type: "Vinkje",
-                    terminology: "Akkoord gegaan door middel van klikken op een vinkje op de pop-up."
+                // axios.post('/emailSubscriptions', {
+                //     name: this.emailSubscriber.name,
+                //     email_address: this.emailSubscriber.email_address,
+                //     ip_address: this.emailCatcher.ip_address,
+                //     opt_in: 1,
+                //     opt_in_type: "Vinkje",
+                //     terminology: "Akkoord gegaan door middel van klikken op een vinkje op de pop-up."
+                // }).then(() => {
+                //
+                // });
+
+                axios.post('pre-register', {
+                   email: this.emailSubscriber.email_address,
                 }).then(() => {
 
                 });
-
             },
 
             notifyUser() {
