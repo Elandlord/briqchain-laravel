@@ -179,5 +179,12 @@
 
 	{{--</script>--}}
 	<script src="/js/frontier.js?<?php echo microtime(); ?>"></script>
+	<script type="text/javascript">
+		$('#preRegisterEvent').click(function() {
+		    alert('test');
+            ga('send', 'event', 'Pre-register', 'Pre registreren');
+            fbq('track', 'Lead');
+		});
+	</script>
 </body>
 </html>
