@@ -69,6 +69,12 @@
 			@include('partials.message', ['message' => Session::get('message')])
 		@endif
 
+		@if ($errors->any())
+			@foreach ($errors->all() as $error)
+				@include('partials.error', ['message' => $error])
+			@endforeach
+		@endif
+
 		@yield('content')
 	</div>
 
