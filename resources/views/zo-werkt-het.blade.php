@@ -78,7 +78,7 @@
 			@include('partials/calculator')
 		</div>
 	</div>
-	<div class="frame__row">
+	<div>
 		@include('partials/footer')
 	</div>
 </div>
