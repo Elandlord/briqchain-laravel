@@ -19,7 +19,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('calculator', require('./components/Calculator.vue'));
 Vue.component('email-catcher', require('./components/EmailCatcher.vue'));
 Vue.component('countdown', require('./components/Countdown.vue'));
-
+Vue.component('sticky-nav', require('./components/sticky-nav.vue'));
 
 const app = new Vue({
     el: '#app'
