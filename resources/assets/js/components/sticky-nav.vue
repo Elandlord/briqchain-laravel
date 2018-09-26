@@ -8,14 +8,14 @@
             </a>
 
             <div class="float-right flex-end flex justify-center items-center">
-                <a href="#uppercase" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Home </a>
-                <a href="#briq-fonds" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Briq
+                <a href="/" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Home </a>
+                <a href="/funds" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Briq
                     fonds </a>
-                <a href="#zo-werkt-het" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Zo
+                <a href="/how-it-works" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Zo
                     werkt het </a>
-                <a href="#over-ons" class="text-white no-underline uppercase bold text-xs mr-2 inline-block px-6 "> Over
+                <a href="/about" class="text-white no-underline uppercase bold text-xs mr-2 inline-block px-6 "> Over
                     ons </a>
-                <a href="#claim-je-plek"
+                <a href="/sign-up"
                    class="text-white rounded no-underline uppercase bold text-xs inline-block bg-jade py-2 px-4"> Claim
                     je plek</a>
             </div>
