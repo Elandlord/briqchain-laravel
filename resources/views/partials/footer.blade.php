@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		
-		<div class="footer__content-item footer__content-item--center">
+		<div class="footer__content-item footer__content-item--center relative">
 			<ul class="social">
 				<li class="social__item">
 					<a class="social__link" href="{{ $siteWide->getText('site_breed.facebook_link') }}" target="_blank">
@@ -55,5 +55,11 @@
 				<img class="logo__img" src="{{ env('APP_URL') }}/static/img/logo-white.svg" width="172" height="42" alt="Briqchain logo">
 			</a>
 		</div>
+
+		<div class="w-full text-center block absolute pin-b pin-l mb-4">
+			<a class="text-white no-underline block" href="http://briqchain.com/public/files/privacy-verklaring.pdf" > Privacy policy </a>
+		</div>
 	</div>
+
+
 </div>
