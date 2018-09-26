@@ -258,4 +258,27 @@ class PageController extends Controller
             'questions'
         ));
     }
+
+
+    public function privacyPolicy(Request $request)
+    {
+        $locale = $this->getLocale($request);
+        $siteWide = $this->api->getSingle('site_breed');
+        $page_title = 'privacy policy';
+        $meta_description = '';
+        $lightBlue = false;
+
+        foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
+            if ($locale == $altLang->getLang()) {
+                $siteWide = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        return view('privacy-policy', compact(
+            'siteWide',
+            'page_title',
+            'meta_description',
+            'lightBlue'
+        ));
+    }
 }
