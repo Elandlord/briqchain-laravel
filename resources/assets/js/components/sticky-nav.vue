@@ -8,16 +8,12 @@
             </a>
 
             <div class="float-right flex-end flex justify-center items-center">
-                <a href="/" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Home </a>
-                <a href="/funds" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Briq
-                    fonds </a>
-                <a href="/how-it-works" class="text-white no-underline uppercase bold text-xs inline-block px-6"> Zo
-                    werkt het </a>
-                <a href="/about" class="text-white no-underline uppercase bold text-xs mr-2 inline-block px-6 "> Over
-                    ons </a>
-                <a href="/sign-up"
-                   class="text-white rounded no-underline uppercase bold text-xs inline-block bg-jade py-2 px-4"> Claim
-                    je plek</a>
+                <a :href="innerNavLinks.home.url" class="text-white no-underline uppercase bold text-xs inline-block px-6"> {{innerNavLinks.home.linkName}} </a>
+                <a :href="innerNavLinks.fonds.url" class="text-white no-underline uppercase bold text-xs inline-block px-6"> {{innerNavLinks.fonds.linkName}} </a>
+                <a :href="innerNavLinks.zo_werkt_het.url" class="text-white no-underline uppercase bold text-xs inline-block px-6"> {{innerNavLinks.zo_werkt_het.linkName}}</a>
+                <a :href="innerNavLinks.about.url" class="text-white no-underline uppercase bold text-xs mr-2 inline-block px-6 "> {{innerNavLinks.about.linkName}}</a>
+                <a :href="innerNavLinks.sign_up.url"
+                   class="text-white rounded no-underline uppercase bold text-xs inline-block bg-jade py-2 px-4"> {{innerNavLinks.sign_up.linkName}}</a>
             </div>
         </div>
 
@@ -51,13 +47,19 @@
 
 <script>
     export default {
-
+        props: ['navLinks'],
         data() {
             return {
                 isVisible: false,
                 scrollingPosition: 0,
+                innerNavLinks: [],
             }
         },
+
+        mounted() {
+            this.innerNavLinks = JSON.parse(this.navLinks);
+        },
+
         watch: {
             scrollingPosition: function(value) {
 

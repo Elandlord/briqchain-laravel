@@ -50,7 +50,7 @@
 	<!-- End Google Tag Manager (noscript) -->
 
 	<div id="app">
-		<sticky-nav></sticky-nav>
+
         <email-catcher
 				display="{{ $should_pop_up }}"
 				emailcatcher="{{ $emailCatcher }}"
