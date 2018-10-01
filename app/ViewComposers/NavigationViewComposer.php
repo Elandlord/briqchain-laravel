@@ -36,7 +36,7 @@ class NavigationViewComposer
 
     public function getLocale()
     {
-       
+
         $locale = Session::get('applocale');
 
         if ($locale == null) {
