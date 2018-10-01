@@ -81,6 +81,44 @@
 
         </div>
 
+        <div class="frame__row frame__row--expand">
+            <div class="fondsen">
+                <div class="fondsen__content">
+                    <div class="wrapper">
+                        <div class="fonds">
+
+                            <div class="fonds__content">
+                                <div class="fonds__omschrijving" style="border-top: none;">
+                                    <h2 class="fonds__omschrijving-title">{!! $bounty->getStructuredText('bounty.bounty_title')->asHtml() !!}</h2>
+                                    <div class="fonds__omschrijving-paragraphs">
+                                        {!! $bounty->getStructuredText('bounty.bounty_description')->asHtml() !!}
+                                    </div>
+                                </div>
+
+                                <div class="fonds__omschrijving">
+                                    <h2 class="fonds__omschrijving-title">{!! $bounty->getStructuredText('bounty.contest_explanation_title')->asHtml() !!}</h2>
+                                    <div class="fonds__omschrijving-paragraphs">
+                                        {!! $bounty->getStructuredText('bounty.contest_explanation_description')->asHtml() !!}
+                                    </div>
+                                </div>
+
+                                <div class="fonds__omschrijving">
+                                    <h2 class="fonds__omschrijving-title">{!! $bounty->getStructuredText('bounty.contest_rules_title')->asHtml() !!}</h2>
+                                    <div class="fonds__omschrijving-paragraphs">
+                                        <ul>
+                                            @foreach($bounty->getGroup('bounty.contest_rules')->getArray() as $rule)
+                                                <li>{!! $rule->getStructuredText('rule')->asHtml() !!}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="frame__row">
             @include('partials/footer')
