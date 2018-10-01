@@ -78,7 +78,7 @@ class PageController extends Controller
         return $locale;
     }
 
-    public function getSiteWide($request, $locale)
+    public function getSiteWide($locale)
     {
         $siteWide = $this->api->getSingle('site_breed');
         foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
@@ -94,7 +94,7 @@ class PageController extends Controller
     {
         $locale = $this->getLocale($request);
 
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($locale);
         $home = $this->api->getSingle('home');
         $registerForm = $this->api->getSingle('registerform');
 
@@ -144,7 +144,7 @@ class PageController extends Controller
         $locale = $this->getLocale($request);
 
         $fondsen = $this->api->getSingle('fondsen');
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($locale);
 
         foreach (($altLangs = $fondsen->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
@@ -179,7 +179,7 @@ class PageController extends Controller
         $locale = $this->getLocale($request);
 
         $zoWerktHet = $this->api->getSingle('zo_werkt_het');
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($locale);
 
         foreach (($altLangs = $zoWerktHet->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
@@ -215,7 +215,7 @@ class PageController extends Controller
         $locale = $this->getLocale($request);
 
         $about = $this->api->getSingle('about');
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($locale);
 
         foreach (($altLangs = $about->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
@@ -250,7 +250,7 @@ class PageController extends Controller
         $locale = $this->getLocale($request);
 
         $aanmelden = $this->api->getSingle('aanmelden');
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($locale);
 
         foreach (($altLangs = $aanmelden->getAlternateLanguages()) as $altLang) {
             if ($locale == $altLang->getLang()) {
@@ -286,7 +286,7 @@ class PageController extends Controller
         $meta_description = '';
         $lightBlue = false;
 
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($locale);
 
         return view('privacy-policy', compact(
             'siteWide',
