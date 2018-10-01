@@ -22,13 +22,13 @@
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
     var iframe = document.getElementById('briq_video');
-    var player = new Vimeo.Player(iframe);
-
-    player.on('play', function() {
-        ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');
-    });
+    if(iframe !== null){
+        var player = new Vimeo.Player(iframe);
+        player.on('play', function() {
+            ga('send', 'event', 'Video', 'Play Video', 'Zo werkt het');
+        });
+    }
 </script>
-
 
 <!-- Start of Sleeknote signup and lead generation tool - www.sleeknote.com -->
 <script id="sleeknoteScript" type="text/javascript">
@@ -41,8 +41,6 @@
         s.parentNode.insertBefore(sleeknoteScriptTag, s);
     })(); </script>
 <!-- End of Sleeknote signup and lead generation tool - www.sleeknote.com -->
-
-
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -65,7 +63,6 @@
         crossorigin="anonymous"></script>
 
 <script src="/js/frontier.js?<?php echo microtime(); ?>"></script>
-
 
 {{--GA Events for pre register--}}
 <script type="text/javascript">
