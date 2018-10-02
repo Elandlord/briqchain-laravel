@@ -6,9 +6,9 @@
             @include('partials.header', ['light' => true])
         </div>
 
-        <div class="container mx-auto">
+        {{-- <div class="container mx-auto">
             <countdown message="{{ $bounty->getText('bounty.private_launch_countdown_title') }}" countdowndate="2018-11-01"></countdown>
-        </div>
+        </div> --}}
 
         <div class="frame__row frame__row--expand">
             <div class="last-action">
@@ -81,7 +81,7 @@
 
         </div>
 
-        <div class="frame__row frame__row--expand">
+        {{-- <div class="frame__row frame__row--expand">
             <div class="fondsen">
                 <div class="fondsen__content">
                     <div class="wrapper">
@@ -117,7 +117,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         <div class="frame__row">

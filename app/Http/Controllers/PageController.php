@@ -63,6 +63,25 @@ class PageController extends Controller
         ));
     }
 
+    public function contestStructure(Request $request)
+    {
+        $locale = $this->getLocale($request);
+        
+        $siteWide = $this->getSiteWide($request, $locale);
+
+        $page_title = 'Contest Structure';
+        $meta_description = 'Meta description';
+
+        $lightBlue = false;        
+
+        return view('contest-structure', compact(
+            'siteWide',
+            'page_title',
+            'meta_description',
+            'lightBlue'
+        ));
+    }
+
     public function getLocale($request)
     {
         $locale = Session::get('applocale');
@@ -276,6 +295,36 @@ class PageController extends Controller
             'lightBlue',
             'app_url',
             'questions'
+        ));
+    }
+
+    public function thankYou(Request $request)
+    {
+        $locale = $this->getLocale($request);
+
+        $aangemeld = $this->api->getSingle('aangemeld');
+        $siteWide = $this->getSiteWide($locale);
+
+        foreach (($altLangs = $aangemeld->getAlternateLanguages()) as $altLang) {
+            if ($locale == $altLang->getLang()) {
+                $aangemeld = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        $page_title = $aangemeld->getText('aanmelden.page_title');
+        $meta_description = $aangemeld->getText('aanmelden.page_description');
+
+        $lightBlue = false;
+
+        $app_url = env('APP_URL');
+
+        return view('aangemeld', compact(
+            'aangemeld',
+            'siteWide',
+            'page_title',
+            'meta_description',
+            'lightBlue',
+            'app_url'
         ));
     }
 
