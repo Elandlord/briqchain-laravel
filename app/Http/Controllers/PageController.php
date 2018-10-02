@@ -30,6 +30,39 @@ class PageController extends Controller
         $this->api = Api::get(env('PRISMIC_URL'));
     }
 
+    public function contest(Request $request)
+    {
+        $locale = $this->getLocale($request);
+
+        $bounty = $this->api->getSingle('bounty');
+        $siteWide = $this->getSiteWide($request, $locale);
+
+        foreach (($altLangs = $bounty->getAlternateLanguages()) as $altLang) {
+            if ($locale == $altLang->getLang()) {
+                $bounty = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        $questions = $bounty->getGroup('bounty.questions')->getArray();
+
+        $page_title = $bounty->getText('bounty.page_title');
+        $meta_description = $bounty->getText('bounty.page_description');
+
+        $lightBlue = false;
+
+        $app_url = env('APP_URL');
+
+        return view('contest', compact(
+            'bounty',
+            'siteWide',
+            'page_title',
+            'meta_description',
+            'lightBlue',
+            'app_url',
+            'questions'
+        ));
+    }
+
     public function getLocale($request)
     {
         $locale = Session::get('applocale');
