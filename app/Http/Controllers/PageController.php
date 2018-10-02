@@ -298,6 +298,36 @@ class PageController extends Controller
         ));
     }
 
+    public function thankYou(Request $request)
+    {
+        $locale = $this->getLocale($request);
+
+        $aangemeld = $this->api->getSingle('aangemeld');
+        $siteWide = $this->getSiteWide($locale);
+
+        foreach (($altLangs = $aangemeld->getAlternateLanguages()) as $altLang) {
+            if ($locale == $altLang->getLang()) {
+                $aangemeld = $this->api->getByID($altLang->getId());
+            }
+        }
+
+        $page_title = $aangemeld->getText('aanmelden.page_title');
+        $meta_description = $aangemeld->getText('aanmelden.page_description');
+
+        $lightBlue = false;
+
+        $app_url = env('APP_URL');
+
+        return view('aangemeld', compact(
+            'aangemeld',
+            'siteWide',
+            'page_title',
+            'meta_description',
+            'lightBlue',
+            'app_url'
+        ));
+    }
+
 
     public function privacyPolicy(Request $request)
     {

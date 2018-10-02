@@ -16,6 +16,7 @@ Route::get('/funds', 'PageController@fondsen');
 Route::get('/how-it-works', 'PageController@zoWerktHet');
 Route::get('/about', 'PageController@about');
 Route::get('/sign-up', 'PageController@aanmelden');
+Route::get('/thank-you', 'PageController@thankYou');
 Route::get('/contest', 'PageController@contest');
 Route::get('/contest-structure', 'PageController@contestStructure');
 Route::get('/privacy-policy', 'PageController@privacyPolicy');
