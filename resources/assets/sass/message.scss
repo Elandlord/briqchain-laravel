@@ -4,7 +4,8 @@
   height: 80px;
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: calc(50% - 145px );
+
   .social__balloon {
     position: relative;
     background: #EBF4FB;
@@ -82,6 +83,8 @@
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+
+
 @keyframes cssAnimation {
   to {
     width:0;

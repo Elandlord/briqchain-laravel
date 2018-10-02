@@ -137,6 +137,7 @@ class PageController extends Controller
         $buttons = $home->getGroup('home.hero_knoppen')->getArray();
 
         $mediaArticles = $home->getGroup('home.media')->getArray();
+        $mediaArticles = App\MediaArticle::convert($mediaArticles);
 
         $points = $home->getGroup('home.punten')->getArray();
 

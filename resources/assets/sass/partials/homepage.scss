@@ -1,0 +1,47 @@
+/* MEDIA LOGO's Homepage*/
+
+.media__button--container {
+  bottom: -80px;
+
+}
+
+.media__button--image {
+  transition: all .3s cubic-bezier(.17,.67,.83,.67);
+  filter: alpha(opacity=50);
+}
+
+
+.media__button {
+  opacity: 0;
+  bottom: -50px;
+  transition: all .1s cubic-bezier(.17,.67,.83,.67);
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+
+.media__button--container:hover {
+  .media__button {
+    opacity: 1;
+    transition: all .3s cubic-bezier(.17,.67,.83,.67);
+    bottom: 0px;
+  }
+
+  .media__button--image {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
+}
+
+.media__hover--activator:hover {
+  .media__button {
+    display: block;
+  }
+
+
+  .media__button--image {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
+}
