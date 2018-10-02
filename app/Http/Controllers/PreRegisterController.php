@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App;
 use GuzzleHttp\Client;
 use App\Http\Requests\PreRegisterRequest;
+use App\EmailCatcher;
 
 class PreRegisterController extends Controller
 {
@@ -62,6 +63,8 @@ class PreRegisterController extends Controller
                 'message' => 'Iemand heeft zich aangemeld voor de Private Sale.'
             ]
         ]);
+
+        EmailCatcher::disable();
 
         Session::flash('message', $message);
 
