@@ -8,12 +8,21 @@
             </a>
 
             <div class="float-right flex-end flex justify-center items-center">
-                <a :href="innerNavLinks.home.url" class="text-white no-underline uppercase bold text-xs inline-block px-6"> {{innerNavLinks.home.linkName}} </a>
-                <a :href="innerNavLinks.fonds.url" class="text-white no-underline uppercase bold text-xs inline-block px-6"> {{innerNavLinks.fonds.linkName}} </a>
-                <a :href="innerNavLinks.zo_werkt_het.url" class="text-white no-underline uppercase bold text-xs inline-block px-6"> {{innerNavLinks.zo_werkt_het.linkName}}</a>
-                <a :href="innerNavLinks.about.url" class="text-white no-underline uppercase bold text-xs mr-2 inline-block px-6 "> {{innerNavLinks.about.linkName}}</a>
+                <a :href="innerNavLinks.home.url"
+                   class="text-white no-underline uppercase bold text-xs inline-block px-6">
+                    {{innerNavLinks.home.linkName}} </a>
+                <a :href="innerNavLinks.fonds.url"
+                   class="text-white no-underline uppercase bold text-xs inline-block px-6">
+                    {{innerNavLinks.fonds.linkName}} </a>
+                <a :href="innerNavLinks.zo_werkt_het.url"
+                   class="text-white no-underline uppercase bold text-xs inline-block px-6">
+                    {{innerNavLinks.zo_werkt_het.linkName}}</a>
+                <a :href="innerNavLinks.about.url"
+                   class="text-white no-underline uppercase bold text-xs mr-2 inline-block px-6 ">
+                    {{innerNavLinks.about.linkName}}</a>
                 <a :href="innerNavLinks.sign_up.url"
-                   class="text-white rounded no-underline uppercase bold text-xs inline-block bg-jade py-2 px-4"> {{innerNavLinks.sign_up.linkName}}</a>
+                   class="text-white rounded no-underline uppercase bold text-xs inline-block bg-jade py-2 px-4">
+                    {{innerNavLinks.sign_up.linkName}}</a>
             </div>
         </div>
 
@@ -47,7 +56,7 @@
 
 <script>
     export default {
-        props: ['navLinks'],
+        props: ['navLinks', 'light'],
         data() {
             return {
                 isVisible: false,
@@ -57,30 +66,21 @@
         },
 
         mounted() {
+
             this.innerNavLinks = JSON.parse(this.navLinks);
         },
 
         watch: {
-            scrollingPosition: function(value) {
+            scrollingPosition: function (value) {
 
-                if(window.innerWidth < 1000) {
-                    this.isVisible = false;
-                    if (this.scrollingPosition > 90) {
-                        this.isVisible = true;
-                        document.getElementsByClassName('header')[0].setAttribute("style", "position: fixed; background: #3C3C82; width: 100%;");
-                        document.getElementsByClassName('sticky-nav')[0].setAttribute("style", "box-shadow: none;");
-                        
-                    } else {
-                        document.getElementsByClassName('header')[0].setAttribute("style", "position: relative");
-                        this.isVisible = false;
-                    }
-
+                if (this.scrollingPosition > 90) {
+                    this.isVisible = true;
                 } else {
-                    if (this.scrollingPosition > 90) {
-                        this.isVisible = true;
-                    } else {
-                        this.isVisible = false;
-                    }
+                    this.isVisible = false;
+                }
+
+                if (window.innerWidth < 1000) {
+                    this.configureMobileNav();
                 }
             }
         },
@@ -95,7 +95,47 @@
         methods: {
             handle() {
                 this.scrollingPosition = window.scrollY;
-            }
+            },
+
+            configureMobileNav() {
+                let header = document.getElementsByClassName('header')[0];
+                let logo = document.getElementsByClassName('logo__img')[1];
+                let stickyNav = document.getElementsByClassName('sticky-nav')[0];
+                let nav_hamburger = document.getElementsByClassName('nav__hamburger')[0];
+
+                if (this.scrollingPosition > 90) {
+
+                    if (header !== undefined) {
+                        header.setAttribute("style", "position: fixed; background: #3C3C82; width: 100%;");
+                    }
+
+                    if(this.light == '1') {
+                        nav_hamburger.setAttribute('style', 'stroke: white;')
+                    }
+
+                    if (stickyNav !== undefined) {
+                        stickyNav.setAttribute("style", "box-shadow: none;");
+                    }
+
+                    if (logo !== undefined) {
+                        logo.src = "https://briqchain.com/static/img/logo-white.svg";
+                    }
+
+                    return;
+                }
+
+                if (logo !== undefined && this.light == '1') {
+                    logo.src = "https://briqchain.com/static/img/logo.svg";
+                    nav_hamburger.setAttribute('style', 'stroke: #373698;')
+                }
+
+                if (header !== undefined) {
+                    header.setAttribute("style", "position: relative");
+                }
+
+            },
+
+
         }
 
 

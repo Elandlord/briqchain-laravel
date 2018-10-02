@@ -11,7 +11,7 @@
                    target="_blank"
                    rel="nofollow" :href="activeElement.website">
 
-                    <div style="height: 65.5px" class="flex items-center">
+                    <div style="height: 65.5px" class="flex items-center mb-6">
                         <img :src="activeElement.logo" class="media__button--image w-1/2 mx-auto opacity-50 "/>
                     </div>
 
@@ -19,7 +19,7 @@
 
                     <div style=" height: 200px; "
                          class="media__button--container pointer absolute pin-b flex items-center justify-center mx-auto w-full">
-                        <p class=" font-bold absolute pin-b uppercase shadow text-center text-white bg-jade rounded no-underline px-4 py-2 text-xs">
+                        <p class="media__button-mobile font-bold absolute pin-b uppercase shadow text-center text-white bg-jade rounded no-underline px-4 py-2 text-xs">
                             Bekijk
                             artikel</p>
                     </div>
@@ -59,6 +59,9 @@
         opacity: 0;
     }
 
+    .media__button-mobile {
+        font-family: 'Montserrat', 'sans-serif';
+    }
 </style>
 
 <script>

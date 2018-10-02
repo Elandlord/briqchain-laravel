@@ -1,4 +1,4 @@
-<sticky-nav nav-links="{{ json_encode($navigationComponents) }}"></sticky-nav>
+<sticky-nav light="{{ $light }}" nav-links="{{ json_encode($navigationComponents) }}"></sticky-nav>
 <div class="header<?php if($light === true): ?> header--light<?php endif; ?>">
 	<div class="header__left">
 		<a class="logo" href="/">
