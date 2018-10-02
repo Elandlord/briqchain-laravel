@@ -63,6 +63,25 @@ class PageController extends Controller
         ));
     }
 
+    public function contestStructure(Request $request)
+    {
+        $locale = $this->getLocale($request);
+        
+        $siteWide = $this->getSiteWide($request, $locale);
+
+        $page_title = 'Contest Structure';
+        $meta_description = 'Meta description';
+
+        $lightBlue = false;        
+
+        return view('contest-structure', compact(
+            'siteWide',
+            'page_title',
+            'meta_description',
+            'lightBlue'
+        ));
+    }
+
     public function getLocale($request)
     {
         $locale = Session::get('applocale');
