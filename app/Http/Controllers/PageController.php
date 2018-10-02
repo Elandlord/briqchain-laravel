@@ -32,16 +32,10 @@ class PageController extends Controller
 
     public function contest(Request $request)
     {
-        $locale = $this->getLocale($request);
-
         $bounty = $this->api->getSingle('bounty');
-        $siteWide = $this->getSiteWide($request, $locale);
+        $siteWide = $this->getSiteWide($request);
 
-        foreach (($altLangs = $bounty->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $bounty = $this->api->getByID($altLang->getId());
-            }
-        }
+        $bounty = $this->getAlternateLanguages($bounty);
 
         $questions = $bounty->getGroup('bounty.questions')->getArray();
 
@@ -64,10 +58,8 @@ class PageController extends Controller
     }
 
     public function contestStructure(Request $request)
-    {
-        $locale = $this->getLocale($request);
-        
-        $siteWide = $this->getSiteWide($request, $locale);
+    {        
+        $siteWide = $this->getSiteWide($request);
 
         $page_title = 'Contest Structure';
         $meta_description = 'Meta description';
@@ -82,54 +74,36 @@ class PageController extends Controller
         ));
     }
 
-    public function getLocale($request)
-    {
-        $locale = Session::get('applocale');
 
-        if ($locale == null) {
-            $locale = 'nl-nl';
-        }
 
-//        if (!in_array($locale, AcceptedLanguages::ACCEPTED_LANGUAGES)) {
-//            $locale = "en-us";
-//        }
-
-        return $locale;
-    }
-
-    public function getSiteWide($locale)
+    public function getSiteWide()
     {
         $siteWide = $this->api->getSingle('site_breed');
-        foreach (($altLangs = $siteWide->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $siteWide = $this->api->getByID($altLang->getId());
-            }
-        }
+        
+        $siteWide = $this->getAlternateLanguages($siteWide);
 
         return $siteWide;
     }
 
+    public function getAlternateLanguages($page)
+    {   
+        foreach (($altLangs = $page->getAlternateLanguages()) as $altLang) {
+            if (Session::get('applocale') == $altLang->getLang()) {
+                return $this->api->getByID($altLang->getId());
+            }
+        }
+
+        return $page;
+    }
+
     public function home(Request $request)
     {
-        $locale = $this->getLocale($request);
-
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
         $home = $this->api->getSingle('home');
         $registerForm = $this->api->getSingle('registerform');
 
-
-
-        foreach (($altLangs = $home->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $home = $this->api->getByID($altLang->getId());
-            }
-        }
-
-        foreach (($altLangs = $registerForm->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $registerForm = $this->api->getByID($altLang->getId());
-            }
-        }
+        $home = $this->getAlternateLanguages($home);
+        $registerForm = $this->getAlternateLanguages($registerForm);
 
         $page_title = $home->getText('home.main_titel');
         $meta_description = $home->getText('home.main_omschrijving');
@@ -161,16 +135,10 @@ class PageController extends Controller
 
     public function fondsen(Request $request)
     {
-        $locale = $this->getLocale($request);
-
         $fondsen = $this->api->getSingle('fondsen');
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
 
-        foreach (($altLangs = $fondsen->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $fondsen = $this->api->getByID($altLang->getId());
-            }
-        }
+        $fondsen = $this->getAlternateLanguages($fondsen);
 
         $app_url = env('APP_URL');
 
@@ -178,7 +146,6 @@ class PageController extends Controller
         $meta_description = $fondsen->getText('fondsen.main_omschrijving');
         $details = $fondsen->getGroup('fondsen.fonds_details')->getArray();
         $buttons = $fondsen->getGroup('fondsen.knoppen')->getArray();
-
 
         $lightBlue = true;
 
@@ -196,16 +163,10 @@ class PageController extends Controller
 
     public function zoWerktHet(Request $request)
     {
-        $locale = $this->getLocale($request);
-
         $zoWerktHet = $this->api->getSingle('zo_werkt_het');
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
 
-        foreach (($altLangs = $zoWerktHet->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $zoWerktHet = $this->api->getByID($altLang->getId());
-            }
-        }
+        $zoWerktHet = $this->getAlternateLanguages($zoWerktHet);
 
         $buttons = $zoWerktHet->getGroup('zo_werkt_het.knoppen')->getArray();
 
@@ -232,16 +193,10 @@ class PageController extends Controller
 
     public function about(Request $request)
     {
-        $locale = $this->getLocale($request);
-
         $about = $this->api->getSingle('about');
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
 
-        foreach (($altLangs = $about->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $about = $this->api->getByID($altLang->getId());
-            }
-        }
+        $about = $this->getAlternateLanguages($about);
 
         $page_title = $about->getText('about.main_titel');
         $meta_description = $about->getText('fondsen.main_omschrijving');
@@ -267,16 +222,10 @@ class PageController extends Controller
 
     public function aanmelden(Request $request)
     {
-        $locale = $this->getLocale($request);
-
         $aanmelden = $this->api->getSingle('aanmelden');
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
 
-        foreach (($altLangs = $aanmelden->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $aanmelden = $this->api->getByID($altLang->getId());
-            }
-        }
+        $aanmelden = $this->getAlternateLanguages($aanmelden);
 
         $questions = $aanmelden->getGroup('aanmelden.questions')->getArray();
 
@@ -300,16 +249,10 @@ class PageController extends Controller
 
     public function thankYou(Request $request)
     {
-        $locale = $this->getLocale($request);
-
         $aangemeld = $this->api->getSingle('aangemeld');
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
 
-        foreach (($altLangs = $aangemeld->getAlternateLanguages()) as $altLang) {
-            if ($locale == $altLang->getLang()) {
-                $aangemeld = $this->api->getByID($altLang->getId());
-            }
-        }
+        $aangemeld = $this->getAlternateLanguages($aangemeld);
 
         $page_title = $aangemeld->getText('aanmelden.page_title');
         $meta_description = $aangemeld->getText('aanmelden.page_description');
@@ -331,12 +274,11 @@ class PageController extends Controller
 
     public function privacyPolicy(Request $request)
     {
-        $locale = $this->getLocale($request);
         $page_title = 'privacy policy';
         $meta_description = '';
         $lightBlue = false;
 
-        $siteWide = $this->getSiteWide($locale);
+        $siteWide = $this->getSiteWide();
 
         return view('privacy-policy', compact(
             'siteWide',
