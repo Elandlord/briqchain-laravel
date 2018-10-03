@@ -56,6 +56,20 @@
 													<td>{{ $detail->getText('omschrijving') }}</td>
 												</tr>
 											@endforeach
+											<tr>
+												<th>{{ $fondsen->getText('fondsen.title') }}</th>
+												<td>
+													<ul class="list-reset">
+														@foreach($fondsen->getGroup('fondsen.files')->getArray() as $file)
+															<li>
+																<a href="{{ $file->getLink('file_url')->getUrl() }}" target="_blank">
+																	{{ $file->getText('file_name') }}
+																</a>
+															</li>
+														@endforeach
+													</ul>
+												</td>
+											</tr>
 										</table>
 									</div>
 								</div>

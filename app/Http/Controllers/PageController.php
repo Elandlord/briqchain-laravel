@@ -30,10 +30,10 @@ class PageController extends Controller
         $this->api = Api::get(env('PRISMIC_URL'));
     }
 
-    public function contest(Request $request)
+    public function contest()
     {
         $bounty = $this->api->getSingle('bounty');
-        $siteWide = $this->getSiteWide($request);
+        $siteWide = $this->getSiteWide();
 
         $bounty = $this->getAlternateLanguages($bounty);
 
@@ -57,9 +57,9 @@ class PageController extends Controller
         ));
     }
 
-    public function contestStructure(Request $request)
+    public function contestStructure()
     {        
-        $siteWide = $this->getSiteWide($request);
+        $siteWide = $this->getSiteWide();
 
         $page_title = 'Contest Structure';
         $meta_description = 'Meta description';
@@ -96,7 +96,7 @@ class PageController extends Controller
         return $page;
     }
 
-    public function home(Request $request)
+    public function home()
     {
         $siteWide = $this->getSiteWide();
         $home = $this->api->getSingle('home');
@@ -133,7 +133,7 @@ class PageController extends Controller
         ));
     }
 
-    public function fondsen(Request $request)
+    public function fondsen()
     {
         $fondsen = $this->api->getSingle('fondsen');
         $siteWide = $this->getSiteWide();
@@ -161,7 +161,7 @@ class PageController extends Controller
         ));
     }
 
-    public function zoWerktHet(Request $request)
+    public function zoWerktHet()
     {
         $zoWerktHet = $this->api->getSingle('zo_werkt_het');
         $siteWide = $this->getSiteWide();
@@ -191,7 +191,7 @@ class PageController extends Controller
         ));
     }
 
-    public function about(Request $request)
+    public function about()
     {
         $about = $this->api->getSingle('about');
         $siteWide = $this->getSiteWide();
@@ -220,7 +220,7 @@ class PageController extends Controller
         ));
     }
 
-    public function aanmelden(Request $request)
+    public function aanmelden()
     {
         $aanmelden = $this->api->getSingle('aanmelden');
         $siteWide = $this->getSiteWide();
@@ -247,7 +247,7 @@ class PageController extends Controller
         ));
     }
 
-    public function thankYou(Request $request)
+    public function thankYou()
     {
         $aangemeld = $this->api->getSingle('aangemeld');
         $siteWide = $this->getSiteWide();
@@ -272,7 +272,7 @@ class PageController extends Controller
     }
 
 
-    public function privacyPolicy(Request $request)
+    public function privacyPolicy()
     {
         $page_title = 'privacy policy';
         $meta_description = '';
