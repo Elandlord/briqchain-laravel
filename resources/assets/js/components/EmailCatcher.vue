@@ -30,21 +30,7 @@
 
                 <div class="flex flex-col md:flex-row lg:flex-row mb-10">
 
-                    <!-- Name input placeholder -->
-                    <!--<div class="catcher__input_container w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pr-2 md:pr-2 lg:pr-2">-->
-                        <!--<label class="catcher__input_label text-deep-blue-lighter mb-2 block text-xs">{{ name }}</label>-->
 
-                        <!--<div class="catcher__input border-blue-grey border-solid border rounded flex ">-->
-                            <!--<div class="border-r border-blue-grey border-solid inline-block py-2 px-2">-->
-                                <!--<i class="catcher__input_icon material-icons text-dark-blue">-->
-                                    <!--person-->
-                                <!--</i>-->
-                            <!--</div>-->
-                            <!--<input type="text" class="py-2 pl-4 inline-block w-full outline-none"-->
-                                   <!--v-model="emailSubscriber.name">-->
-                        <!--</div>-->
-
-                    <!--</div>-->
 
                     <!-- Email adres input placeholder -->
                     <div class="catcher__input_container mt-2 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 sm:pl-2 md:pl-2 lg:pl-2">
@@ -268,16 +254,7 @@
             },
 
             storeSubscription() {
-                // axios.post('/emailSubscriptions', {
-                //     name: this.emailSubscriber.name,
-                //     email_address: this.emailSubscriber.email_address,
-                //     ip_address: this.emailCatcher.ip_address,
-                //     opt_in: 1,
-                //     opt_in_type: "Vinkje",
-                //     terminology: "Akkoord gegaan door middel van klikken op een vinkje op de pop-up."
-                // }).then(() => {
-                //
-                // });
+
                 axios.post('pre-register', {
                    email: this.emailSubscriber.email_address,
                 }).then(() => {
