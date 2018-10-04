@@ -68,7 +68,7 @@ class PreRegisterController extends Controller
 
         Session::flash('message', $message);
 
-        return redirect()->back();
+        return redirect()->to('/thank-you');
 
     }
 }
