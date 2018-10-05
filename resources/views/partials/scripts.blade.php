@@ -16,7 +16,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
 
 {{--Application app.js--}}
-<script type="text/javascript" src="js/app.js?<?php echo microtime(); ?>"></script>
+<script type="text/javascript" src="js/app.js?100"></script>
 
 {{--Vimeo player api script--}}
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -62,7 +62,7 @@
         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
         crossorigin="anonymous"></script>
 
-<script src="/js/frontier.js?1.0.0"></script>
+<script src="/js/frontier.js?100"></script>
 
 {{--GA Events for pre register--}}
 <script type="text/javascript">
