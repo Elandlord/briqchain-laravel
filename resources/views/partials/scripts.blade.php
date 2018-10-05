@@ -62,7 +62,7 @@
         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
         crossorigin="anonymous"></script>
 
-<script src="/js/frontier.js?<?php echo microtime(); ?>"></script>
+<script src="/js/frontier.js?1.0.0"></script>
 
 {{--GA Events for pre register--}}
 <script type="text/javascript">
