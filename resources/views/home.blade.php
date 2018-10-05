@@ -16,12 +16,12 @@
 
                 <div class="hero__container">
                     <div class="hero__content ">
-                        <h1 class="hero__title">{{ $home->hero_titel }}</h1>
-                        <p class="hero__paragraph m-0 mb-10">{{ $home->hero_subtitle }}</p>
+                        <h1 class="hero__title">{{ $home->getText('home.hero_titel') }}</h1>
+                        <p class="hero__paragraph m-0 mb-10">{{ $home->getStructuredText('home.hero_subtitle')->asText() }}</p>
 
                         <div class="hero__buttons">
                             @foreach($home->hero_knoppen() as $button)
-                                @if(strtolower( $button->getText('kleur')) == 'groen')
+                                @if(strtolower($button->getText('kleur')) == 'groen')
                                     @php $color = 'green'; @endphp
                                 @elseif(strtolower($button->getText('kleur')) == 'blauw')
                                     @php $color = 'blue'; @endphp
@@ -39,10 +39,10 @@
                 <div class="badge">
                     <div class="badge__content">
                         <div class="badge__title"><span
-                                    class="badge__currency">{{ $home->badge_valuta }}</span>{{ $home->badge_prijs }}
+                                    class="badge__currency">{{ $home->getText('home.badge_valuta') }}</span>{{ $home->getNumber('home.badge_prijs')->getValue() }}
                         </div>
                         <div class="badge__description">
-                            {{ $home->badge_omschrijving }}
+                            {{ $home->getText('home.badge_omschrijving') }}
                         </div>
                     </div>
                 </div>
@@ -72,9 +72,9 @@
                             </div>
                         </div>
                         <div class="split-content__right">
-                            <h2 class="split-content__title split-content__title--purple">{!! $home->intro_titel !!}</h2>
+                            <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.intro_titel')->asHtml() !!}</h2>
 
-                            {!! $home->intro_content !!}
+                            {!! $home->getStructuredText('home.intro_content')->asHtml() !!}
                         </div>
                     </div>
                 </div>
@@ -113,12 +113,12 @@
                 <div class="wrapper wrapper--middle">
                     <div class="split-content">
                         <div class="split-content__pane split-content__left">
-                            <h2 class="split-content__title split-content__title--green">{!! $home->blockchain_titel !!}</h2>
-                            {!! $home->blockchain_content !!}
+                            <h2 class="split-content__title split-content__title--green">{!! $home->getStructuredText('home.blockchain_titel')->asHtml() !!}</h2>
+                            {!! $home->getStructuredText('home.blockchain_content')->asHtml() !!}
                         </div>
                         <div class="split-content__pane split-content__right split-content__pane--mobile-first">
                             <div class="blockchain-icon">
-                                {!! $home->blockchain_afbeelding->asHtml() !!}
+                                {!! $home->getImage('home.blockchain_afbeelding')->asHtml() !!}
                             </div>
                         </div>
                     </div>
