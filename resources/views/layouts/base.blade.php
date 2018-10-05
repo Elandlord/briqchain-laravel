@@ -2,10 +2,10 @@
 <html lang="nl">
 <head>
 	<meta charset="utf-8">
-	
-	<title>{{ $page_title }}</title>
 
-	<meta name="description" content="{{ $meta_description }}">
+	@yield('page_title')
+	@yield('meta_description')
+
 
 	{{--Lanuage--}}
 	<meta http-equiv="language" content="NL">

@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('page_title')
+	<title>{{ $aangemeld->main_titel }}</title>
+@endSection
+
+@section('meta_description')
+	<meta name="description" content="{{ $aangemeld->main_omschrijving }}">
+@endSection
+
 @section('content')
 <div class="frame">
 	<div class="frame__row">

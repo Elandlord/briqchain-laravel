@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('page_title')
+	<title>{{ $zoWerktHet->main_titel }}</title>
+@endSection
+
+@section('meta_description')
+	<meta name="description" content="{{ $zoWerktHet->main_omschrijving }}">
+@endSection
+
 @section('content')
 <div class="frame">
 	<div class="frame__row">
@@ -22,7 +30,7 @@
 
 
 			<div class="text-center pt-10">
-				@foreach($buttons as $button)
+				@foreach($zoWerktHet->knoppen() as $button)
 					@if(strtolower($button->getText('color')) == 'groen')
 						@php $color = 'green'; @endphp
 					@elseif(strtolower($button->getText('color')) == 'blauw')
@@ -59,7 +67,7 @@
 				<div class="wrapper wrapper--small">
 					<h2 class="faq__title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.faq_titel')->asHtml() !!}</h2>
 					
-					@foreach($questions as $index => $question)
+					@foreach($zoWerktHet->faq_vragen() as $index => $question)
 					<div class="question">
 						<input id="question_{{ $index }}" class="question__checkbox" type="checkbox">
 						<label for="question_{{ $index }}" class="question__label"><h3>{{ $question->getText('vraag') }}</h3></label>

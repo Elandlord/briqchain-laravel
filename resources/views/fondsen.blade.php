@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('page_title')
+	<title>{{ $fondsen->main_titel }}</title>
+@endSection
+
+@section('meta_description')
+	<meta name="description" content="{{ $fondsen->main_omschrijving }}">
+@endSection
+
 @section('content')
 <div class="frame">
 	<div class="frame__row">
@@ -50,7 +58,7 @@
 									<div class="fonds__details">
 										<h2 class="fonds__details-title">{!! $fondsen->getStructuredText('fondsen.fonds_details_label')->asHtml() !!}</h2>
 										<table class="fonds__details-table" border="0" cellspacing="0" cellpadding="0">
-											@foreach($details as $detail)
+											@foreach($fondsen->fonds_details() as $detail)
 												<tr>
 													<th>{{ $detail->getText('titel') }}</th>
 													<td>{{ $detail->getText('omschrijving') }}</td>
@@ -111,7 +119,7 @@
 							</div>
 
 							<div class="text-center pt-10">
-								@foreach($buttons as $button)
+								@foreach($fondsen->knoppen() as $button)
 									@if(strtolower($button->getText('color')) == 'groen')
 										@php $color = 'green'; @endphp
 									@elseif(strtolower($button->getText('color')) == 'blauw')

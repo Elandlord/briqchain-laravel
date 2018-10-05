@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         View::composer('*', 'App\ViewComposers\EmailCatcherComposer');
         View::composer('*', 'App\ViewComposers\NavigationViewComposer');
+        View::composer('*', 'App\ViewComposers\BaseViewComposer');
     }
 
     /**

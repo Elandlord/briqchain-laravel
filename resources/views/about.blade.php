@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('page_title')
+	<title>{{ $about->main_titel }}</title>
+@endSection
+
+@section('meta_description')
+	<meta name="description" content="{{ $about->main_omschrijving }}">
+@endSection
+
 @section('content')
 <div class="frame">
 	<div class="frame__row">
@@ -32,7 +40,7 @@
 				<h2 class="team__title">{!! $about->getText('about.team_titel') !!}</h2>
 				<div class="members">
 
-					@foreach($members as $member)
+					@foreach($about->team_leden() as $member)
 					<div class="members__item">
 						<div class="member">
 							<div class="member__avatar">
@@ -59,7 +67,7 @@
 						<h2 class="team__title">{!! $about->getText('about.partner_title') !!}</h2>
 						<div class="members">
 		
-							@foreach($partners as $partner)
+							@foreach($about->partners() as $partner)
 							<div class="members__item">
 								<div class="member">
 									<div class="member__avatar">

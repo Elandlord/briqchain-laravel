@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('page_title')
+    <title>{{ $bounty->main_titel }}</title>
+@endSection
+
+@section('meta_description')
+    <meta name="description" content="{{ $bounty->main_omschrijving }}">
+@endSection
+
 @section('content')
     <div class="frame">
         <div class="frame__row">
@@ -52,7 +60,7 @@
                         <div class="wrapper wrapper--small">
                             <h2 class="border-solid border-dark-blue px-6 py-4 mb-10 border-l-6  text-dark-blue">{{ $bounty->getText('bounty.private_launch_how_it_works') }}</h2>
 
-                            @foreach($questions as $index => $question)
+                            @foreach($bounty->questions() as $index => $question)
                                 <div class="question question-aanmelden">
                                     <input id="question_{{ $index }}"
                                            class="question__checkbox question__checkbox_aanmelden" type="checkbox">
