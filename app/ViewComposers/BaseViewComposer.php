@@ -29,7 +29,7 @@ class BaseViewComposer
     public function compose(View $view)
     {
         $view->with([
-            'siteWide' => Prismic::siteWide(),
+            'siteWide' => new Prismic('site_breed'),
             'app_url' => env('APP_URL'),
         ]);
 

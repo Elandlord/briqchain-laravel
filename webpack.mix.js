@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 require('laravel-mix-tailwind');
+require('laravel-mix-purgecss');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,5 +14,16 @@ require('laravel-mix-tailwind');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css').tailwind()
+   .sass('resources/assets/sass/app.scss', 'public/css')
+    .tailwind()
+    .purgeCss({
+        whitelist: [
+            'button--green',
+            'button--blue',
+            'vyper-6786-form',
+            'vyper-6786-button',
+            'vyper-6786-button',
+            'gdpr_checkbox',
+        ]
+    })
     .browserSync('briqchain.local');

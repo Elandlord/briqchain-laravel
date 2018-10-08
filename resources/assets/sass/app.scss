@@ -1747,7 +1747,8 @@ p{
 	.logo__img{
 		width: 120px;
 	}
-	
+
+
 	.logo__payoff{
 		display: block;
 		margin: 0;
@@ -1756,7 +1757,8 @@ p{
 		border-left: 0;
 		border-top: 1px solid #4949a0;
 	}
-	
+
+
 	.logo__payoff-powered{
 		display: inline-block;
 		font-size: 8px;
@@ -2242,3 +2244,4 @@ img {
 
 
 @import 'partials/homepage.scss';
+@import 'partials/contest-structure.scss';

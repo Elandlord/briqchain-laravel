@@ -1,0 +1,81 @@
+
+.contest-structure-body {
+  position: relative;
+  bottom: 90px;
+}
+
+
+@media (min-width: 1200px) {
+  .contest__platform-right {
+    div:first-child {
+      order: 1;
+    }
+
+    div:last-child {
+      order: 2;
+    }
+
+  }
+}
+
+
+@media (min-width: 992px) AND (max-width: 1199px) {
+  .contest__platform-right {
+    div:first-child {
+      order: 1;
+    }
+
+    div:last-child {
+      order: 2;
+    }
+
+  }
+}
+
+@media (min-width: 768px) AND (max-width: 991px) {
+  .contest__platform-right {
+    div:first-child {
+      order: 2;
+    }
+
+    div:last-child {
+      order: 1;
+    }
+
+  }
+}
+
+
+@media (max-width: 767px){
+  .contest__platform-right {
+    div:first-child {
+      order: 2;
+    }
+
+    div:last-child {
+      order: 1;
+    }
+
+  }
+}
+
+
+
+
+
+
+.contest__structure-rewards-circle {
+  @apply bg-deep-blue-lighter rounded-full text-center absolute;
+
+  top: -80px;
+  left: 30px;
+  padding-top: 30px;
+  width: 120px;
+  height: 120px;
+
+  p {
+    @apply text-white font-bold m-0 p-0;
+  }
+
+}
+

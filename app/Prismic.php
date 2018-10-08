@@ -9,7 +9,6 @@ use Prismic\Document;
 use App\Enums\AcceptedLanguages;
 use Illuminate\Support\Facades\Session;
 
-
 class Prismic
 {
     public $api;
@@ -27,19 +26,6 @@ class Prismic
         $this->name = $type;
         $this->page = $this->api->getSingle($type);
         $this->page = $this->getAlternateLanguages();
-    }
-
-
-    /**
-     * NAMED CONSTRUCTORS
-     */
-
-    /**
-     * @return \Prismic\Prismic
-     */
-    public static function siteWide()
-    {
-        return (new Static('site_breed'))->page;
     }
 
     /**
@@ -68,6 +54,7 @@ class Prismic
 
         return $this->$property;
     }
+
 
     /**
      * @param $property

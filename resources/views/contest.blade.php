@@ -1,11 +1,11 @@
 @extends('layouts.base')
 
 @section('page_title')
-    <title>{{ $bounty->main_titel }}</title>
+    <title>{{ $bounty->page_title }}</title>
 @endSection
 
 @section('meta_description')
-    <meta name="description" content="{{ $bounty->main_omschrijving }}">
+    <meta name="description" content="{{ $bounty->page_description }}">
 @endSection
 
 @section('content')

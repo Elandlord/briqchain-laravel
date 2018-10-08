@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Platform;
 use Illuminate\Http\Request;
 
 
@@ -101,14 +102,14 @@ class PageController extends Controller
 
     public function contestStructure()
     {
-        $page_title = 'Contest Structure';
-        $meta_description = 'Meta description';
+        $page = new Prismic('contest_structure');
+        $platforms = Platform::convert($page->platforms());
+
 
         $lightBlue = false;        
 
         return view('contest-structure', compact(
-            'page_title',
-            'meta_description',
+            'page',
             'lightBlue'
         ));
     }
@@ -121,8 +122,7 @@ class PageController extends Controller
         $lightBlue = false;
 
         return view('privacy-policy', compact(
-            'page_title',
-            'meta_description',
+            'platforms',
             'lightBlue'
         ));
     }
