@@ -104,7 +104,7 @@
                 </div>
                 <div class="points__bottomline">
                     <svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
-                        <polygon points="0 100 0 0 m1920 0 0 100" style="fill:#ebf4fb"/>
+                        <polygon points="0 100 0 0 1920 0 0 100" style="fill:#ebf4fb"/>
                     </svg>
                 </div>
             </div>
