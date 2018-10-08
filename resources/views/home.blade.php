@@ -59,7 +59,7 @@
         {{--Media articles--}}
         <div class="mt-10">
             <p class="mb-10 text-center"> Featured on </p>
-            <media-slider media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
+            <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
         </div>
 
         <div class="frame__row frame__row--expand">

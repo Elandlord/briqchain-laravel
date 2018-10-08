@@ -20,8 +20,7 @@
                     <div style=" height: 200px; "
                          class="media__button--container pointer absolute pin-b flex items-center justify-center mx-auto w-full">
                         <p class="media__button-mobile font-bold absolute pin-b uppercase shadow text-center text-white bg-jade rounded no-underline px-4 py-2 text-xs">
-                            Bekijk
-                            artikel</p>
+                            {{  }}</p>
                     </div>
                 </a>
             </transition>
@@ -39,8 +38,7 @@
                 <div style=" height: 200px; "
                      class="media__button--container pointer absolute pin-b flex items-center justify-center mx-auto w-full">
                     <p class="media__button font-bold absolute pin-b uppercase shadow text-center text-white bg-jade rounded no-underline px-4 py-2 text-xs">
-                        Bekijk
-                        artikel</p>
+                        {{ buttonText }}</p>
                 </div>
             </a>
 
@@ -49,7 +47,7 @@
     </div>
 </template>
 
-<style scoped>
+<style>
     .fade-enter-active, .fade-leave-active {
         transition: opacity 1s;
     }
@@ -60,14 +58,15 @@
     }
 
     .media__button-mobile {
-        font-family: 'Montserrat', 'sans-serif';
+        font-family: "Montserrat", "sans-serif";
     }
 </style>
 
 <script>
     export default {
         props: [
-            'mediaArticles'
+            'mediaArticles',
+            'buttonText'
         ],
 
         data() {
