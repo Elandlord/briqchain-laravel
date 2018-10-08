@@ -56,7 +56,7 @@
 			</a>
 		</div>
 
-		<div class="w-full text-center block absolute pin-b pin-l mb-4 pt-6">
+		<div class="w-full text-center block lg:absolute md:absolute pin-b pin-l mb-4 mt-6">
 			<a class="text-white no-underline block" href="http://briqchain.com/privacy-policy" > Privacy policy </a>
 		</div>
 	</div>
