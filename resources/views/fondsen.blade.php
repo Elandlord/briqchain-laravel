@@ -70,7 +70,7 @@
 													<ul class="list-reset">
 														@foreach($fondsen->getGroup('fondsen.files')->getArray() as $file)
 															<li>
-																<a href="{{ $file->getLink('file_url')->getUrl() }}" target="_blank">
+																<a class="no-underline text-dark-blue" href="{{ $file->getLink('file_url')->getUrl() }}" target="_blank">
 																	{{ $file->getText('file_name') }}
 																</a>
 															</li>
