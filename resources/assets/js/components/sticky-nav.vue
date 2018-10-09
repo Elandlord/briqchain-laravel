@@ -62,18 +62,22 @@
                 isVisible: false,
                 scrollingPosition: 0,
                 innerNavLinks: [],
+                exceptPages: [
+                    'sign-up',
+                    'contest',
+                ],
+                activePage: this.getActivePage(),
             }
         },
 
         mounted() {
-
             this.innerNavLinks = JSON.parse(this.navLinks);
         },
 
         watch: {
             scrollingPosition: function (value) {
 
-                if (this.scrollingPosition > 90) {
+                if (this.scrollingPosition > 90 && !this.isCurrentPageAnException()) {
                     this.isVisible = true;
                 } else {
                     this.isVisible = false;
@@ -97,13 +101,25 @@
                 this.scrollingPosition = window.scrollY;
             },
 
+            getActivePage() {
+                let explodedURL = window.location.href.split("/");
+                return explodedURL[explodedURL.length - 1];
+            },
+
+            isCurrentPageAnException() {
+                if(this.exceptPages.indexOf(this.activePage) !== -1){
+                    return true;
+                }
+                return false;
+            },
+
             configureMobileNav() {
                 let header = document.getElementsByClassName('header')[0];
                 let logo = document.getElementsByClassName('logo__img')[1];
                 let stickyNav = document.getElementsByClassName('sticky-nav')[0];
                 let nav_hamburger = document.getElementsByClassName('nav__hamburger')[0];
 
-                if (this.scrollingPosition > 90) {
+                if (this.scrollingPosition > 90 && !this.isCurrentPageAnException()) {
 
                     if (header !== undefined) {
                         header.setAttribute("style", "position: fixed; background: #3C3C82; width: 100%;");

@@ -1,11 +1,11 @@
 @extends('layouts.base')
 
 @section('page_title')
-    <title>{{ $aanmelden->main_titel }}</title>
+    <title>{{ $aanmelden->page_title }}</title>
 @endSection
 
 @section('meta_description')
-    <meta name="description" content="{{ $aanmelden->main_omschrijving }}">
+    <meta name="description" content="{{ $aanmelden->page_description }}">
 @endSection
 
 @section('content')

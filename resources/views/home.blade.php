@@ -59,7 +59,7 @@
         {{--Media articles--}}
         <div class="mt-10">
             <p class="mb-10 text-center"> Featured on </p>
-            <media-slider media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
+            <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
         </div>
 
         <div class="frame__row frame__row--expand">
@@ -104,7 +104,7 @@
                 </div>
                 <div class="points__bottomline">
                     <svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
-                        <polygon points="0 100 0 0 m1920 0 0 100" style="fill:#ebf4fb"/>
+                        <polygon points="0 100 0 0 1920 0 0 100" style="fill:#ebf4fb"/>
                     </svg>
                 </div>
             </div>
