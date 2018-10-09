@@ -110,6 +110,7 @@ class PageController extends Controller
 
         return view('contest-structure', compact(
             'page',
+            'platforms',
             'lightBlue'
         ));
     }
