@@ -35,7 +35,7 @@
                             bar.classList.toggle(element, window.scrollY >= originalOffsetTop);
                         });
 
-                    }, 100).bind(this)
+                    }, 0).bind(this)
                 );
             }
         },
