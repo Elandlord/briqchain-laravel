@@ -20,7 +20,7 @@
                     <div style=" height: 200px; "
                          class="media__button--container pointer absolute pin-b flex items-center justify-center mx-auto w-full">
                         <p class="media__button-mobile font-bold absolute pin-b uppercase shadow text-center text-white bg-jade rounded no-underline px-4 py-2 text-xs">
-                            {{  }}</p>
+                            {{ buttonText }}</p>
                     </div>
                 </a>
             </transition>

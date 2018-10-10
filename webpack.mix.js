@@ -24,6 +24,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
             'vyper-6786-button',
             'vyper-6786-button',
             'gdpr_checkbox',
+            'header-logo-light',
         ]
     })
     .browserSync('briqchain.local');
