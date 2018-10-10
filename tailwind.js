@@ -59,6 +59,8 @@ let colors = {
     'deep-blue-lightest': '#304fc9',
     'deep-blue-lightest-2' : '#00D2FF',
 
+    'navbar-blue': '#3C3C82',
+
     // green color
     'jade-darkest': '#024a29',
     'jade-darker': '#047b44',
