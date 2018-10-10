@@ -21,6 +21,14 @@ Route::get('/contest', 'PageController@contest');
 Route::get('/contest-structure', 'PageController@contestStructure');
 Route::get('/privacy-policy', 'PageController@privacyPolicy');
 
+/**
+ * Housing routes
+ */
+Route::get('/housing/properties', 'HousingPageController@properties');
+Route::get('/housing/buy-or-rent', 'HousingPageController@buyOrRent');
+Route::get('/housing/sign-up', 'HousingPageController@signUp');
+Route::get('/housing/sell-property', 'HousingPageController@sellProperty');
+
 Route::post('/sign-up/mail', 'MailController@aanmelden');
 
 Route::get('language/{language}', 'LanguageController@changeLanguage');
