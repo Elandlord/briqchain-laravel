@@ -35,7 +35,7 @@
 
                             {{--badge--}}
                             <div class="last-action__badge">
-                                <span class="last-action__badge-title mt-2">Bounty Contest</span>
+                                <span class="last-action__badge-title mt-2">Contest</span>
                                 <span class="last-action__badge-content">Oktober </span>
                             </div>
 
