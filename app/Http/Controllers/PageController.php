@@ -127,4 +127,16 @@ class PageController extends Controller
             'lightBlue'
         ));
     }
+
+    public function termsAndConditions()
+    {
+        $page_title = 'Terms and Conditions';
+        $meta_description = 'Terms and Conditions';
+
+        $lightBlue = false;
+
+        return view('terms-and-conditions', compact(
+            'lightBlue'
+        ));
+    }
 }

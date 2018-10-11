@@ -19,7 +19,8 @@ Route::get('/sign-up', 'PageController@aanmelden');
 Route::get('/thank-you', 'PageController@thankYou');
 Route::get('/contest', 'PageController@contest');
 Route::get('/contest-structure', 'PageController@contestStructure');
-Route::get('/privacy-policy', 'PageController@privacyPolicy');
+Route::get('/privacy-policy', 'PageController@privacyPolicy')->name('privacy-policy');
+Route::get('/terms-and-conditions', 'PageController@termsAndConditions')->name('terms-and-conditions');
 
 /**
  * Housing routes
