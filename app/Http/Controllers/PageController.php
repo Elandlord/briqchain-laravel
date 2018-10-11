@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Platform;
 use Illuminate\Http\Request;
-
+use Prismic\Api;
+use Prismic\LinkResolver;
+use Prismic\Predicates;
+use Prismic\Document;
 
 use App\MediaArticle;
 use App\Prismic;
@@ -103,7 +106,42 @@ class PageController extends Controller
     public function contestStructure()
     {
         $page = new Prismic('contest_structure');
-        $platforms = Platform::convert($page->platforms());
+
+        $api = API::get(env('PRISMIC_URL'));
+
+        $supporter = new Prismic('W73AmxYAAC0AqXg6', function($api, $type) {
+            return $api->getByID($type);
+        });
+        $supporter->setName('platforms');
+
+        $expert = new Prismic('W73ePRYAADAAqeFo', function($api, $type) {
+            return $api->getByID($type);
+        });
+        $expert->setName('platforms');
+
+        $ambassador = new Prismic('W73bqRYAADAAqdkZ', function($api, $type) {
+            return $api->getByID($type);
+        });
+        $ambassador->setName('platforms');
+
+        $platforms = collect([
+            'supporter' => collect([
+                'supporter_title' => $supporter->supporter_title,
+                'supporter_description'=> $supporter->supporter_description,
+                'platforms' => Platform::convert($supporter->platforms()),
+            ]),
+            'ambassador' => collect([
+                'supporter_title' => $ambassador->supporter_title,
+                'supporter_description'=> $ambassador->supporter_description,
+                'platforms' => Platform::convert($ambassador->platforms()),
+            ]),
+            'expert' => collect([
+                'supporter_title' => $expert->supporter_title,
+                'supporter_description'=> $expert->supporter_description,
+                'platforms' => Platform::convert($expert->platforms()),
+            ]),
+
+        ]);
 
 
         $lightBlue = false;        
@@ -119,6 +157,7 @@ class PageController extends Controller
     {
         $page_title = 'privacy policy';
         $meta_description = '';
+
 
         $lightBlue = false;
 

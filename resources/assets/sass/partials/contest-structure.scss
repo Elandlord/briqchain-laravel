@@ -35,6 +35,17 @@
 @media (min-width: 768px) AND (max-width: 991px) {
   .contest__platform-right {
     div:first-child {
+      order: 1;
+    }
+
+    div:last-child {
+      order: 2;
+    }
+
+  }
+
+  .contest__platform-left {
+    div:first-child {
       order: 2;
     }
 
@@ -49,6 +60,16 @@
 @media (max-width: 767px){
   .contest__platform-right {
     div:first-child {
+      order: 1;
+    }
+
+    div:last-child {
+      order: 2;
+    }
+
+  }
+  .contest__platform-left {
+    div:first-child {
       order: 2;
     }
 
@@ -57,6 +78,7 @@
     }
 
   }
+
 }
 
 

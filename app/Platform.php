@@ -8,6 +8,7 @@ class Platform extends Model
 {
     public static function convert($platforms)
     {
+
         return collect($platforms)->map(function($platform, $index) {
 
             return [

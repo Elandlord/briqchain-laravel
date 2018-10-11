@@ -47,14 +47,10 @@
         </div>
 
 
-        <div class="container mx-auto text-center md:pt-20 lg:pt-20">
-            <h1> {{ $page->supporter_title }} </h1>
-
-            <p class="text-sm"> {{ $page->supporter_description }} </p>
-        </div>
 
 
-        <platforms json-platforms="{{ $platforms }}"></platforms>
+
+        <platforms-switcher json-platforms="{{ $platforms }}"></platforms-switcher>
 
         <div class="frame__row">
             @include('partials/footer')

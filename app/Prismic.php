@@ -15,18 +15,31 @@ class Prismic
     public $page;
     private $name;
 
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
     /**
      * Prismic constructor.
      * @param $type
      */
-    public function __construct($type)
+    public function __construct($type, $callback = null)
     {
         $this->api = API::get(env('PRISMIC_URL'));
 
         $this->name = $type;
-        $this->page = $this->api->getSingle($type);
+
+        if($callback == null) {
+            $this->page = $this->api->getSingle($type);
+        } else {
+            $this->page = $callback($this->api, $type);
+        }
+
         $this->page = $this->getAlternateLanguages();
     }
+
+
 
     /**
      * @return \Prismic\Prismic
