@@ -19,7 +19,17 @@ Route::get('/sign-up', 'PageController@aanmelden');
 Route::get('/thank-you', 'PageController@thankYou');
 Route::get('/contest', 'PageController@contest');
 Route::get('/contest-structure', 'PageController@contestStructure');
-Route::get('/privacy-policy', 'PageController@privacyPolicy');
+Route::get('/privacy-policy', 'PageController@privacyPolicy')->name('privacy-policy');
+Route::get('/terms-and-conditions', 'PageController@termsAndConditions')->name('terms-and-conditions');
+
+/**
+ * Housing routes
+ */
+Route::get('/housing/properties', 'HousingPageController@properties')->name('properties');
+Route::get('/housing/map', 'HousingPageController@map')->name('map');
+Route::get('/housing/buy-or-rent', 'HousingPageController@buyOrRent')->name('buy-or-rent');
+Route::get('/housing/sign-up', 'HousingPageController@signUp')->name('housing-sign-up');
+Route::get('/housing/sell-property', 'HousingPageController@sellProperty')->name('sell-property');
 
 Route::post('/sign-up/mail', 'MailController@aanmelden');
 

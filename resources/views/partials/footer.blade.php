@@ -9,14 +9,14 @@
 					<span>
 						<div style="display: inline-block;">
 							<a href="/language/nl-nl" rel="canonical">
-								<img style="width: 40px; height: 40px;" src="images/netherlands.png" />
+								<img style="width: 40px; height: 40px;" src="/images/netherlands.png" />
 							</a>
 						</div>
 					</span>
 					<span>
 						<div style="display: inline-block; margin-left: 5px;">
 							<a href="/language/en-us" rel="nofollow">
-								<img style="width: 40px; height: 40px;" src="images/usa.png" />
+								<img style="width: 40px; height: 40px;" src="/images/usa.png" />
 							</a>
 						</div>
 					</span>
