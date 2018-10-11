@@ -15,6 +15,15 @@ class HousingPageController extends Controller
         ));
     }
 
+    public function map()
+    {
+        $lightBlue = true;
+
+        return view('housing.map', compact(
+            'lightBlue'
+        ));
+    }
+
     public function buyOrRent()
     {
         $lightBlue = true;

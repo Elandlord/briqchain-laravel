@@ -24,10 +24,11 @@ Route::get('/privacy-policy', 'PageController@privacyPolicy');
 /**
  * Housing routes
  */
-Route::get('/housing/properties', 'HousingPageController@properties');
-Route::get('/housing/buy-or-rent', 'HousingPageController@buyOrRent');
-Route::get('/housing/sign-up', 'HousingPageController@signUp');
-Route::get('/housing/sell-property', 'HousingPageController@sellProperty');
+Route::get('/housing/properties', 'HousingPageController@properties')->name('properties');
+Route::get('/housing/map', 'HousingPageController@map')->name('map');
+Route::get('/housing/buy-or-rent', 'HousingPageController@buyOrRent')->name('buy-or-rent');
+Route::get('/housing/sign-up', 'HousingPageController@signUp')->name('housing-sign-up');
+Route::get('/housing/sell-property', 'HousingPageController@sellProperty')->name('sell-property');
 
 Route::post('/sign-up/mail', 'MailController@aanmelden');
 

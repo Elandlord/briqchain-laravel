@@ -250,3 +250,8 @@ $green-color-hover: #07eb80;
 //.question__checkbox_aanmelden, .question__label_aanmelden, .question__answer_aanmelden {
 //    color: #3A395B !important;
 //}
+
+.grey-gradient-container {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5));
+  background-color: #f7f7f7;
+}

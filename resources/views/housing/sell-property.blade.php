@@ -26,8 +26,8 @@
                                                                   src="https://briqchain.com/static/img/fonds.svg"
                                                                   width="89"></div>
                                     <div class="fonds__title">
-                                        <div class="fonds__name">
-                                            <strong class="trn">INSCHRIJVEN</strong>
+                                        <div class="fonds__name uppercase">
+                                            WONING VERKOPEN
                                         </div>
                                     </div>
                                 </div>
@@ -48,72 +48,82 @@
                         <div class="fonds__content">
                             
                             <!-- CONTENT -->
+                            <section>
+                                <p>Wil je jouw woning verkopen aan briqchain zonder kosten en wanneer het jou uitkomt? Een eerlijke prijs gebaseerd op de waardebepaling van een onafhankelijke taxateur? Stuur ons nu een bericht en wij nemen binnen 24 uur contact met je op.</p>
                             
-                            <p>Wil je jouw woning verkopen aan briqchain zonder kosten en wanneer het jou uitkomt? Een eerlijke prijs gebaseerd op de waardebepaling van een onafhankelijke taxateur? Stuur ons nu een bericht en wij nemen binnen 24 uur contact met je op.</p>
+                                <h3>Jouw gegevens</h3>
 
-                            <article class="content">
-
-                                <div class="wrap">
-
-                                    <h1 class="trn">Jouw gegevens</h1>
-
-                                    <section class="contact-form">
-
-                                        <article class="form-text">
-
-
-
-                                        </article>
-
-
-
-                                        <form method="post" action="woning_verkopen_mail.php" id="contact-form" class="no-placeholders">
-
-                                            <div>
-                                                <label for="name" class="form-label trn">Naam:</label>
-                                                <input type="text" name="name" class="input" id="name" value="" required>
-                                            </div>
-
-                                            <div>
-                                                <label for="tel" class="form-label trn">Telefoon:</label>
-                                                <input type="tel" name="tel" class="input" id="tel" value="" required>
-                                            </div>
-
-                                            <div>
-                                                <label for="email" class="form-label trn">E-mail:</label>
-                                                <input type="email" name="email" class="input" id="email" value="" required>
-                                            </div>
-
-                                            <h4 class="trn">Adres van de woning</h4>
-
-                                            <div>
-                                                <label for="street" class="form-label trn">Straat:</label>
-                                                <input type="text" name="street" class="input" id="street" value="" required>
-                                            </div>
-
-                                            <div>
-                                                <label for="house_number" class="form-label trn">Huisnummer:</label>
-                                                <input type="number" name="house_number" class="input" id="house_number" value="" required>
-                                            </div>
-
-                                            <div>
-                                                <label for="zipcode" class="form-label trn">Postcode:</label>
-                                                <input type="text" name="zipcode" class="input" id="zipcode" value="" required>
-                                            </div>
-
-                                            <div>
-                                                <label for="city" class="form-label trn">Plaats:</label>
-                                                <input type="text" name="city" class="input" id="city" value="" required>
-                                            </div>
-
-                                            <div>
-                                                <button type="submit" id="submit-button" class="button button--green">Verstuur</button>
-                                            </div>
-                                        </form>
-                                    </section>
+                                <div class="flex mb-4 items-center">
+                                    <div class="w-2/5">
+                                        <label for="name" class="form-label trn">Naam:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="text" name="name" placeholder="Naam" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="name" value="" required>
+                                    </div>
                                 </div>
-                            </article>
 
+                                <div class="flex mb-4 items-center">
+                                    <div class="w-2/5">
+                                        <label for="tel" class="form-label trn">Telefoon:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="tel" name="tel" placeholder="Telefoon" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="tel" value="" required>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-4 items-center">
+                                    <div class="w-2/5">
+                                        <label for="email" class="form-label trn">E-mail:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="email" name="email" placeholder="Emailadres" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="email" value="" required>
+                                    </div>
+                                </div>
+
+                                <h4 class="trn">Adres van de woning</h4>
+                                
+                                <div class="flex mb-4 items-center">
+                                    <div class="w-2/5">
+                                        <label for="street" class="form-label trn">Straat:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="text" name="street" placeholder="Straat" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="street" value="" required>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-4 items-center">
+                                    <div class="w-2/5">
+                                        <label for="house_number" class="form-label trn">Huisnummer:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="number" name="house_number" placeholder="Huisnummer" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="house_number" value="" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex mb-4 items-center">
+                                    <div class="w-2/5">
+                                        <label for="zipcode" class="form-label trn">Postcode:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="text" name="zipcode" placeholder="Postcode" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="zipcode" value="" required>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-8 items-center">
+                                    <div class="w-2/5">
+                                        <label for="city" class="form-label trn">Plaats:</label>
+                                    </div>
+                                    <div class="w-3/5">
+                                        <input type="text" placeholder="Plaats" name="city" class="w-full text-grey outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular" id="city" value="" required>
+                                    </div>
+                                </div>
+
+                                <div class="flex mb-4">
+                                    <div class="w-full">
+                                        <button type="submit" id="submit-button" class="button button--green float-right">Verstuur</button>
+                                    </div>
+                                </div>
+                            </section>
                             <!-- END CONTENT -->
                         </div>
                     </div>

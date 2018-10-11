@@ -51,7 +51,7 @@
                             <div class="fonds__omschrijving-paragraphs">
                                 <p>
                                     Iedereen kan huren bij briqchain, mits je uiteraard aan de gestelde huurvoorwaarden voldoet zoals inkomenseisen. Beleg jij in briqs, dan krijg jij voorrang op andere geinteresseerde huurders. Hierbij geldt dat degene met de meeste briqs in bezit, 
-                                    als eerste in aanmerking komt voor een bezichtiging. Schrijf je </span><a class="trn" href="/inschrijven.php">hier</a> <span class="trn"> gratis en vrijblijvend in en wij houden jou graag op de hoogte wanneer er woningen beschikbaar komen voor verhuur.
+                                als eerste in aanmerking komt voor een bezichtiging. Schrijf je <a href="{{ route('housing-sign-up') }}">hier</a> gratis en vrijblijvend in en wij houden jou graag op de hoogte wanneer er woningen beschikbaar komen voor verhuur.
                                 </p>
                                 
                                 <h3>Woning kopen</h3>
