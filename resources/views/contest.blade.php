@@ -35,8 +35,8 @@
 
                             {{--badge--}}
                             <div class="last-action__badge">
-                                <span class="last-action__badge-title mt-2">Contest</span>
-                                <span class="last-action__badge-content">Oktober </span>
+                                <span class="last-action__badge-title mt-2">Social Contest</span>
+                                <span class="last-action__badge-content">Briqchain </span>
                             </div>
 
                             {{--card label--}}
@@ -68,7 +68,7 @@
                                            class="question__label question__label_aanmelden">
                                         <h3>{{ $question->getText('question') }}</h3></label>
                                     <div class="question__answer question__answer_aanmelden">
-                                        {!! nl2br($question->getText('answer')) !!}
+                                        {!! $question->getStructuredText('answer')->asHtml() !!}
                                     </div>
 
                                     @if($question->getText('answer2') != "")

@@ -77,10 +77,9 @@
 
                         <p class="text-xs font-bold "> {{ platform.guidelines_title }} </p>
 
-                        <p class="text-xs">
-                            {{ platform.guidelines }}
-                        </p>
-
+                        <div class="text-xs" v-html="platform.guidelines">
+                        
+                        </div>
                     </div>
 
                 </div>
@@ -105,9 +104,9 @@
                         <p class="text-xs font-bold "> {{ platform.guidelines_title }} </p>
 
                         <!-- Guidelines -->
-                        <p class="text-xs">
-                            {{ platform.guidelines }}
-                        </p>
+                        <div class="text-xs" v-html="platform.guidelines">
+                        
+                        </div>
                         <!--End of Guidelines-->
 
                     </div>

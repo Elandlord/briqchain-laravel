@@ -16,7 +16,7 @@ class Platform extends Model
                 'name' => $platform->getText('name'),
                 'subtitle' => $platform->getText('subtitle'),
                 'guidelines_title' => $platform->getText('guidelines_title'),
-                'guidelines' => $platform->getText('guidelines'),
+                'guidelines' => $platform->getStructuredText('guidelines')->asHtml(),
                 'rewards_title' => $platform->getText('rewards_title'),
                 'available_points' => $platform->getText('available_points'),
                 'rewards_description' => $platform->getText('rewards_description'),

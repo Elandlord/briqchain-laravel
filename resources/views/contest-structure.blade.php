@@ -33,7 +33,7 @@
                                     <p class="ml-12 uppercase text-grey-lighter bold text-xs text-left">{{ $page->card_label }}</p>
                                 </div>
                                 <div class="flex-1 float-right lg:block md:block hidden">
-                                    <p class="w-full pl-4 uppercase text-grey bold text-xs text-right">{{ $page->click_guidelines_text }}</p>
+                                    <p class="w-full pl-6 font-light text-xs text-right">{{ $page->click_guidelines_text }}</p>
                                 </div>
                                 <div class="flex-1 lg:mt-0 md:mt-0 mt-6 text-center">
                                     <a href="#platform-switcher" class="button button--green" type="submit">
@@ -44,7 +44,7 @@
                         </div>
 
 
-                        <h1 class="xs:mt-20"> {{ $page->about_title }} </h1>
+                        <h1> {{ $page->about_title }} </h1>
 
                         <p class="mx-auto">
                             {{ $page->about_paragraph }}
@@ -53,7 +53,7 @@
                         <h1 class="mt-20"> {{ $page->token_description_title }} </h1>
 
                         <p class="mx-auto">
-                            {{ $page->token_description_paragraph }}
+                            {!! $page->getStructuredText('contest_structure.token_description_paragraph')->asHtml() !!}
                         </p>
 
                     </div>
@@ -68,6 +68,10 @@
 
 
         <platforms-switcher id="platform-switcher" json-platforms="{{ $platforms }}"></platforms-switcher>
+
+        <div class="container mx-auto text-center mt-10 mb-20">
+            <a class="button button--green" href="{{ $page->button_url }}">{{ $page->button_text }}</a>
+        </div>
 
         <div class="frame__row">
             @include('partials/footer')
