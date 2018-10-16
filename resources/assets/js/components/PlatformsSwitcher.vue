@@ -2,8 +2,8 @@
     <transition name="fade">
         <div v-if="activePlatform !== null && isVisible" >
             <div class="text-center pt-20">
-                <span class="text-xs block">click for other:</span>
-                <span @click="setActive(name)" class="text-xs pointer" :class="{ 'font-bold': name === activePlatform.supporter_title.toLowerCase()}" v-for="(platform, name) in platforms"> {{ name }}</span>
+                <span class="block">Click for other:</span>
+                <span @click="setActive(name)" class="pointer" :class="{ 'font-bold': name === activePlatform.supporter_title.toLowerCase()}" v-for="(platform, name) in platforms"> {{ name }}</span>
             </div>
 
             <div class="container mx-auto text-center md:pt-20 lg:pt-20">
