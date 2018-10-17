@@ -14,10 +14,18 @@
 		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
+		<div class="mx-auto container flex flex-row items-center justify-center lg:px-32 md:px-10 sm:px-10 px-20">
+			<div class="afm__desktop">
+				<img src="/images/afm/afm2_vrijstelling_dubbel-1768x122.jpg" class="w-full" height="61" alt="Let op! U belegt buiten AFM-toezicht.">
+			</div>
+			<div class="afm__mobile">
+				<img src="/images/afm/afm6_vrijstelling_dubbel-420x254.jpg" class="w-full" height="154" alt="Let op! U belegt buiten AFM-toezicht.">
+			</div>
+		</div>
 		<div class="fondsen">
 			<div class="fondsen__content">
 				<div class="wrapper">
-					<div class="fonds">
+					<div class="fonds fonds-exception">
 						<div class="fonds__header">
 							<div class="fonds__item">
 								<div class="fonds__id">
@@ -140,15 +148,6 @@
 		
 		<div class="calculator" id="calculator">
 			@include('partials/calculator')
-		</div>
-		
-		<div class="afm">
-			<div class="afm__desktop">
-				<img src="/images/afm/afm2_vrijstelling_dubbel-1768x122.jpg" width="884" height="61" alt="Let op! U belegt buiten AFM-toezicht.">
-			</div>
-			<div class="afm__mobile">
-				<img src="/images/afm/afm6_vrijstelling_dubbel-420x254.jpg" width="420" height="254" alt="Let op! U belegt buiten AFM-toezicht.">
-			</div>
 		</div>
 	</div>
 	<div class="frame__row">
