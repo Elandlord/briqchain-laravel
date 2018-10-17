@@ -407,6 +407,10 @@ p {
 
 }
 
+.question__answer a {
+  color: #fff;
+}
+
 .question__checkbox:checked ~ .question__answer {
   display: block;
 }

@@ -1,5 +1,13 @@
 @extends('layouts.base')
 
+@section('page_title')
+    <title>Terms and conditions</title>
+@endSection
+
+@section('meta_description')
+    <meta name="description" content="Terms and conditions">
+@endSection
+
 @section('content')
     <div class="frame">
         <div class="frame__row">
@@ -33,7 +41,7 @@
 
                 <strong>Terms & Conditions </strong> <br><br>
 
-                Briqchain holds the right, in its sole discretion, to cancel, terminate, modify or suspend the Contest should virus, bug, non-authorized human intervention, fraud, or other cause beyond Briqchain’s control corrupt or affect the administration, security, fairness, or proper conduct of the Contest. BrickEX reserves the right, in its sole discretion, to disqualify any individual who tampers or attempts to tamper with the entry process or the operation of the Contest or website or violates these Terms & Conditions. Briqchain has the right, in its sole discretion, to maintain the integrity of the Contest, to void votes for any reason, including, but not limited to: multiple entries from the same user from different IP addresses; multiple entries from the same computer in excess of that allowed by Contest rules; or the use of bots, macros, scripts, or other technical means for entering. Any attempt by an entrant to deliberately damage any website or undermine the legitimate operation of the Contest may be a violation of criminal and civil laws. Should such attempt be made, Briqchain reserves the right to seek damages to the fullest extent permitted by law. <br><br>
+                Briqchain holds the right, in its sole discretion, to cancel, terminate, modify or suspend the Contest should virus, bug, non-authorized human intervention, fraud, or other cause beyond Briqchain’s control corrupt or affect the administration, security, fairness, or proper conduct of the Contest. Briqchain reserves the right, in its sole discretion, to disqualify any individual who tampers or attempts to tamper with the entry process or the operation of the Contest or website or violates these Terms & Conditions. Briqchain has the right, in its sole discretion, to maintain the integrity of the Contest, to void votes for any reason, including, but not limited to: multiple entries from the same user from different IP addresses; multiple entries from the same computer in excess of that allowed by Contest rules; or the use of bots, macros, scripts, or other technical means for entering. Any attempt by an entrant to deliberately damage any website or undermine the legitimate operation of the Contest may be a violation of criminal and civil laws. Should such attempt be made, Briqchain reserves the right to seek damages to the fullest extent permitted by law. <br><br>
 
                 <strong>Agreement to Rules </strong> <br><br>
 
