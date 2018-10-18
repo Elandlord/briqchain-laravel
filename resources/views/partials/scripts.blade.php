@@ -76,6 +76,17 @@
 
 <script type="text/javascript">
     setTimeout(function(){ 
+        
+        $("#gdpr_checkbox a").attr({
+            "href": "https://www.briqchain.com/terms-and-conditions",
+            "target": "_blank"
+        });
+
+        $("#gdpr_checkbox a").click(function(){
+            $("#terms").hide();
+        });
+
+
         function checkWidth() {
             width = document.getElementById('vyper-6786-button').offsetWidth;
             if(width === 0){
