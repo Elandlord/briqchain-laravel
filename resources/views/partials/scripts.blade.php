@@ -72,4 +72,39 @@
     });
 </script>
 
-<script src="//vyper.io/contest-js/contest-6786.js"></script>
+<script src="https://vyper.io/contest-js/contest-6786.js"></script>
+
+<script type="text/javascript">
+    setTimeout(function(){ 
+        function checkWidth() {
+            width = document.getElementById('vyper-6786-button').offsetWidth;
+            if(width === 0){
+                return document.getElementById('vyper-6786-login').offsetWidth + 100;
+            }
+            return width + 100;
+        }
+
+        var login = $('#vyper-6786-login');
+        var button = $('#vyper-6786-button');
+        var already_signed_up = $('#already_signed_up');
+
+        $(already_signed_up).click(function() {
+            $(already_signed_up).css({
+                'left': checkWidth()
+            });
+        });
+
+        $(already_signed_up).css({
+            'background': '#304fc9',
+            'left': checkWidth()
+        });
+
+        $(already_signed_up).hover(function(){
+            $(this).css("background", "#304fc9");
+        }, function(){    
+            $(this).css("background", "#2e4aad");
+        });
+
+        $(already_signed_up).insertAfter(login);
+    }, 50);
+</script>
