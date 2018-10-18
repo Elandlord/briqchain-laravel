@@ -63,9 +63,11 @@ button.vyper-6786-button:hover, button.vyper-6786-login:hover, #already_signed_u
 }
 
 #already_signed_up{
-    margin: 0;
-    position: absolute;
-    bottom: 136px;
+    @media only screen and (min-width: 600px) {
+        margin: 0;
+        position: absolute;
+        bottom: 136px;
+    }
 }
 
 #gdpr_checkbox {
