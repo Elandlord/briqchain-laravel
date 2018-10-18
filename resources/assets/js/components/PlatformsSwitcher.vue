@@ -54,7 +54,7 @@
 
                 setTimeout(() => {
                     this.isVisible = true;
-                }, 0);
+                }, 10);
             }
         }
 

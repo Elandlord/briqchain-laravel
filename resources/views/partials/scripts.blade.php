@@ -16,7 +16,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
 
 {{--Application app.js--}}
-<script type="text/javascript" src="js/app.js?1.0.8"></script>
+<script type="text/javascript" src="js/app.js?1.0.9"></script>
 
 {{--Vimeo player api script--}}
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -70,52 +70,4 @@
         ga('send', 'event', 'Pre-register', 'Pre registreren');
         fbq('track', 'Lead');
     });
-</script>
-
-<script src="https://vyper.io/contest-js/contest-6786.js"></script>
-
-<script type="text/javascript">
-    setTimeout(function(){ 
-        
-        $("#gdpr_checkbox a").attr({
-            "href": "https://www.briqchain.com/terms-and-conditions",
-            "target": "_blank"
-        });
-
-        $("#gdpr_checkbox a").click(function(){
-            $("#terms").hide();
-        });
-
-
-        function checkWidth() {
-            width = document.getElementById('vyper-6786-button').offsetWidth;
-            if(width === 0){
-                return document.getElementById('vyper-6786-login').offsetWidth + 100;
-            }
-            return width + 100;
-        }
-
-        var login = $('#vyper-6786-login');
-        var button = $('#vyper-6786-button');
-        var already_signed_up = $('#already_signed_up');
-
-        $(already_signed_up).click(function() {
-            $(already_signed_up).css({
-                'left': checkWidth()
-            });
-        });
-
-        $(already_signed_up).css({
-            'background': '#304fc9',
-            'left': checkWidth()
-        });
-
-        $(already_signed_up).hover(function(){
-            $(this).css("background", "#304fc9");
-        }, function(){    
-            $(this).css("background", "#2e4aad");
-        });
-
-        $(already_signed_up).insertAfter(login);
-    }, 50);
 </script>
