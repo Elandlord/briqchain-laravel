@@ -14,10 +14,6 @@
             @include('partials.header', ['light' => true])
         </div>
 
-        <div class="container mx-auto">
-            <countdown message="{{ $aanmelden->getText('aanmelden.private_launch_countdown_title') }}" countdowndate="2018-11-01"></countdown>
-        </div>
-
         <div class="frame__row frame__row--expand">
             <div class="last-action">
 
@@ -35,8 +31,8 @@
 
                             {{--badge--}}
                             <div class="last-action__badge">
-                                <span class="last-action__badge-title mt-2">Private Sale</span>
-                                <span class="last-action__badge-content">1 oktober </span>
+                                <span class="last-action__badge-title mt-2">€10 per</span>
+                                <span class="last-action__badge-content">Briq</span>
                             </div>
 
                             {{--card label--}}
@@ -46,7 +42,7 @@
                             <h2 class="text-center bold text-4xl mt-20 mb-10">{{ $aanmelden->getText('aanmelden.private_launch_title') }}</h2>
 
                             {{--aanmeld text--}}
-                            <p class="italic text-left">{{ $aanmelden->getText('aanmelden.private_launch_instruction') }}</p>
+                            <p class="italic text-center">{!! $aanmelden->getStructuredText('aanmelden.private_launch_instruction')->asHtml() !!}</p>
 
                             {{--Aanmeld formulier --}}
                             <form method="post" action="{{ route('pre-register')  }}">
