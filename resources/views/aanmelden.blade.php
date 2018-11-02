@@ -27,7 +27,7 @@
 
                 <div class="last-action__content">
                     <div class="wrapper wrapper--small">
-                        <div class="last-action__block">
+                        <div class="last-action__block flex flex-wrap justify-center">
 
                             {{--badge--}}
                             <div class="last-action__badge">
@@ -36,30 +36,38 @@
                             </div>
 
                             {{--card label--}}
-                            <span class="last-action__label">{{ $aanmelden->getText('aanmelden.voorinschrijving') }}</span>
+                            <div class="w-full">
+                                <span class="last-action__label">{{ $aanmelden->getText('aanmelden.voorinschrijving') }}</span>
+                            </div>
 
                             {{--aanmeld titel--}}
-                            <h2 class="text-center bold text-4xl mt-20 mb-10">{{ $aanmelden->getText('aanmelden.private_launch_title') }}</h2>
+                            <div class="w-full">
+                                <h2 class="text-center bold text-4xl mt-20 mb-10">{{ $aanmelden->getText('aanmelden.private_launch_title') }}</h2>
+                            </div>
 
                             {{--aanmeld text--}}
-                            <p class="italic text-center">{!! $aanmelden->getStructuredText('aanmelden.private_launch_instruction')->asHtml() !!}</p>
+                            <div class="w-full check-ul flex flex-wrap justify-center">
+                                {!! $aanmelden->getStructuredText('aanmelden.private_launch_instruction')->asHtml() !!}
+                            </div>
 
                             {{--Aanmeld formulier --}}
-                            <form method="post" action="{{ route('pre-register')  }}">
-                                @csrf
-                                <div class="flex items-center justify-center mt-24">
-                                    <div class="w-1/2 mr-2">
-                                        <input class="w-full  outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular"
-                                               placeholder="E-mailadres" type="email" id="email_address" name="email"
-                                               required="required">
+                            <div class="w-full">
+                                <form method="post" action="{{ route('pre-register')  }}">
+                                    @csrf
+                                    <div class="flex items-center justify-center mt-10">
+                                        <div class="w-1/2 mr-2">
+                                            <input class="w-full  outline-none shadow px-6 py-4 rounded mr-2 font-merriweather regular"
+                                                   placeholder="E-mailadres" type="email" id="email_address" name="email"
+                                                   required="required">
+                                        </div>
+                                        <div class="">
+                                            <button class="button button--green"
+                                                    id="preRegisterEvent"
+                                                    type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
+                                        </div>
                                     </div>
-                                    <div class="">
-                                        <button class="button button--green"
-                                                id="preRegisterEvent"
-                                                type="submit">{{ $aanmelden->getText('aanmelden.bevestig') }}</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
 
                             {{--aanmeld subtext--}}
                             <p class="">{{ $aanmelden->getText('aanmelden.private_launch_investment') }} </p>

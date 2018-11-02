@@ -255,3 +255,13 @@ $green-color-hover: #07eb80;
   background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5));
   background-color: #f7f7f7;
 }
+
+.check-ul ul{
+  list-style: none;
+}
+
+.check-ul ul li:before{
+  content: '✓';
+  color: $green-color;
+  padding-right: 10px;
+}
