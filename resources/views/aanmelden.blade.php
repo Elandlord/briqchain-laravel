@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-10 mb-10 sm:mb-0 md:mb-0 lg:mb-0">
+                    {{-- <div class="mt-10 mb-10 sm:mb-0 md:mb-0 lg:mb-0">
                         <div class="wrapper wrapper--small">
                             <h2 class="border-solid border-dark-blue px-6 py-4 mb-10 border-l-6  text-dark-blue">{{ $aanmelden->getText('aanmelden.private_launch_how_it_works') }}</h2>
 
@@ -90,6 +90,10 @@
                                 </div>
                             @endforeach
                         </div>
+                    </div> --}}
+
+                    <div class="calculator" id="calculator">
+                        @include('partials/calculator')
                     </div>
 
                 </div>
