@@ -45,10 +45,6 @@
 	<meta name="theme-color" content="#3C3A6C" />
 </head>
 <body @if($lightBlue == true) class="body--light-blue" @endif>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4DMQXK"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
 
 	<div id="app">
 
