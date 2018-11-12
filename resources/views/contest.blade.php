@@ -58,7 +58,7 @@
 
                     <div class="mt-10 mb-10 sm:mb-0 md:mb-0 lg:mb-0">
                         <div class="wrapper wrapper--small">
-                            <h2 class="border-solid border-black px-6 py-4 mb-10 border-l-6  text-black">{{ $bounty->getText('bounty.private_launch_how_it_works') }}</h2>
+                            <h2 class="border-solid border-dark-blue px-6 py-4 mb-10 border-l-6  text-dark-blue">{{ $bounty->getText('bounty.private_launch_how_it_works') }}</h2>
 
                             @foreach($bounty->questions() as $index => $question)
                                 <div class="question question-aanmelden">
