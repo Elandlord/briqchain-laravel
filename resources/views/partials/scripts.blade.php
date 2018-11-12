@@ -31,7 +31,7 @@
 </script>
 
 <!-- Start of Sleeknote signup and lead generation tool - www.sleeknote.com -->
-<script id="sleeknoteScript" type="text/javascript">
+{{-- <script id="sleeknoteScript" type="text/javascript">
     (function (){
         var sleeknoteScriptTag=document.createElement("script");
         sleeknoteScriptTag.type="text/javascript";
@@ -39,11 +39,11 @@
         sleeknoteScriptTag.src=("//sleeknotecustomerscripts.sleeknote.com/13839.js");
         var s=document.getElementById("sleeknoteScript");
         s.parentNode.insertBefore(sleeknoteScriptTag, s);
-    })(); </script>
+    })(); </script> --}}
 <!-- End of Sleeknote signup and lead generation tool - www.sleeknote.com -->
 
 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -53,7 +53,7 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+</script> --}}
 <!--End of Tawk.to Script-->
 
 {{--Jquery --}}
