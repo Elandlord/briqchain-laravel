@@ -59,7 +59,17 @@ let colors = {
     'deep-blue-lightest': '#304fc9',
     'deep-blue-lightest-2' : '#00D2FF',
 
-    'navbar-blue': '#3C3C82',
+    'navbar-blue': '#FAFAFA',
+
+    'blue-darkest': '#0a0a10',
+    'blue-darker': '#1e1d2f',
+    'blue-dark': '#32314e',
+    'blue': '#1C71BC',
+    'blue-light': '#3937C7',
+    'blue-lighter': '#4D31F2',
+    'blue-lightest': '#304fc9',
+    'blue-lightest-2' : '#00D2FF',
+
 
     // green color
     'jade-darkest': '#024a29',
@@ -98,6 +108,7 @@ let colors = {
     'grey-lightest': '#e0e0e0',
 
     'white' : '#FFFFFF',
+    'black' : '#000000',
 
 }
 
