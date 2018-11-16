@@ -38,14 +38,23 @@
 								<a class="navigation__link" href="{{ Config('url') }}/">{{ $siteWide->getText('site_breed.home') }}</a>
 							</li>
 							<li class="navigation__item">
-								<a class="navigation__link" href="{{ Config('url') }}/funds">{{ $siteWide->getText('site_breed.fonds') }}</a>
-							</li>
-							<li class="navigation__item">
 								<a class="navigation__link" href="{{ Config('url') }}/how-it-works">{{ $siteWide->getText('site_breed.zo_werkt_het') }}</a>
 							</li>
 							<li class="navigation__item">
-								<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
+								<a class="navigation__link" href="{{ Config('url') }}/new-investing">{{ $siteWide->getText('site_breed.het_nieuwe_beleggen') }}</a>
 							</li>
+							<li class="navigation__item">
+								<a class="navigation__link" href="{{ Config('url') }}/our-vision">{{ $siteWide->getText('site_breed.onze_visie') }}</a>
+							</li>
+							<li class="navigation__item">
+								<a class="navigation__link" href="{{ Config('url') }}/contact">{{ $siteWide->getText('site_breed.contact_faq') }}</a>
+							</li>
+							{{-- <li class="navigation__item">
+								<a class="navigation__link" href="{{ Config('url') }}/funds">{{ $siteWide->getText('site_breed.fonds') }}</a>
+							</li> --}}
+							{{-- <li class="navigation__item">
+								<a class="navigation__link" href="{{ Config('url') }}/about">{{ $siteWide->getText('site_breed.about') }}</a>
+							</li> --}}
 							{{--<li class="navigation__item">--}}
 								{{--<a id="targetLink" class="navigation__link" href="#">{{ $siteWide->getText('site_breed.woningen') }}</a>--}}
 								{{--<ul id="dropdown">--}}
