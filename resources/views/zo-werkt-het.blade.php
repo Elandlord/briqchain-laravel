@@ -44,46 +44,19 @@
 
 		</div>
 
-		<div style="position: relative; top: 100px; z-index: 250;" class="points">
+		<div class="points">
 			<div class="points__topline">
 				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
 					<polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/>
 				</svg>
 			</div>
-			<div style="padding-top: 50px;" class="points__content">
-				<h1 class="text-center split-content__title split-content__title--purple"> <p>Bekijk onze <strong> video </span></h1>
+			<div class="points__content">
+			<h1 class="text-center split-content__title split-content__title--purple"> {{ $zoWerktHet->getText('zo_werkt_het.video_title') }}</h1>
 				<div class="wrapper text-center">
 					<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 			</div>
 
-		</div>
-
-		<div class="faq">
-			<div class="faq__topline">
-				<svg class="faq__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="0 100 0 0 1920 0 0 100" style="fill:#fff"/></svg>
-			</div>
-			<div class="faq__content">
-				<div class="wrapper wrapper--small">
-					<h2 class="faq__title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.faq_titel')->asHtml() !!}</h2>
-					
-					@foreach($zoWerktHet->faq_vragen() as $index => $question)
-					<div class="question">
-						<input id="question_{{ $index }}" class="question__checkbox" type="checkbox">
-						<label for="question_{{ $index }}" class="question__label"><h3>{{ $question->getText('vraag') }}</h3></label>
-						<div class="question__answer">
-							{!! $question->getStructuredText('antwoord')->asHtml() !!}
-						</div>
-					</div>
-					@endforeach
-				</div>
-			</div>
-			<div class="faq__houses-left"></div>
-			<div class="faq__houses-right"></div>
-		</div>
-		
-		<div class="calculator calculator--overflow" id="calculator">
-			@include('partials/calculator')
 		</div>
 	</div>
 	<div>

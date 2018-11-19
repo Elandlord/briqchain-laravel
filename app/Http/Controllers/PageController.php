@@ -181,7 +181,7 @@ class PageController extends Controller
 
     public function contact()
     {
-        
+
 
         return view('contact', compact(
 
@@ -190,15 +190,25 @@ class PageController extends Controller
 
     public function ourVision()
     {
-        return view('our-vision', compact(
+        $page = new Prismic('onze_visie');
 
+        $lightBlue = false;
+
+        return view('our-vision', compact(
+            'page',
+            'lightBlue'
         ));
     }
 
     public function newInvesting()
     {
-        return view('a-new-way-to-invest', compact(
+        $page = new Prismic('het_nieuwe_beleggen');
 
+        $lightBlue = false;
+
+        return view('a-new-way-to-invest', compact(
+            'page',
+            'lightBlue'
         ));
     }
 }
