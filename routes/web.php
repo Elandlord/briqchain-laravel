@@ -11,16 +11,19 @@
 |
 */
 
-Route::get('/', 'PageController@home');
-Route::get('/funds', 'PageController@fondsen');
-Route::get('/how-it-works', 'PageController@zoWerktHet');
-Route::get('/about', 'PageController@about');
-Route::get('/sign-up', 'PageController@aanmelden');
-Route::get('/thank-you', 'PageController@thankYou');
-Route::get('/contest', 'PageController@contest');
-Route::get('/contest-structure', 'PageController@contestStructure');
-Route::get('/privacy-policy', 'PageController@privacyPolicy')->name('privacy-policy');
-Route::get('/terms-and-conditions', 'PageController@termsAndConditions')->name('terms-and-conditions');
+Route::get('/', 'PageController@home')->name('home');
+Route::get('/funds', 'PageController@fondsen')->name('funds');
+Route::get('/how-it-works', 'PageController@zoWerktHet')->name('howItWorks');
+Route::get('/about', 'PageController@about')->name('about');
+Route::get('/sign-up', 'PageController@aanmelden')->name('signUp');
+Route::get('/thank-you', 'PageController@thankYou')->name('thankYou');
+Route::get('/contest', 'PageController@contest')->name('contest');
+Route::get('/contest-structure', 'PageController@contestStructure')->name('contestStructure');
+Route::get('/privacy-policy', 'PageController@privacyPolicy')->name('privacyPolicy');
+Route::get('/terms-and-conditions', 'PageController@termsAndConditions')->name('termsAndCondition');
+Route::get('/a-new-way-to-invest', 'PageController@newInvesting')->name('newInvesting');
+Route::get('/our-vision', 'PageController@ourVision')->name('ourVision');
+Route::get('/contact', 'PageController@contact')->name('contact');
 
 /**
  * Housing routes

@@ -178,4 +178,27 @@ class PageController extends Controller
             'lightBlue'
         ));
     }
+
+    public function contact()
+    {
+        
+
+        return view('contact', compact(
+
+        ));
+    }
+
+    public function ourVision()
+    {
+        return view('our-vision', compact(
+
+        ));
+    }
+
+    public function newInvesting()
+    {
+        return view('a-new-way-to-invest', compact(
+
+        ));
+    }
 }
