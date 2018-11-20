@@ -47,7 +47,7 @@ class PageController extends Controller
     {
         $zoWerktHet = new Prismic('zo_werkt_het');
 
-        $lightBlue = false;
+        $lightBlue = true;
 
         return view('zo-werkt-het', compact(
             'zoWerktHet',
