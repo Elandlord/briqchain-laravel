@@ -57,10 +57,10 @@
         </div>
 
         {{--Media articles--}}
-        {{-- <div class="mt-10">
+        <div class="mt-10">
             <p class="mb-10 text-center"> Featured on </p>
             <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
-        </div> --}}
+        </div>
 
         <div class="frame__row frame__row--expand">
             {{-- <div class="intro">
