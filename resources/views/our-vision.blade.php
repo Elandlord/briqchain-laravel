@@ -32,14 +32,11 @@
                 </div>
             </div>
             <div class="introduction__bottomline">
-                <svg class="introduction__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#fff"/></svg>
+                {{-- <svg class="introduction__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#fff"/>
+                </svg> --}}
             </div>
             <div class="introduction__houses-left"></div>
             <div class="introduction__houses-right"></div>
-        </div>
-
-        <div class="calculator" id="calculator">
-            @include('partials/calculator')
         </div>
     </div>
     <div class="frame__row">

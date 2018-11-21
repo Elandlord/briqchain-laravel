@@ -13,7 +13,7 @@ Route::get('/terms-and-conditions', 'PageController@termsAndConditions')->name('
 Route::get('/a-new-way-to-invest', 'PageController@newInvesting')->name('newInvesting');
 Route::get('/our-vision', 'PageController@ourVision')->name('ourVision');
 Route::get('/contact', 'PageController@contact')->name('contact');
-Route::post('/contact', 'ContactController@contact')->name('contact-us');
+Route::post('/contact/mail', 'ContactController@contact')->name('contact-us');
 
 /**
  * Housing routes

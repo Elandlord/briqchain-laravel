@@ -19,18 +19,32 @@
 				<div class="wrapper">
 					<div class="fonds fonds-exception">
 						<div class="fonds__content">
-							<div class="fonds__all-details">
-								<div class="fonds__all-detail fonds__all-detail--stretch">
-									<div class="fonds__details">
-										<h2 class="fonds__details-title" style="padding: 0px;">{!! $zoWerktHet->getStructuredText('zo_werkt_het.intro_titel')->asHtml() !!}</h2>
-                                        {!! $zoWerktHet->getStructuredText('zo_werkt_het.intro_content')->asHtml() !!}
-                                        
-                                        <div class="text-center">
-                                            <iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                        </div>
-									</div>
+							<div class="fonds_omschrijving">
+								<h2 class="fonds__omschrijving-title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.new_intro_title')->asHtml() !!}</h2>
+								<div class="fonds__omschrijving-paragraphs">
+									{!! $zoWerktHet->getStructuredText('zo_werkt_het.new_intro_content')->asHtml() !!}
+								</div>
+								
+								<div class="text-center mb-20">
+									<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								</div>
 							</div>
+
+							<div class="fonds__omschrijving" style="padding-bottom: 30px;">
+								<h2 class="fonds__omschrijving-title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.title')->asHtml() !!}</h2>
+								<div class="flex">
+									@foreach($zoWerktHet->steps() as $step)
+										<div class="flex-1 text-center">
+											<img class="img-responsive" style="width: 100px; height:100px;" src="{!! $step->getImage('image')->getUrl() !!}" alt="{{ $step->getText('content') }}" />
+											<h2 class="fonds__omschrijving-title">
+												{!! $step->getStructuredText('title')->asHtml() !!}
+											</h2>
+											{!! $step->getStructuredText('content')->asHtml() !!}	
+										</div>
+									@endforeach
+								</div>
+							</div>
+							
 							<div class="fonds__omschrijving">
 								<h2 class="fonds__omschrijving-title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.costs_title')->asHtml() !!}</h2>
 								<div class="fonds__omschrijving-paragraphs" style="margin-bottom: 30px;">

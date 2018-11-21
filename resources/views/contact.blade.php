@@ -32,14 +32,15 @@
 
                         <h2 class="mb-6"> {{ $contactPage->contactform_title  }} </h2>
 
-                        <input name="name" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->name_placeholder_text }}">
+                        <input name="name" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->name_placeholder_text }}" required>
                         <input name="phone_number" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->phone_number_placeholder_text }}">
-                        <input name="email" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->email_placeholder_text }}">
-                        <input name="subject" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->subject_placeholder_text }}">
-                        <textarea name="question" rows="6" class="my-2 shadow-md outline-none px-4 py-3 rounded" name="" placeholder="{{ $contactPage->question_placeholder_text }}" ></textarea>
+                        <input name="email" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->email_placeholder_text }}" required>
+                        <input name="subject" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->subject_placeholder_text }}" required>
+                        <textarea name="body" rows="6" class="my-2 shadow-md outline-none px-4 py-3 rounded" name="" placeholder="{{ $contactPage->question_placeholder_text }}" required ></textarea>
 
                         <div class="">
                             <input name="submit" class="mt-4 px-4 py-3 rounded shadow-md inline-block bg-jade text-white" type="submit" value="{{ $contactPage->submit_button_text }}" />
+                            <button type="button" onclick="openTawk()" class="mt-4 px-4 py-3 rounded shadow-md inline-block bg-jade text-white outline-none">Live chat</button>
                         </div>
                     </div>
                 </form>

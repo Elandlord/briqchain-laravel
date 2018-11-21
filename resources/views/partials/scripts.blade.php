@@ -78,3 +78,9 @@
         analytics.page();
     }}();
 </script>
+
+<script type="text/javascript">
+    function openTawk(){
+        Tawk_API.maximize();
+    }
+</script>

@@ -14,7 +14,9 @@
 		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
-		<div class="intro">
+        <h1 class="title">{{ $page->getText('het_nieuwe_beleggen.title') }}</h1>
+
+		<div class="intro" style="padding-top: 50px;">
             <div class="wrapper wrapper--middle">
                 <div class="split-content">
                     <div class="split-content__left">
