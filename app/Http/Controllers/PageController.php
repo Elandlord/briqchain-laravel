@@ -12,7 +12,6 @@ use Prismic\Document;
 use App\MediaArticle;
 use App\Prismic;
 
-
 class PageController extends Controller
 {
 
