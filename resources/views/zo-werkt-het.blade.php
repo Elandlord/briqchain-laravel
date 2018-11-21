@@ -33,22 +33,18 @@
 							</div>
 							<div class="fonds__omschrijving">
 								<h2 class="fonds__omschrijving-title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.costs_title')->asHtml() !!}</h2>
-								<div class="fonds__omschrijving-paragraphs">
+								<div class="fonds__omschrijving-paragraphs" style="margin-bottom: 30px;">
                                         {!! $zoWerktHet->getStructuredText('zo_werkt_het.costs_content')->asHtml() !!}
 								</div>
-							</div>
-                            <div class="fonds__omschrijving" style="margin-bottom: 30px;">
                                 <h2 class="fonds__omschrijving-title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_title')->asHtml() !!}</h2>
-                                <div class="fonds__omschrijving-paragraphs check-ul">
+                                <div class="fonds__omschrijving-paragraphs check-ul" style="margin-bottom: 30px;">
                                         {!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_content')->asHtml() !!}
                                 </div>
-                            </div>
-                            <div class="fonds__omschrijving">
                                 <h2 class="fonds__omschrijving-title">{!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_title')->asHtml() !!}</h2>
                                 <div class="fonds__omschrijving-paragraphs check-ul">
                                         {!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_content')->asHtml() !!}
                                 </div>
-                            </div>
+							</div>
 						</div>
 					</div>
 				</div>
