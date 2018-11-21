@@ -47,7 +47,7 @@ class PageController extends Controller
     {
         $zoWerktHet = new Prismic('zo_werkt_het');
 
-        $lightBlue = false;
+        $lightBlue = true;
 
         return view('zo-werkt-het', compact(
             'zoWerktHet',
@@ -175,6 +175,39 @@ class PageController extends Controller
         $lightBlue = false;
 
         return view('terms-and-conditions', compact(
+            'lightBlue'
+        ));
+    }
+
+    public function contact()
+    {
+
+
+        return view('contact', compact(
+
+        ));
+    }
+
+    public function ourVision()
+    {
+        $page = new Prismic('onze_visie');
+
+        $lightBlue = false;
+
+        return view('our-vision', compact(
+            'page',
+            'lightBlue'
+        ));
+    }
+
+    public function newInvesting()
+    {
+        $page = new Prismic('het_nieuwe_beleggen');
+
+        $lightBlue = false;
+
+        return view('a-new-way-to-invest', compact(
+            'page',
             'lightBlue'
         ));
     }

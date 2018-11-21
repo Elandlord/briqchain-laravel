@@ -57,13 +57,13 @@
         </div>
 
         {{--Media articles--}}
-        <div class="mt-10">
+        {{-- <div class="mt-10">
             <p class="mb-10 text-center"> Featured on </p>
             <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
-        </div>
+        </div> --}}
 
         <div class="frame__row frame__row--expand">
-            <div class="intro">
+            {{-- <div class="intro">
                 <div class="wrapper wrapper--middle">
                     <div class="split-content">
                         <div class="split-content__left">
@@ -75,6 +75,23 @@
                             <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.intro_titel')->asHtml() !!}</h2>
 
                             {!! $home->getStructuredText('home.intro_content')->asHtml() !!}
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+            <div class="intro">
+                <div class="wrapper wrapper--middle">
+                    <div class="split-content">
+                        <div class="split-content__left">
+                            <div class="house-icon">
+                                {!! $home->getImage('home.zo_werkt_het_afbeelding')->asHtml() !!}
+                            </div>
+                        </div>
+                        <div class="split-content__right">
+                            <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.zo_werkt_het_titel')->asHtml() !!}</h2>
+
+                            {!! $home->getStructuredText('home.zo_werkt_het_content')->asHtml() !!}
                         </div>
                     </div>
                 </div>
@@ -113,13 +130,30 @@
                 <div class="wrapper wrapper--middle">
                     <div class="split-content">
                         <div class="split-content__pane split-content__left">
-                            <h2 class="split-content__title split-content__title--green">{!! $home->getStructuredText('home.blockchain_titel')->asHtml() !!}</h2>
-                            {!! $home->getStructuredText('home.blockchain_content')->asHtml() !!}
+                            <h2 class="split-content__title split-content__title--green">{!! $home->getStructuredText('home.het_nieuwe_beleggen_title')->asHtml() !!}</h2>
+                            {!! $home->getStructuredText('home.het_nieuwe_beleggen_content')->asHtml() !!}
                         </div>
                         <div class="split-content__pane split-content__right split-content__pane--mobile-first">
                             <div class="blockchain-icon">
-                                {!! $home->getImage('home.blockchain_afbeelding')->asHtml() !!}
+                                {!! $home->getImage('home.het_nieuwe_beleggen_image')->asHtml() !!}
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="intro">
+                <div class="wrapper wrapper--middle">
+                    <div class="split-content">
+                        <div class="split-content__left">
+                            <div class="house-icon">
+                                {!! $home->getImage('home.onze_visie_image')->asHtml() !!}
+                            </div>
+                        </div>
+                        <div class="split-content__right">
+                            <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.onze_visie_title')->asHtml() !!}</h2>
+
+                            {!! $home->getStructuredText('home.onze_visie_content')->asHtml() !!}
                         </div>
                     </div>
                 </div>
