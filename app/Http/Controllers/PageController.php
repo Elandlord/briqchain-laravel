@@ -181,10 +181,16 @@ class PageController extends Controller
 
     public function contact()
     {
+        $contactPage = new Prismic('contact');
+        $zoWerktHet = new Prismic('zo_werkt_het');
 
+
+        $lightBlue = false;
 
         return view('contact', compact(
-
+            'contactPage',
+            'zoWerktHet',
+            'lightBlue'
         ));
     }
 
