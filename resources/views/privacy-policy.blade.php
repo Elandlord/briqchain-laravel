@@ -9,7 +9,7 @@
             <h1 class="title">PRIVACY VERKLARING Briqchain B.V</h1>
 
             <p class="container mx-auto">
-                Briqchain B.V. gevestigd en kantoorhoudende te Rotterdam (3055 ER) aan de Voorhout 125, hierna te
+                Briqchain B.V. gevestigd en kantoorhoudende te Rotterdam (3063 BG) aan de Oostzeedijk 108, hierna te
                 noemen “Briqchain B.V.” hecht veel waarde aan een verantwoorde omgang met persoonsgegevens van
                 haar bezoekers. Briqchain B.V. verwerkt uw persoonsgegevens dan ook zorgvuldig en met inachtneming
                 van de bepalingen die de Wet bescherming persoonsgegevens en de Algemene Verordening

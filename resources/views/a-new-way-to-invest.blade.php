@@ -58,7 +58,7 @@
         <div class="points">
 			<div class="points__topline">
 				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
-					<polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/>
+					<polygon points="0 0 1920 100 1920 100 0 100" style="fill:#ebf4fb"/>
 				</svg>
 			</div>
 			<div class="points__content">
