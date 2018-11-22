@@ -115,36 +115,20 @@
 			</div>
 		</div>
 
-		{{-- <div class="intro">
+		<div class="intro">
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
 					<div class="split-content__left">
 						<div class="house-icon">
 							<div class="text-center">
-								{!! $zoWerktHet->getImage('zo_werkt_het.benefits_image')->asHtml() !!}								
+								{!! $zoWerktHet->getImage('zo_werkt_het.risks_image')->asHtml() !!}
 							</div>
 						</div>
 					</div>
 					<div class="split-content__right check-ul">
-						<h2 class="split-content__title split-content__title--purple">{!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_title')->asHtml() !!}</h2>
+						<h2 class="split-content__title split-content__title--purple">{!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_title')->asHtml() !!}</h2>
 
-						{!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_content')->asHtml() !!}
-					</div>
-				</div>
-			</div>
-		</div> --}}
-
-		<div class="blockchain">
-			<div class="wrapper wrapper--middle">
-				<div class="split-content">
-					<div class="split-content__pane split-content__left">
-						<h2 class="split-content__title split-content__title--green">{!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_title')->asHtml() !!}</h2>
 						{!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_content')->asHtml() !!}
-					</div>
-					<div class="split-content__pane split-content__right split-content__pane--mobile-first">
-						<div class="blockchain-icon">
-							{!! $zoWerktHet->getImage('zo_werkt_het.risks_image')->asHtml() !!}
-						</div>
 					</div>
 				</div>
 			</div>
