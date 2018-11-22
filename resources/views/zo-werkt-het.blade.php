@@ -49,7 +49,7 @@
 			</div>
 			<div class="points__content">
 				<div class="wrapper wrapper--large">
-					<h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_title')->asHtml() !!}</h2>
+					<h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $zoWerktHet->getStructuredText('zo_werkt_het.title')->asHtml() !!}</h2>
 					<div class="points__holder">
 						@foreach($zoWerktHet->steps() as $step)
 
