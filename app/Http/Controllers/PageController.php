@@ -45,11 +45,13 @@ class PageController extends Controller
     public function zoWerktHet()
     {
         $zoWerktHet = new Prismic('zo_werkt_het');
+        $home = new Prismic('home');
 
         $lightBlue = false;
 
         return view('zo-werkt-het', compact(
             'zoWerktHet',
+            'home',
             'lightBlue'
         ));
     }

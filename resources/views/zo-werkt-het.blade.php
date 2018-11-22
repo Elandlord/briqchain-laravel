@@ -86,7 +86,36 @@
 			</div>
 		</div>
 
-		<div class="intro">
+		<div class="points">
+			<div class="points__topline">
+				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+					<polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#ebf4fb"/>
+				</svg>
+			</div>
+			<div class="points__content">
+				<div class="wrapper wrapper--large">
+					<h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_title')->asHtml() !!}</h2>
+					<div class="points__holder">
+						@foreach($home->nieuwe_punten() as $point)
+
+							<div class="point">
+								<div class="point__icon">
+									{!! $point->getImage('image')->asHtml() !!}
+								</div>
+								{!! $point->getStructuredText('punt_title')->asHtml() !!}
+							</div>
+						@endforeach
+					</div>
+				</div>
+			</div>
+			<div class="points__bottomline">
+				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+					<polygon points="0 100 0 0 1920 0 0 100" style="fill:#ebf4fb"/>
+				</svg>
+			</div>
+		</div>
+
+		{{-- <div class="intro">
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
 					<div class="split-content__left">
@@ -103,7 +132,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="blockchain">
 			<div class="wrapper wrapper--middle">
