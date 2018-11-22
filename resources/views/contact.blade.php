@@ -18,7 +18,7 @@
                 <polygon points="0,200 0,0 1920,0 1920,350" style="fill:#EAF4FB"/>
             </svg>
             
-            <div class="absolute pin-t w-full text-center mt-4">
+            <div class="absolute pin-t w-full text-center mt-10">
                 <h1 class="title pt-8 sm:pt-10 md:pt-10 lg:pt-20">{{ $contactPage->page_title }}</h1>
             </div>
 
