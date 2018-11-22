@@ -60,9 +60,7 @@
 		</div>
 		<div class="flex-1">
 			<p class="text-white no-underline block bold">Links</p>
-			@foreach($footerLinks->getGroup('fondsen.files')->getArray() as $file)
-				<a class="text-white no-underline block" href="{{ $file->getLink('file_url')->getUrl() }}" target="_blank" > {{ $file->getText('file_name') }} </a>
-			@endforeach
+			<a class="text-white no-underline block" href="{{ route('funds') }}#downloads" > Downloads </a>
 			<a class="text-white no-underline block" href="{{ route('funds') }}" > Briq Fund </a>
 			<a class="text-white no-underline block" href="http://briqchain.com/privacy-policy" > Privacy </a>
 			<a class="text-white no-underline block" onclick="window.consently.openModal()"> Change my privacy settings </a>

@@ -65,7 +65,7 @@
 								<div class="fonds__all-detail fonds__all-detail--stretch">
 									<div class="fonds__details">
 										<h2 class="fonds__details-title">{!! $fondsen->getStructuredText('fondsen.fonds_details_label')->asHtml() !!}</h2>
-										<table class="fonds__details-table" border="0" cellspacing="0" cellpadding="0">
+										<table class="fonds__details-table" border="0" cellspacing="0" cellpadding="0" id="downloads">
 											@foreach($fondsen->fonds_details() as $detail)
 												<tr>
 													<th>{{ $detail->getText('titel') }}</th>

@@ -30,8 +30,7 @@ class BaseViewComposer
     {
         $view->with([
             'siteWide' => new Prismic('site_breed'),
-            'app_url' => env('APP_URL'),
-            'footerLinks' => new Prismic('fondsen'),
+            'app_url' => env('APP_URL')
         ]);
 
     }
