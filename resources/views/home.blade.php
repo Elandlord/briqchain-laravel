@@ -106,14 +106,13 @@
                 <div class="points__content">
                     <div class="wrapper wrapper--large">
                         <div class="points__holder">
-                            @foreach($home->punten() as $point)
+                            @foreach($home->nieuwe_punten() as $point)
 
                                 <div class="point">
                                     <div class="point__icon">
-                                        {!! $point->getImage('afbeelding')->asHtml() !!}
+                                        {!! $point->getImage('image')->asHtml() !!}
                                     </div>
-                                    <h2 class="point__title">{!! $point->getStructuredText('titel')->asText() !!}</h2>
-                                    {!! $point->getStructuredText('content')->asHtml() !!}
+                                    {!! $point->getStructuredText('punt_title')->asHtml() !!}
                                 </div>
                             @endforeach
                         </div>

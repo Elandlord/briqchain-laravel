@@ -14,7 +14,13 @@
             @include('partials.header', ['light' => true])
         </div>
         <div class="frame__row frame__row--expand">
-            <h1 class="text-center text-4xl mt-10">{{ $contactPage->page_title }}</h1>
+            <svg class="points__line-header" viewBox="0 0 1920 350" preserveAspectRatio="none">
+                <polygon points="0,350 0,0 1920,0 1920,150" style="fill:#78BBDA"/>
+            </svg>
+            
+            <div class="absolute pin-t w-full text-center mt-4">
+                <h1 class="title pt-8 sm:pt-10 md:pt-10 lg:pt-20">{{ $contactPage->page_title }}</h1>
+            </div>
 
             <div class="wrapper flex flex-wrap">
 

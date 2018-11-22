@@ -14,7 +14,13 @@
 		@include('partials.header', ['light' => true])
 	</div>
 	<div class="frame__row frame__row--expand">
-        <h1 class="title">{{ $page->getText('het_nieuwe_beleggen.title') }}</h1>
+        <svg class="points__line-header" viewBox="0 0 1920 350" preserveAspectRatio="none">
+            <polygon points="0,350 0,0 1920,0 1920,150" style="fill:#78BBDA"/>
+        </svg>
+        
+        <div class="absolute pin-t w-full text-center">
+            <h1 class="title pt-8 sm:pt-10 md:pt-10 lg:pt-20">{!! $page->getStructuredText('het_nieuwe_beleggen.title')->asHtml() !!}</h1>
+        </div>
 
 		<div class="intro" style="padding-top: 50px;">
             <div class="wrapper wrapper--middle">

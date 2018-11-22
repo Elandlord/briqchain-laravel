@@ -866,6 +866,12 @@ p {
   width: 100%;
 }
 
+.points__line-header {
+  display: block;
+  max-height: 500px;
+  width: 100%;
+}
+
 .points__content {
   padding: 130px 0 110px;
   background-color: #ebf4fb;
