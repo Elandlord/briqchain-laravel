@@ -15,7 +15,7 @@
         </div>
         <div class="frame__row frame__row--expand">
             <svg class="points__line-header" viewBox="0 0 1920 350" preserveAspectRatio="none">
-                <polygon points="0,350 0,0 1920,0 1920,150" style="fill:#78BBDA"/>
+                <polygon points="0,200 0,0 1920,0 1920,350" style="fill:#EAF4FB"/>
             </svg>
             
             <div class="absolute pin-t w-full text-center mt-4">
