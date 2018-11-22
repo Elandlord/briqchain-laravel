@@ -55,7 +55,9 @@
 
             <div class="faq">
                 <div class="faq__topline">
-                    <svg class="faq__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="0 100 0 0 1920 0 0 100" style="fill:#fff"/></svg>
+                    <svg class="faq__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+                        <polygon points="0 0 1920 0 1920 100 0 0" style="fill:#fff"/>
+                    </svg>
                 </div>
                 <div class="faq__content">
                     <div class="wrapper wrapper--small">
