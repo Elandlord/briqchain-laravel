@@ -1,7 +1,7 @@
 @component('mail::message')
-Beste Briqchain-team,
+Beste {{ $data['name'] }},
 
-Er is contact opgenomen met {{ config('app.name') }}. De gegevens die achtergelaten zijn:
+U heeft contact opgenomen met {{ config('app.name') }}. De gegevens die u achtergelaten heeft:
 @component('mail::table')
 | Component          | Waarde                      |
 |:-------------------|:----------------------------|
@@ -11,14 +11,14 @@ Er is contact opgenomen met {{ config('app.name') }}. De gegevens die achtergela
 @endcomponent
 
 @component('mail::table')
-| Bericht            |
+| Uw bericht         |
 |:-------------------|
 | {{ $data['body'] }}|
 @endcomponent
 
 
-Er is een bevestiging gestuurd naar de afzender. Probeer zo snel mogelijk contact op te nemen met de afzender.<br/>
+Wij nemen zo spoedig mogelijk contact met u op.<br/>
 
 Hartelijke groet,<br/>
-# De {{ config('app.name') }} mailserver
+# Het {{ config('app.name') }}-team
 @endcomponent

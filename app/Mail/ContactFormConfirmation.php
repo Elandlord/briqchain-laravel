@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactFormMail extends Mailable
+class ContactFormConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,9 +30,9 @@ class ContactFormMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->data['email'], $this->data['name'])
+        return $this->from(env('MAIL_USERNAME'), env('APP_NAME'))
             ->subject('Contactbericht: ' . $this->data['subject'])
-            ->markdown('emails.contact-form')
+            ->markdown('emails.contact-form-confirmation')
             ->with([
                 'data' => $this->data,
             ]);
