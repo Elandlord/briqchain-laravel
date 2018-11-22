@@ -92,6 +92,8 @@
                             <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.zo_werkt_het_titel')->asHtml() !!}</h2>
 
                             {!! $home->getStructuredText('home.zo_werkt_het_content')->asHtml() !!}
+
+                            <a class="button button--green" href="{{ $home->getLink('home.zo_werkt_het_link')->getUrl() }}">{{ $home->getText('home.zo_werkt_het_button_text') }}</a>
                         </div>
                     </div>
                 </div>
@@ -132,6 +134,8 @@
                         <div class="split-content__pane split-content__left">
                             <h2 class="split-content__title split-content__title--green">{!! $home->getStructuredText('home.het_nieuwe_beleggen_title')->asHtml() !!}</h2>
                             {!! $home->getStructuredText('home.het_nieuwe_beleggen_content')->asHtml() !!}
+
+                            <a class="button button--green" href="{{ $home->getLink('home.het_nieuwe_beleggen_link')->getUrl() }}">{{ $home->getText('home.het_nieuwe_beleggen_button_text') }}</a>
                         </div>
                         <div class="split-content__pane split-content__right split-content__pane--mobile-first">
                             <div class="blockchain-icon">
@@ -154,6 +158,8 @@
                             <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.onze_visie_title')->asHtml() !!}</h2>
 
                             {!! $home->getStructuredText('home.onze_visie_content')->asHtml() !!}
+
+                            <a class="button button--green" href="{{ $home->getLink('home.onze_visie_link')->getUrl() }}">{{ $home->getText('home.onze_visie_button_text') }}</a>
                         </div>
                     </div>
                 </div>

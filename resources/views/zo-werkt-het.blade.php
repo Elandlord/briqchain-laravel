@@ -49,12 +49,15 @@
 			</div>
 			<div class="points__content">
 				<div class="wrapper wrapper--large">
-					<h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $zoWerktHet->getStructuredText('zo_werkt_het.title')->asHtml() !!}</h2>
-					<div class="flex">
+					<h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $zoWerktHet->getStructuredText('zo_werkt_het.benefits_title')->asHtml() !!}</h2>
+					<div class="points__holder">
 						@foreach($zoWerktHet->steps() as $step)
-							<div class="flex-1 text-center">
-								<img class="img-responsive" style="width: 100px; height:100px;" src="{!! $step->getImage('image')->getUrl() !!}" alt="{{ $step->getText('content') }}" />
-								<h2 class="fonds__omschrijving-title">
+
+							<div class="point">
+								<div class="point__icon">
+									<img class="img-responsive" style="width: 100px; height:100px;" src="{!! $step->getImage('image')->getUrl() !!}" alt="{{ $step->getText('content') }}" />
+								</div>
+								<h2 class="fonds__omschrijving-title my-4">
 									{!! $step->getStructuredText('title')->asHtml() !!}
 								</h2>
 								{!! $step->getStructuredText('content')->asHtml() !!}	
