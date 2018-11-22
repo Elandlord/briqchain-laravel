@@ -105,6 +105,7 @@
                 </div>
                 <div class="points__content">
                     <div class="wrapper wrapper--large">
+					    <h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $home->getStructuredText('home.punt_block_title')->asHtml() !!}</h2>
                         <div class="points__holder">
                             @foreach($home->nieuwe_punten() as $point)
 
