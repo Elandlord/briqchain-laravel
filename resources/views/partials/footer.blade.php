@@ -63,7 +63,7 @@
 			<a class="text-white no-underline block" href="{{ route('funds') }}#downloads" > Downloads </a>
 			<a class="text-white no-underline block" href="{{ route('funds') }}" > Briq Fund </a>
 			<a class="text-white no-underline block" href="http://briqchain.com/privacy-policy" > Privacy </a>
-			<a class="text-white no-underline block" onclick="window.consently.openModal()"> Change my privacy settings </a>
+			<a class="text-white no-underline block pointer" onclick="window.consently.openModal()"> Change my privacy settings </a>
 		</div>
 	</div>
 </footer>

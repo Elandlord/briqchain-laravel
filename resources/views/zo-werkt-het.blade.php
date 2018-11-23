@@ -27,8 +27,9 @@
 				<div class="split-content">
 					<div class="split-content__left">
 						<div class="house-icon">
-							<div class="text-center" style="min-width: 480px;">
-								<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							<div class="text-center">
+								{{-- <iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> --}}
+								<img style="width: 400px;" src="{!! $zoWerktHet->getImage('zo_werkt_het.new_intro_image')->getUrl() !!}" />
 							</div>
 						</div>
 					</div>

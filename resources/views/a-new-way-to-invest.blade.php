@@ -27,7 +27,7 @@
                 <div class="split-content">
                     <div class="split-content__left">
                         <div class="house-icon">
-                            {!! $page->getImage('het_nieuwe_beleggen.no_banks_image')->asHtml() !!}
+                            <img style="width: 400px;" src="{!! $page->getImage('het_nieuwe_beleggen.no_banks_image')->getUrl() !!}" />
                         </div>
                     </div>
                     <div class="split-content__right">
