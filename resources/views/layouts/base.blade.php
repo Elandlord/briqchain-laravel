@@ -36,8 +36,8 @@
 	<meta name="format-detection" content="telephone=no">
 
 	{{--Social media open graph--}}
-	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png">
-	<meta name="twitter:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png" />
+	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview_interest.png">
+	<meta name="twitter:image" content="{{ env('APP_URL') }}/static/img/facebook_preview_interest.png" />
 
 	{{--CSRF --}}
 	<meta name="csrf-token" content="{{ csrf_token() }}">
