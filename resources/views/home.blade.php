@@ -56,19 +56,13 @@
             </div>
         </div>
 
-        <div class="mx-auto container flex flex-row items-center justify-center lg:px-32 md:px-10 sm:px-10 px-20 mt-6">
+        <div class="mx-auto container flex flex-row items-center justify-center lg:px-32 md:px-10 sm:px-10 px-20 pt-20">
             <div class="afm__desktop">
                 <img src="/images/afm/afm2_vrijstelling_dubbel-1768x122.jpg" class="w-full" height="61" alt="Let op! U belegt buiten AFM-toezicht.">
             </div>
             <div class="afm__mobile">
                 <img src="/images/afm/afm6_vrijstelling_dubbel-420x254.jpg" class="w-full" height="154" alt="Let op! U belegt buiten AFM-toezicht.">
             </div>
-        </div>
-
-        {{--Media articles--}}
-        <div class="mt-10">
-            <p class="mb-10 text-center"> Featured on </p>
-            <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
         </div>
 
         <div class="frame__row frame__row--expand">
@@ -172,6 +166,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {{--Media articles--}}
+            <div class="mt-10">
+                <h2 class="split-content__title-media-articles text-center bold">Featured on </h2>
+                <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
             </div>
 
             <div class="calculator" id="calculator">

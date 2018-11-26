@@ -807,6 +807,13 @@ p {
   padding: 0 0 0 28px;
 }
 
+.split-content__title-media-articles {
+  margin: 30px 0 35px;
+  font-size: 34px;
+  font-weight: 300;
+  padding: 0 0 0 28px;
+}
+
 .split-content__title p {
   margin: 0;
 }
@@ -2282,6 +2289,15 @@ img {
     padding: 5px 25px;
     transition: padding-top .4s cubic-bezier(0.4, 0.0, 0.2, 1),
     padding-bottom .4s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    .header__right .nav .header__call-to-action-lg{
+      bottom: 4px;
+    }
+
+    .nav__hamburger {
+      position: relative;
+      top: 8px;
+    }
   }
 
   .header a {
