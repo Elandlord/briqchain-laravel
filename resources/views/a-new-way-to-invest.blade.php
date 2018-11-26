@@ -34,6 +34,8 @@
                         <h2 class="split-content__title split-content__title--purple">{!! $page->getStructuredText('het_nieuwe_beleggen.no_banks_title')->asHtml() !!}</h2>
 
                         {!! $page->getStructuredText('het_nieuwe_beleggen.no_banks_content')->asHtml() !!}
+                        <a class="button button--green" href="{{ $page->getLink('het_nieuwe_beleggen.no_banks_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.no_banks_button') }}</a>
+                        <a class="button button--blue" href="{{ $page->getLink('het_nieuwe_beleggen.invest_in_briqs_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.invest_in_briqs_button') }}</a>
                     </div>
                 </div>
             </div>
@@ -45,6 +47,8 @@
                     <div class="split-content__pane split-content__left">
                         <h2 class="split-content__title split-content__title--green">{!! $page->getStructuredText('het_nieuwe_beleggen.blockchain_title')->asHtml() !!}</h2>
                         {!! $page->getStructuredText('het_nieuwe_beleggen.blockchain_content')->asHtml() !!}
+                        <a class="button button--green" href="{{ $page->getLink('het_nieuwe_beleggen.blockchain_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.blockchain_button') }}</a>
+                        <a class="button button--blue" href="{{ $page->getLink('het_nieuwe_beleggen.invest_in_briqs_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.invest_in_briqs_button') }}</a>
                     </div>
                     <div class="split-content__pane split-content__right split-content__pane--mobile-first">
                         <div class="blockchain-icon">
@@ -65,7 +69,11 @@
 				<h1 class="text-center split-content__title split-content__title--purple"> {!! $page->getStructuredText('het_nieuwe_beleggen.play_video')->asHtml() !!}</h1>
 				<div class="wrapper text-center">
 					<iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				</div>
+                </div>
+                <div class="mt-4"></div>
+                <div class="wrapper text-center">
+                    <a class="block button button--green text-center" href="{{ $page->getLink('het_nieuwe_beleggen.invest_in_briqs_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.invest_in_briqs_button') }}</a>                
+                </div>
 			</div>
 
 		</div>

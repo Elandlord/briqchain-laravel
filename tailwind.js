@@ -61,6 +61,8 @@ let colors = {
 
     'navbar-blue': '#3C3C82',
 
+    'button-blue': '#2e4aad',
+
     // green color
     'jade-darkest': '#024a29',
     'jade-darker': '#047b44',

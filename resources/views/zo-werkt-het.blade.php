@@ -37,6 +37,8 @@
 						<h2 class="split-content__title split-content__title--purple">{!! $zoWerktHet->getStructuredText('zo_werkt_het.new_intro_title')->asHtml() !!}</h2>
 
 						{!! $zoWerktHet->getStructuredText('zo_werkt_het.new_intro_content')->asHtml() !!}
+						<a class="button button--green" href="{{ $zoWerktHet->getLink('zo_werkt_het.new_intro_url')->getUrl() }}">{{ $zoWerktHet->getText('zo_werkt_het.new_intro_button') }}</a>
+						<a class="button button--blue" href="{{ $zoWerktHet->getLink('zo_werkt_het.invest_in_briqs_url')->getUrl() }}">{{ $zoWerktHet->getText('zo_werkt_het.invest_in_briqs_button') }}</a>
 					</div>
 				</div>
 			</div>
@@ -88,6 +90,8 @@
 						<h2 class="split-content__title split-content__title--purple">{!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_title')->asHtml() !!}</h2>
 
 						{!! $zoWerktHet->getStructuredText('zo_werkt_het.risks_content')->asHtml() !!}
+						<a class="button button--green" href="{{ $zoWerktHet->getLink('zo_werkt_het.risks_url')->getUrl() }}">{{ $zoWerktHet->getText('zo_werkt_het.risks_button') }}</a>
+						<a class="button button--blue" href="{{ $zoWerktHet->getLink('zo_werkt_het.invest_in_briqs_url')->getUrl() }}">{{ $zoWerktHet->getText('zo_werkt_het.invest_in_briqs_button') }}</a>
 					</div>
 				</div>
 			</div>
@@ -128,6 +132,7 @@
 					<div class="split-content__pane split-content__left">
 						<h2 class="split-content__title split-content__title--green">{!! $zoWerktHet->getStructuredText('zo_werkt_het.costs_title')->asHtml() !!}</h2>
 						{!! $zoWerktHet->getStructuredText('zo_werkt_het.costs_content')->asHtml() !!}
+						<a class="button button--green" href="{{ $zoWerktHet->getLink('zo_werkt_het.invest_in_briqs_url')->getUrl() }}">{{ $zoWerktHet->getText('zo_werkt_het.invest_in_briqs_button') }}</a>
 					</div>
 					<div class="split-content__pane split-content__right split-content__pane--mobile-first">
 						<div class="blockchain-icon">

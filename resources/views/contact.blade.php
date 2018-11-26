@@ -44,9 +44,9 @@
                         <input name="subject" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->subject_placeholder_text }}" required>
                         <textarea name="body" rows="6" class="my-2 shadow-md outline-none px-4 py-3 rounded" name="" placeholder="{{ $contactPage->question_placeholder_text }}" required ></textarea>
 
-                        <div class="">
-                            <input name="submit" class="mt-4 px-4 py-3 rounded shadow-md inline-block bg-jade text-white" type="submit" value="{{ $contactPage->submit_button_text }}" />
-                            <button type="button" onclick="openTawk()" class="mt-4 px-4 py-3 rounded shadow-md inline-block bg-jade text-white outline-none">Live chat</button>
+                        <div class="mt-4">
+                            <input class="button button--green" type="submit" value="{{ $contactPage->submit_button_text }}"/>
+                            <a class="button button--blue" onclick="openTawk()" >Live chat</a>
                         </div>
                     </div>
                 </form>
