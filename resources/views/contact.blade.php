@@ -33,7 +33,7 @@
                 {{--contactform--}}
 
                 <form class="w-full" action="{{ route('contact-us') }}" method="post" >
-                    <div class="w-1/2 flex flex-col mt-10 mb-20">
+                    <div class="lg:w-1/2 md:w-1/2 sm:w-1/2 xs:w-full flex flex-col mt-10 mb-20">
                         @csrf
 
                         <h2 class="mb-6"> {{ $contactPage->contactform_title  }} </h2>
