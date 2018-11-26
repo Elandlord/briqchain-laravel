@@ -2291,8 +2291,11 @@ img {
     padding-bottom .4s cubic-bezier(0.4, 0.0, 0.2, 1);
 
     .header__right .nav .header__call-to-action-lg{
-      color: white;
       bottom: 4px;
+    }
+
+    .header__right .nav .header__call-to-action-lg a {
+      color: white;
     }
 
     .nav__hamburger {
