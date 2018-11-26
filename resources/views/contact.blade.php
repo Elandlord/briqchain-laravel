@@ -46,6 +46,7 @@
 
                         <div class="mt-4">
                             <input class="button button--green" type="submit" value="{{ $contactPage->submit_button_text }}"/>
+                            <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>                        
                             <a class="button button--blue" onclick="openTawk()" >Live chat</a>
                         </div>
                     </div>

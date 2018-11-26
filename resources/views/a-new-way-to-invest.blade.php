@@ -35,6 +35,7 @@
 
                         {!! $page->getStructuredText('het_nieuwe_beleggen.no_banks_content')->asHtml() !!}
                         <a class="button button--green" href="{{ $page->getLink('het_nieuwe_beleggen.no_banks_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.no_banks_button') }}</a>
+                        <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>                        
                         <a class="button button--blue" href="{{ $page->getLink('het_nieuwe_beleggen.invest_in_briqs_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.invest_in_briqs_button') }}</a>
                     </div>
                 </div>
@@ -48,6 +49,7 @@
                         <h2 class="split-content__title split-content__title--green">{!! $page->getStructuredText('het_nieuwe_beleggen.blockchain_title')->asHtml() !!}</h2>
                         {!! $page->getStructuredText('het_nieuwe_beleggen.blockchain_content')->asHtml() !!}
                         <a class="button button--green" href="{{ $page->getLink('het_nieuwe_beleggen.blockchain_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.blockchain_button') }}</a>
+                        <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>                        
                         <a class="button button--blue" href="{{ $page->getLink('het_nieuwe_beleggen.invest_in_briqs_url')->getUrl() }}">{{ $page->getText('het_nieuwe_beleggen.invest_in_briqs_button') }}</a>
                     </div>
                     <div class="split-content__pane split-content__right split-content__pane--mobile-first">
