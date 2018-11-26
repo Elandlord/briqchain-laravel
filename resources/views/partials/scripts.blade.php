@@ -16,7 +16,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.0.19/collect.min.js"></script>
 
 {{--Application app.js--}}
-<script type="text/javascript" src="js/app.js?1.1.3"></script>
+<script type="text/javascript" src="js/app.js?1.1.4"></script>
 
 {{--Vimeo player api script--}}
 <script src="https://player.vimeo.com/api/player.js"></script>
