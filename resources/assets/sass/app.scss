@@ -36,6 +36,11 @@ p {
   margin: 30px 0;
 }
 
+.image-responsive{
+  width: 400px;
+  max-width: 400px;
+}
+
 .frame {
   display: table;
   width: 100%;
@@ -2193,6 +2198,11 @@ p {
 }
 
 @media(max-width: 600px) {
+  .image-responsive{
+    width: 250px;
+    max-width: 250px;
+  }
+
   .afm {
     padding: 40px 20px 40px;
   }

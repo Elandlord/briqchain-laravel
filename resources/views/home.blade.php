@@ -89,7 +89,7 @@
                         <div class="split-content__left">
                             <div class="house-icon">
                                 <div class="text-center">
-                                    <img src="{!! $home->getImage('home.zo_werkt_het_afbeelding')->getUrl() !!}" style="max-width: 350px; width:350px;" />
+                                    <img src="{!! $home->getImage('home.zo_werkt_het_afbeelding')->getUrl() !!}" class="image-responsive" />
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                         <div class="split-content__pane split-content__right split-content__pane--mobile-first">
                             <div class="house-icon">
                                 <div class="text-center">
-                                    <img src="{!! $home->getImage('home.het_nieuwe_beleggen_image')->getUrl() !!}" style="max-width: 400px; width:400px;" />
+                                    <img src="{!! $home->getImage('home.het_nieuwe_beleggen_image')->getUrl() !!}" class="image-responsive" />
                                 </div>
                             </div>
                         </div>

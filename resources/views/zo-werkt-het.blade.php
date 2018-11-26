@@ -29,7 +29,7 @@
 						<div class="house-icon">
 							<div class="text-center">
 								{{-- <iframe id="briq_video" class="sub-intro__video" src="https://player.vimeo.com/video/249152130?color=4d31f2&title=0&byline=0&portrait=0" width="480" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> --}}
-								<img style="max-width: 350px; width:350px;" src="{!! $zoWerktHet->getImage('zo_werkt_het.new_intro_image')->getUrl() !!}" />
+								<img class="image-responsive" src="{!! $zoWerktHet->getImage('zo_werkt_het.new_intro_image')->getUrl() !!}" />
 							</div>
 						</div>
 					</div>
