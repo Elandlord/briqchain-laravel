@@ -26,8 +26,12 @@
                         <h2 class="introduction__title introduction__title--blue">{!! $page->getStructuredText('onze_visie.take_care_title')->asHtml() !!}</h2>
                         {!! $page->getStructuredText('onze_visie.take_care_description')->asHtml() !!}
 
+                        <div class="mt-20"></div>
+
                         <h2 class="introduction__title introduction__title--blue">{!! $page->getStructuredText('onze_visie.everyone_benefits_title')->asHtml() !!}</h2>
                         {!! $page->getStructuredText('onze_visie.everyone_benefits_description')->asHtml() !!}
+                        <a class="button button--green" href="{{ $page->getLink('onze_visie.take_care_url')->getUrl() }}">{{ $page->getText('onze_visie.take_care_button') }}</a>
+                        <a class="button button--blue" href="{{ $page->getLink('onze_visie.everyone_benefits_url')->getUrl() }}">{{ $page->getText('onze_visie.everyone_benefits_button') }}</a>
                     </div>
                 </div>
             </div>

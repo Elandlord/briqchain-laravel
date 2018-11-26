@@ -97,6 +97,7 @@
                             {!! $home->getStructuredText('home.zo_werkt_het_content')->asHtml() !!}
 
                             <a class="button button--green" href="{{ $home->getLink('home.zo_werkt_het_link')->getUrl() }}">{{ $home->getText('home.zo_werkt_het_button_text') }}</a>
+                            <a class="button button--blue" href="{{ $home->getLink('home.invest_in_briqs_url')->getUrl() }}">{{ $home->getText('home.invest_in_briqs_button') }}</a>
                         </div>
                     </div>
                 </div>
@@ -163,6 +164,7 @@
                             {!! $home->getStructuredText('home.onze_visie_content')->asHtml() !!}
 
                             <a class="button button--green" href="{{ $home->getLink('home.onze_visie_link')->getUrl() }}">{{ $home->getText('home.onze_visie_button_text') }}</a>
+                            <a class="button button--blue" href="{{ $home->getLink('home.invest_in_briqs_url')->getUrl() }}">{{ $home->getText('home.invest_in_briqs_button') }}</a>
                         </div>
                     </div>
                 </div>
