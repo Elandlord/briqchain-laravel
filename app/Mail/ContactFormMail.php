@@ -30,7 +30,7 @@ class ContactFormMail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->data['email'], $this->data['name'])
+        return $this->from(env('MAIL_USERNAME'), env('APP_NAME'))
             ->subject('Contactbericht: ' . $this->data['subject'])
             ->markdown('emails.contact-form')
             ->with([
