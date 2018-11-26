@@ -195,6 +195,18 @@ class PageController extends Controller
         ));
     }
 
+    public function downloads()
+    {
+        $fondsen = new Prismic('fondsen');
+
+        $lightBlue = true;
+
+        return view('downloads', compact(
+            'fondsen',
+            'lightBlue'
+        ));
+    }
+
     public function ourVision()
     {
         $page = new Prismic('onze_visie');

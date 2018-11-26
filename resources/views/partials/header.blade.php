@@ -1,5 +1,5 @@
 {{--<sticky-nav light="{{ $light }}" nav-links="{{ json_encode($navigationComponents) }}"></sticky-nav>--}}
-<sticky-element disable-pages="sign-up|contest|contest-structure" css-state-when-fixed="bg-navbar-blue header-logo-light shadow-md">
+<sticky-element disable-pages="sign-up|contest|contest-structure|contact|a-new-way-to-invest|our-vision" css-state-when-fixed="bg-navbar-blue header-logo-light shadow-md">
 
 
 	<div class="header<?php if($light === true): ?> header--light<?php endif; ?>">
@@ -16,6 +16,11 @@
 		</div>
 		<div class="header__right">
 			<div class="nav">
+				
+				<div class="header__call-to-action-lg">
+					<a class="button header__button" href="{{ route('signUp') }}">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
+				</div>
+
 				<input class="nav__toggle" id="menu-toggle" type="checkbox">
 				<label for="menu-toggle" class="nav__hamburger">
 					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16">

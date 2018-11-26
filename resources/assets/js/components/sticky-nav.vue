@@ -65,6 +65,10 @@
                 exceptPages: [
                     'sign-up',
                     'contest',
+                    'a-new-way-to-invest',
+                    'how-it-works',
+                    'our-vision',
+                    'contact',
                 ],
                 activePage: this.getActivePage(),
             }

@@ -55,15 +55,16 @@
 			<p class="text-white bold">Contact</p>
 
 			<a class="address__link" href="mailto:{{ $siteWide->getText('site_breed.emailadres') }}"><span class="address__icon"><img class="address__img" src="{{ env('APP_URL') }}/static/img/email.svg" width="15" height="11" alt="E-mailadres"></span> {{ $siteWide->getText('site_breed.emailadres') }}</a>
-		
-			<p class="text-white">Oostzeedijk 108, 3063 BG Rotterdam</p>
+			<a class="text-white block">Oostzeedijk 108</a>
+			<a class="text-white block">3063 BG Rotterdam</a>
+			
 		</div>
 		<div class="flex-1">
-			<p class="text-white no-underline block bold">Links</p>
-			<a class="text-white no-underline block" href="{{ route('funds') }}#downloads" > Downloads </a>
-			<a class="text-white no-underline block" href="{{ route('funds') }}" > Briq Fund </a>
+			<p class="text-white block bold">Links</p>
+			<a class="text-white no-underline block" href="{{ route('downloads') }}" > Downloads </a>
+			{{-- <a class="text-white no-underline block" href="{{ route('funds') }}" > Briq Fund </a> --}}
 			<a class="text-white no-underline block" href="http://briqchain.com/privacy-policy" > Privacy </a>
-			<a class="text-white no-underline block pointer" onclick="window.consently.openModal()"> Change my privacy settings </a>
+			<a class="text-white no-underline block" onclick="window.consently.openModal()"> Change my privacy settings </a>
 		</div>
 	</div>
 </footer>
