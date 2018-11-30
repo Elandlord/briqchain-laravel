@@ -120,7 +120,7 @@
 
                                 <div class="point">
                                     <div class="point__icon">
-                                        <img src="{!! $point->getImage('image')->getUrl() !!}" style="max-width: 150px;"/>
+                                        <img src="{!! $point->getImage('image')->getUrl() !!}" style="max-width: 200px;"/>
                                     </div>
                                     {!! $point->getStructuredText('punt_title')->asHtml() !!}
                                 </div>
