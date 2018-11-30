@@ -128,7 +128,7 @@
 			</div>
 		</div>
 
-		<div class="blockchain">
+		{{-- <div class="blockchain">
 			<div class="wrapper wrapper--middle">
 				<div class="split-content">
 					<div class="split-content__pane split-content__left">
@@ -143,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 	</div>
 	<div>
 		@include('partials/footer')
