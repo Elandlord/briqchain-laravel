@@ -59,7 +59,7 @@
 
 							<div class="point">
 								<div class="point__icon">
-									<img class="img-responsive" style="width: 100px; height:100px;" src="{!! $step->getImage('image')->getUrl() !!}" alt="{{ $step->getText('content') }}" />
+									<img class="img-responsive" style="width: 200px; height:200px;" src="{!! $step->getImage('image')->getUrl() !!}" alt="{{ $step->getText('content') }}" />
 								</div>
 								<h2 class="fonds__omschrijving-title my-4">
 									{!! $step->getStructuredText('title')->asHtml() !!}
@@ -121,11 +121,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="points__bottomline">
+			{{-- <div class="points__bottomline">
 				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
 					<polygon points="0 0 1920 0 1920 100 0 0" style="fill:#ebf4fb"/>
 				</svg>
-			</div>
+			</div> --}}
 		</div>
 
 		{{-- <div class="blockchain">
