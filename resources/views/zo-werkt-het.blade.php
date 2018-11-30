@@ -83,7 +83,7 @@
 					<div class="split-content__left">
 						<div class="house-icon">
 							<div class="text-center">
-								{!! $zoWerktHet->getImage('zo_werkt_het.risks_image')->asHtml() !!}
+								<img src="{!! $zoWerktHet->getImage('zo_werkt_het.risks_image')->getUrl() !!}" class="image-responsive" />
 							</div>
 						</div>
 					</div>
@@ -113,7 +113,7 @@
 
 							<div class="point">
 								<div class="point__icon">
-									{!! $point->getImage('image')->asHtml() !!}
+									<img src="{!! $point->getImage('image')->getUrl() !!}" style="max-width: 200px;"/>
 								</div>
 								{!! $point->getStructuredText('punt_title')->asHtml() !!}
 							</div>
@@ -138,7 +138,7 @@
 					</div>
 					<div class="split-content__pane split-content__right split-content__pane--mobile-first">
 						<div class="blockchain-icon">
-							{!! $zoWerktHet->getImage('zo_werkt_het.costs_image')->asHtml() !!}
+							<img src="{!! $zoWerktHet->getImage('zo_werkt_het.costs_image')->getUrl() !!}" class="image-responsive" />
 						</div>
 					</div>
 				</div>
