@@ -147,7 +147,7 @@
                         <div class="split-content__pane split-content__right split-content__pane--mobile-first">
                             <div class="house-icon">
                                 <div class="text-center">
-                                    <img src="{!! $home->getImage('home.het_nieuwe_beleggen_image')->getUrl() !!}" class="image-responsive" />
+                                    <img src="{!! $home->getImage('home.het_nieuwe_beleggen_image')->getUrl() !!}" style="max-width: 350px;" class="image-responsive" />
                                 </div>
                             </div>
                         </div>
