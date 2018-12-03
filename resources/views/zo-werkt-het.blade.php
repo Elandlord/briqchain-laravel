@@ -120,6 +120,9 @@
 						@endforeach
 					</div>
 				</div>
+				<div class="text-center mt-10">
+					<a class="button button--green" href="{{ $zoWerktHet->getLink('zo_werkt_het.invest_in_briqs_url')->getUrl() }}">{{ $zoWerktHet->getText('zo_werkt_het.invest_in_briqs_button') }}</a>					
+				</div>
 			</div>
 			{{-- <div class="points__bottomline">
 				<svg class="points__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
