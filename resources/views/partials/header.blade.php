@@ -18,7 +18,7 @@
 			<div class="nav">
 				
 				<div class="header__call-to-action-lg">
-					<a class="button header__button" href="{{ route('signUp') }}">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
+					<a class="button header__button" href="https://invest.briqchain.com/">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
 				</div>
 
 				<input class="nav__toggle" id="menu-toggle" type="checkbox">
@@ -81,7 +81,7 @@
 					</ul>
 
 					<div class="header__call-to-action">
-						<a class="button header__button" href="{{ route('signUp') }}">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
+						<a class="button header__button" href="https://invest.briqchain.com/">{{ $siteWide->getText('site_breed.aanmelden') }}</a>
 					</div>
 				</div>
 			</div>

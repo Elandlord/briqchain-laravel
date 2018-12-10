@@ -116,7 +116,7 @@
                             <li>{{ rights }}</li>
                         </ul>
                         <div class="calculator__footer-action">
-                            <a onclick="ga('send', 'event', 'Calculator', 'Clicking the buy Briqs button');" :href="url + '/sign-up'" class="button button--green">
+                            <a onclick="ga('send', 'event', 'Calculator', 'Clicking the buy Briqs button');" href="https://invest.briqchain.com/" class="button button--green">
                                 <img class="button__img button__briqs" :src="url + '/static/img/button-logo.svg'" width="19" height="20" alt="Briqs">
                                 {{ buybriqs }}
                             </a>
