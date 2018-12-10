@@ -30,6 +30,11 @@
 							<img class="social__img" src="{{ env('APP_URL') }}/static/img/social/vimeo.svg" width="23" height="23" alt="Vimeo">
 						</a>
 					</li>
+					<li class="social__item">
+						<a class="social__link" href="{{ $siteWide->getLink('site_breed.instagram_link')->getUrl() }}" target="_blank">
+							<img class="social__img" src="{{ env('APP_URL') }}/static/img/social/instagram.svg" width="23" height="23" alt="Instagram">
+						</a>
+					</li>
 				</ul>
 			</div>
 
