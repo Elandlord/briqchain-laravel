@@ -26,20 +26,23 @@
                         <h2 class="introduction__title introduction__title--blue">{!! $page->getStructuredText('onze_visie.take_care_title')->asHtml() !!}</h2>
                         {!! $page->getStructuredText('onze_visie.take_care_description')->asHtml() !!}
 
+                        <div class="mt-20"></div>
+
                         <h2 class="introduction__title introduction__title--blue">{!! $page->getStructuredText('onze_visie.everyone_benefits_title')->asHtml() !!}</h2>
                         {!! $page->getStructuredText('onze_visie.everyone_benefits_description')->asHtml() !!}
+                        <a class="button button--green" href="{{ $page->getLink('onze_visie.take_care_url')->getUrl() }}">{{ $page->getText('onze_visie.take_care_button') }}</a>
+                        <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>                        
+                        <a class="button button--blue" href="{{ $page->getLink('onze_visie.everyone_benefits_url')->getUrl() }}">{{ $page->getText('onze_visie.everyone_benefits_button') }}</a>
+                        <div class="lg:mb-0 md:mb-0 sm:mb-0 mb-4 lg:inline-block md:inline-block sm:inline-block block"></div>                                                
                     </div>
                 </div>
             </div>
             <div class="introduction__bottomline">
-                <svg class="introduction__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#fff"/></svg>
+                {{-- <svg class="introduction__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="1920 0 1920 100 0 100 1920 0" style="fill:#fff"/>
+                </svg> --}}
             </div>
             <div class="introduction__houses-left"></div>
             <div class="introduction__houses-right"></div>
-        </div>
-
-        <div class="calculator" id="calculator">
-            @include('partials/calculator')
         </div>
     </div>
     <div class="frame__row">

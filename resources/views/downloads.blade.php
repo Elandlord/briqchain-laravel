@@ -17,6 +17,14 @@
 		<div class="fondsen">
 			<div class="fondsen__content">
 				<div class="wrapper">
+                    <div class="mx-auto container flex flex-row items-center justify-center lg:px-32 md:px-10 sm:px-10 px-20 mt-6">
+                        <div class="afm__desktop">
+                            <img src="/images/afm/afm2_vrijstelling_dubbel-1768x122.jpg" class="w-full" height="61" alt="Let op! U belegt buiten AFM-toezicht.">
+                        </div>
+                        <div class="afm__mobile">
+                            <img src="/images/afm/afm6_vrijstelling_dubbel-420x254.jpg" class="w-full" height="154" alt="Let op! U belegt buiten AFM-toezicht.">
+                        </div>
+                    </div>
 					<div class="fonds fonds-exception">
 						<div class="fonds__header">
 							<div class="fonds__item">
@@ -111,35 +119,12 @@
 									</div>
 								</div>
 							</div>
-							<div class="fonds__omschrijving">
-								<h2 class="fonds__omschrijving-title">{!! $fondsen->getStructuredText('fondsen.fonds_omschrijving_label')->asHtml() !!}</h2>
-								<div class="fonds__omschrijving-paragraphs">
-									{!! $fondsen->getStructuredText('fondsen.fonds_omschrijving')->asHtml() !!}
-								</div>
-							</div>
-
-							<div class="text-center pt-10">
-								@foreach($fondsen->knoppen() as $button)
-									@if(strtolower($button->getText('color')) == 'groen')
-										@php $color = 'green'; @endphp
-									@elseif(strtolower($button->getText('color')) == 'blauw')
-										@php $color = 'blue'; @endphp
-									@endif
-									<a class="button button--{{ $color }}"
-									   href="{{ $button->getLink('link')->getUrl() }}">{{ $button->getText('name') }}</a>
-								@endforeach
-							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="fondsen__houses-left"></div>
 			<div class="fondsen__houses-right"></div>
-		</div>
-		
-		<div class="calculator" id="calculator">
-			@include('partials/calculator')
 		</div>
 	</div>
 	<div class="frame__row">

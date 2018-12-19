@@ -26,7 +26,7 @@
                         <div class="w-full shadow-md bg-deep-blue rounded-t relative">
                             <div class="contest__structure-rewards-circle">
                                 <p> {{ platform.available_points }} </p>
-                                <p>points</p>
+                                <p>{{ platform.points }}</p>
                             </div>
                             <p class="m-0 text-grey-lighter text-xl font-bold py-6 text-center"> {{
                                 platform.rewards_title
@@ -116,7 +116,7 @@
                         <div class="w-full shadow-md bg-deep-blue rounded-t relative">
                             <div class="contest__structure-rewards-circle">
                                 <p> {{ platform.available_points }} </p>
-                                <p>points</p>
+                                <p>{{ platform.points }}</p>
                             </div>
                             <p class="m-0 text-grey-lighter text-xl font-bold py-6 text-center">
                                 {{ platform.rewards_title }}

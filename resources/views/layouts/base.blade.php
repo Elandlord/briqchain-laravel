@@ -27,8 +27,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	{{--styles--}}
-	<link rel="stylesheet" type="text/css" href="/css/app.css?1.0.9">
-
+	<link rel="stylesheet" type="text/css" href="/css/app.css?1.2.1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,12 +36,13 @@
 	<meta name="format-detection" content="telephone=no">
 
 	{{--Social media open graph--}}
-	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png">
-	<meta name="twitter:image" content="{{ env('APP_URL') }}/static/img/facebook_preview.png" />
+	<meta property="og:image" content="{{ env('APP_URL') }}/static/img/facebook_preview_interest.png">
+	<meta name="twitter:image" content="{{ env('APP_URL') }}/static/img/facebook_preview_interest.png" />
 
 	{{--CSRF --}}
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="theme-color" content="#3C3A6C" />
+	<meta name="google-site-verification" content="J9A4-Nxi4QTWyjd7y7odhLwy3J5us8pWr2mlGYAiex8" />
 </head>
 <body @if($lightBlue == true) class="body--light-blue" @endif>
 

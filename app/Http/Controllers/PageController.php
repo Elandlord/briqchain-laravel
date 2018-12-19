@@ -12,7 +12,6 @@ use Prismic\Document;
 use App\MediaArticle;
 use App\Prismic;
 
-
 class PageController extends Controller
 {
 
@@ -46,11 +45,13 @@ class PageController extends Controller
     public function zoWerktHet()
     {
         $zoWerktHet = new Prismic('zo_werkt_het');
+        $home = new Prismic('home');
 
-        $lightBlue = true;
+        $lightBlue = false;
 
         return view('zo-werkt-het', compact(
             'zoWerktHet',
+            'home',
             'lightBlue'
         ));
     }
@@ -190,6 +191,18 @@ class PageController extends Controller
         return view('contact', compact(
             'contactPage',
             'zoWerktHet',
+            'lightBlue'
+        ));
+    }
+
+    public function downloads()
+    {
+        $fondsen = new Prismic('fondsen');
+
+        $lightBlue = true;
+
+        return view('downloads', compact(
+            'fondsen',
             'lightBlue'
         ));
     }

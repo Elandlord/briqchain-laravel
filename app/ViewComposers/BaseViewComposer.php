@@ -30,7 +30,7 @@ class BaseViewComposer
     {
         $view->with([
             'siteWide' => new Prismic('site_breed'),
-            'app_url' => env('APP_URL'),
+            'app_url' => env('APP_URL')
         ]);
 
     }

@@ -56,6 +56,10 @@
                             {!! $page->getStructuredText('contest_structure.token_description_paragraph')->asHtml() !!}
                         </p>
 
+                        <a class="button button--green" href="{{ $page->getLink('contest_structure.button_url')->getUrl() }}">{{ $page->button_text }}</a>
+						<div class="lg:mt-0 md:mt-0 sm:mt-4 mt-4 lg:inline-block md:inline-block sm:block block"></div>						
+						<a class="button button--blue" href="{{ $page->getLink('contest_structure.go_back_button_url')->getUrl() }}">{{ $page->go_bank_button_text }}</a>
+                        
                     </div>
                 </div>
 

@@ -56,11 +56,14 @@
             </div>
         </div>
 
-        {{--Media articles--}}
-        {{-- <div class="mt-10">
-            <p class="mb-10 text-center"> Featured on </p>
-            <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
-        </div> --}}
+        <div class="mx-auto container flex flex-row items-center justify-center lg:px-32 md:px-10 sm:px-10 px-20 pt-20">
+            <div class="afm__desktop">
+                <img src="/images/afm/afm2_vrijstelling_dubbel-1768x122.jpg" class="w-full" height="61" alt="Let op! U belegt buiten AFM-toezicht.">
+            </div>
+            <div class="afm__mobile">
+                <img src="/images/afm/afm6_vrijstelling_dubbel-420x254.jpg" class="w-full" height="154" alt="Let op! U belegt buiten AFM-toezicht.">
+            </div>
+        </div>
 
         <div class="frame__row frame__row--expand">
             {{-- <div class="intro">
@@ -85,13 +88,19 @@
                     <div class="split-content">
                         <div class="split-content__left">
                             <div class="house-icon">
-                                {!! $home->getImage('home.zo_werkt_het_afbeelding')->asHtml() !!}
+                                <div class="text-center">
+                                    <img src="{!! $home->getImage('home.zo_werkt_het_afbeelding')->getUrl() !!}" class="image-responsive" />
+                                </div>
                             </div>
                         </div>
                         <div class="split-content__right">
                             <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.zo_werkt_het_titel')->asHtml() !!}</h2>
 
                             {!! $home->getStructuredText('home.zo_werkt_het_content')->asHtml() !!}
+
+                            <a class="button button--green" href="{{ $home->getLink('home.zo_werkt_het_link')->getUrl() }}">{{ $home->getText('home.zo_werkt_het_button_text') }}</a>
+                            <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>
+                            <a class="button button--blue" href="{{ $home->getLink('home.invest_in_briqs_url')->getUrl() }}">{{ $home->getText('home.invest_in_briqs_button') }}</a>
                         </div>
                     </div>
                 </div>
@@ -105,15 +114,15 @@
                 </div>
                 <div class="points__content">
                     <div class="wrapper wrapper--large">
+					    <h2 class="text-center" style="font-size: 34px; font-weight: 300;">{!! $home->getStructuredText('home.punt_block_title')->asHtml() !!}</h2>
                         <div class="points__holder">
-                            @foreach($home->punten() as $point)
+                            @foreach($home->nieuwe_punten() as $point)
 
                                 <div class="point">
                                     <div class="point__icon">
-                                        {!! $point->getImage('afbeelding')->asHtml() !!}
+                                        <img src="{!! $point->getImage('image')->getUrl() !!}" style="max-width: 200px;"/>
                                     </div>
-                                    <h2 class="point__title">{!! $point->getStructuredText('titel')->asText() !!}</h2>
-                                    {!! $point->getStructuredText('content')->asHtml() !!}
+                                    {!! $point->getStructuredText('punt_title')->asHtml() !!}
                                 </div>
                             @endforeach
                         </div>
@@ -132,10 +141,14 @@
                         <div class="split-content__pane split-content__left">
                             <h2 class="split-content__title split-content__title--green">{!! $home->getStructuredText('home.het_nieuwe_beleggen_title')->asHtml() !!}</h2>
                             {!! $home->getStructuredText('home.het_nieuwe_beleggen_content')->asHtml() !!}
+
+                            <a class="button button--green" href="{{ $home->getLink('home.het_nieuwe_beleggen_link')->getUrl() }}">{{ $home->getText('home.het_nieuwe_beleggen_button_text') }}</a>
                         </div>
                         <div class="split-content__pane split-content__right split-content__pane--mobile-first">
-                            <div class="blockchain-icon">
-                                {!! $home->getImage('home.het_nieuwe_beleggen_image')->asHtml() !!}
+                            <div class="house-icon">
+                                <div class="text-center">
+                                    <img src="{!! $home->getImage('home.het_nieuwe_beleggen_image')->getUrl() !!}" class="image-responsive" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -147,16 +160,26 @@
                     <div class="split-content">
                         <div class="split-content__left">
                             <div class="house-icon">
-                                {!! $home->getImage('home.onze_visie_image')->asHtml() !!}
+                                <img src="{!! $home->getImage('home.onze_visie_image')->getUrl() !!}" class="image-responsive" />
                             </div>
                         </div>
                         <div class="split-content__right">
                             <h2 class="split-content__title split-content__title--purple">{!! $home->getStructuredText('home.onze_visie_title')->asHtml() !!}</h2>
 
                             {!! $home->getStructuredText('home.onze_visie_content')->asHtml() !!}
+
+                            <a class="button button--green" href="{{ $home->getLink('home.onze_visie_link')->getUrl() }}">{{ $home->getText('home.onze_visie_button_text') }}</a>
+                            <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>
+                            <a class="button button--blue" href="{{ $home->getLink('home.invest_in_briqs_url')->getUrl() }}">{{ $home->getText('home.invest_in_briqs_button') }}</a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {{--Media articles--}}
+            <div class="mt-10">
+                <h2 class="split-content__title-media-articles text-center bold">Featured on </h2>
+                <media-slider button-text="{{ $home->read_more }}" media-articles="{{ json_encode($mediaArticles)  }}"></media-slider>
             </div>
 
             <div class="calculator" id="calculator">

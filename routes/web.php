@@ -7,13 +7,14 @@ Route::get('/about', 'PageController@about')->name('about');
 Route::get('/sign-up', 'PageController@aanmelden')->name('signUp');
 Route::get('/thank-you', 'PageController@thankYou')->name('thankYou');
 Route::get('/contest', 'PageController@contest')->name('contest');
+Route::get('/downloads', 'PageController@downloads')->name('downloads');
 Route::get('/contest-structure', 'PageController@contestStructure')->name('contestStructure');
 Route::get('/privacy-policy', 'PageController@privacyPolicy')->name('privacyPolicy');
 Route::get('/terms-and-conditions', 'PageController@termsAndConditions')->name('termsAndCondition');
 Route::get('/a-new-way-to-invest', 'PageController@newInvesting')->name('newInvesting');
 Route::get('/our-vision', 'PageController@ourVision')->name('ourVision');
 Route::get('/contact', 'PageController@contact')->name('contact');
-Route::post('/contact', 'ContactController@contact')->name('contact-us');
+Route::post('/contact/mail', 'ContactController@contact')->name('contact-us');
 
 /**
  * Housing routes

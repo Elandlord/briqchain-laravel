@@ -14,7 +14,13 @@
             @include('partials.header', ['light' => true])
         </div>
         <div class="frame__row frame__row--expand">
-            <h1 class="text-center text-4xl mt-10">{{ $contactPage->page_title }}</h1>
+            <svg class="points__line-header" viewBox="0 0 1920 350" preserveAspectRatio="none">
+                <polygon points="0,200 0,0 1920,0 1920,350" style="fill:#EAF4FB"/>
+            </svg>
+            
+            <div class="absolute pin-t w-full text-center mt-10">
+                <h1 class="title pt-8 sm:pt-10 md:pt-10 lg:pt-20">{{ $contactPage->page_title }}</h1>
+            </div>
 
             <div class="wrapper flex flex-wrap">
 
@@ -27,19 +33,21 @@
                 {{--contactform--}}
 
                 <form class="w-full" action="{{ route('contact-us') }}" method="post" >
-                    <div class="w-1/2 flex flex-col mt-10 mb-20">
+                    <div class="lg:w-1/2 md:w-1/2 sm:w-1/2 xs:w-full flex flex-col mt-10 mb-20">
                         @csrf
 
                         <h2 class="mb-6"> {{ $contactPage->contactform_title  }} </h2>
 
-                        <input name="name" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->name_placeholder_text }}">
-                        <input name="phone_number" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->phone_number_placeholder_text }}">
-                        <input name="email" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->email_placeholder_text }}">
-                        <input name="subject" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->subject_placeholder_text }}">
-                        <textarea name="question" rows="6" class="my-2 shadow-md outline-none px-4 py-3 rounded" name="" placeholder="{{ $contactPage->question_placeholder_text }}" ></textarea>
+                        <input name="name" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->name_placeholder_text }}" required>
+                        <input name="phone" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->phone_number_placeholder_text }}">
+                        <input name="email" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->email_placeholder_text }}" required>
+                        <input name="subject" class="my-2 shadow-md outline-none px-4 py-3 rounded" type="text" placeholder="{{ $contactPage->subject_placeholder_text }}" required>
+                        <textarea name="body" rows="6" class="my-2 shadow-md outline-none px-4 py-3 rounded" name="" placeholder="{{ $contactPage->question_placeholder_text }}" required ></textarea>
 
-                        <div class="">
-                            <input name="submit" class="mt-4 px-4 py-3 rounded shadow-md inline-block bg-jade text-white" type="submit" value="{{ $contactPage->submit_button_text }}" />
+                        <div class="mt-4">
+                            <input class="button button--green" type="submit" value="{{ $contactPage->submit_button_text }}"/>
+                            <div class="lg:mt-0 md:mt-0 sm:mt-0 mt-4 lg:inline-block md:inline-block sm:inline-block block"></div>                        
+                            <a class="button button--blue" onclick="openTawk()" >Live chat</a>
                         </div>
                     </div>
                 </form>
@@ -48,7 +56,9 @@
 
             <div class="faq">
                 <div class="faq__topline">
-                    <svg class="faq__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none"><polygon points="0 100 0 0 1920 0 0 100" style="fill:#fff"/></svg>
+                    <svg class="faq__line-svg" viewBox="0 0 1920 100" preserveAspectRatio="none">
+                        <polygon points="0 0 1920 0 1920 100 0 0" style="fill:#fff"/>
+                    </svg>
                 </div>
                 <div class="faq__content">
                     <div class="wrapper wrapper--small">
