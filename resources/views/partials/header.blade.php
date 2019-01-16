@@ -8,10 +8,10 @@
 				<div class="<?php echo $light == true ? 'svg-logo-briqchain-black': 'svg-logo-briqchain-white'; ?> logo-briqchain logo__img inline-block ">
                     <?php echo file_get_contents('https://briqchain.com/static/img/logo.svg');   ?>
 				</div>
-				<span class="logo__payoff">
+				{{-- <span class="logo__payoff">
 					<span class="logo__payoff-powered">Powered by</span>
 					<span class="logo__payoff-name">blockchain</span>
-				</span>
+				</span> --}}
 			</a>
 		</div>
 		<div class="header__right">
